@@ -19,3 +19,5 @@ struct Morada{
     double CODPostal;
     char Cidade[30];
 };
+
+ndfiongçadfklnbakçdfnvdfkç

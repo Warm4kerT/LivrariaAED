@@ -15,9 +15,9 @@ struct cliente{
 };
 
 struct Morada{
-    char Casa[50];
+    char Casa[50], Cidade[30];
     double CODPostal;
-    char Cidade[30];
+    int pornstar;
 };
 
 ndfiongçadfklnbakçdfnvdfkç

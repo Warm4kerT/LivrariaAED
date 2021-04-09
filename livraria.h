@@ -8,5 +8,14 @@ struct livro{
 };
 
 struct cliente{
-    
+    long NIF[10];
+    char Nome[30];
+    long telefone[10];
+    struct Morada MinhaMorada;
+};
+
+struct Morada{
+    char Casa[50];
+    double CODPostal;
+    char Cidade[30];
 };

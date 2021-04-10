@@ -1,11 +1,5 @@
 #include "livraria.h"
 
-typedef struct LivroTree{
-    Livro book;
-    struct LivroTree *left;
-    struct LivroTree *right;
-}*Tree;
-
 Tree criaNodo(Livro book){
     Tree n = (Tree) malloc(sizeof(struct LivroTree));
     n->book = book;
@@ -34,13 +28,21 @@ Tree freeTree(Tree t){
     return freeNode(t);
 }
 
-int numNodos(Tree t){
+int numNodosT(Tree t){
     int l, r;
     if(t==NULL)
         return 0;
 
-    l = numNodos(t->left);
-    r = numNodos(t->right);
+    l = numNodosT(t->left);
+    r = numNodosT(t->right);
 
     return (r+l+1);
+}
+
+void printTree(Tree t){
+    if(t!=NULL){
+        printLivro(&(t->book));
+        printTree(t->left);
+        printTree(t->right);
+    }
 }

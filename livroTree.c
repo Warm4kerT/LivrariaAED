@@ -1,21 +1,21 @@
 #include "livraria.h"
 
-struct livroTree{
+typedef struct LivroTree{
     Livro book;
-    struct livroTree *left;
+    struct LivroTree *left;
     struct LivroTree *right;
-}
+}*Tree;
 
-LivroTree criaNodo(Livro book){
-    LivroTree n = NULL;
+Tree criaNodo(Livro book){
+    Tree n = (Tree) malloc(sizeof(struct LivroTree));
     n->book = book;
-    n->left = null;
-    n->right = null;
+    n->left = NULL;
+    n->right = NULL;
     
     return n;
 }
 
-LivroTree freeNode(LivroTree n){
+Tree freeNode(Tree n){
     n->left = NULL;
     n->right = NULL;
     free(n);
@@ -24,7 +24,7 @@ LivroTree freeNode(LivroTree n){
     return n;
 }
 
-LivroTree freeTree(LivroTree t){
+Tree freeTree(Tree t){
     if(t==NULL)
         return NULL;
     
@@ -34,7 +34,7 @@ LivroTree freeTree(LivroTree t){
     return freeNode(t);
 }
 
-int numNodos(LivroTree t){
+int numNodos(Tree t){
     int l, r;
     if(t==NULL)
         return 0;

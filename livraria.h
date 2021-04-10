@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+
+//Cliente
 typedef struct Cliente {
     long NIF[10];
     char Nome[30];
@@ -12,7 +14,6 @@ typedef struct Cliente {
 typedef struct Morada{
     char Casa[50], Cidade[30];
     double CODPostal;
-    int pornstar;
 }Morada;
 
 //Livro
@@ -39,3 +40,6 @@ int numNodeT(Tree t);
 void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
 Tree addNodoTree(Tree t, Livro l);
+
+//Files
+

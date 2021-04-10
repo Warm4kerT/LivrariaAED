@@ -4,6 +4,11 @@
 
 
 //Cliente
+typedef struct Morada{
+    char Casa[50], Cidade[30];
+    double CODPostal;
+}Morada;
+
 typedef struct Cliente {
     long NIF[10];
     char Nome[30];
@@ -11,10 +16,7 @@ typedef struct Cliente {
     Morada MinhaMorada;
 }Cliente;
 
-typedef struct Morada{
-    char Casa[50], Cidade[30];
-    double CODPostal;
-}Morada;
+
 
 //Livro
 typedef struct Livro{

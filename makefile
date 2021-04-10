@@ -12,7 +12,7 @@ livro.o : livraria.h livro.c
 	$(CC) $(FLAGS) livro.c
 livrotree.o : livraria.h livroTree.c
 	$(CC) $(FLAGS) livroTree.c
-solivraria : $(OBS)
+livraria : $(OBS)
 	$(CC)  -o livraria  $(OBS) $(LIBS) -lpthread
 clean limpar:
 	rm -f livraria *.o

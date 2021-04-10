@@ -33,8 +33,8 @@ int numNodeT(Tree t){
     if(t==NULL)
         return 0;
 
-    l = numNodosT(t->left);
-    r = numNodosT(t->right);
+    l = numNodeT(t->left);
+    r = numNodeT(t->right);
 
     return (r+l+1);
 }

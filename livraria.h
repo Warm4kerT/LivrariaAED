@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct {
+typedef struct Cliente {
     long NIF[10];
     char Nome[30];
     long telefone[10];
     Morada MinhaMorada;
 }Cliente;
 
-typedef struct{
+typedef struct Morada{
     char Casa[50], Cidade[30];
     double CODPostal;
     int pornstar;
@@ -32,9 +32,10 @@ typedef struct LivroTree{
     struct LivroTree *right;
 }*Tree;
 
-Tree criaNodo(Livro book);
+Tree newNode(Livro book);
 Tree freeNode(Tree n);
 Tree freeTree(Tree t);
-int numNodosT(Tree t);
+int numNodeT(Tree t);
 void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
+Tree addNodoTree(Tree t, Livro l);

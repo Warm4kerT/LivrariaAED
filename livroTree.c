@@ -41,8 +41,23 @@ int numNodosT(Tree t){
 
 void printTree(Tree t){
     if(t!=NULL){
-        printLivro(&(t->book));
+        printLivro(t->book);
         printTree(t->left);
         printTree(t->right);
     }
+}
+
+Tree searchTree(Livro l, Tree t){
+    Tree n;
+    if(t==NULL)
+        return NULL;
+
+    if(equalsLivro(l,t->book)==1)
+        return t;
+
+    n = searchTree(l,t->left);
+    if(n!=NULL)
+        return n;
+    
+    return searchTree(l,t->right);
 }

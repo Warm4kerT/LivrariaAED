@@ -1,7 +1,7 @@
 CC=cc
 FLAGS=-c -Wall 
 LIBS=-lm
-OBS=main.o livro.o livrotree.o
+OBS=main.o livro.o livrotree.o files.o
 
 #Alvo por defeito é o primeiro
 all :  livraria
@@ -12,6 +12,8 @@ livro.o : livraria.h livro.c
 	$(CC) $(FLAGS) livro.c
 livrotree.o : livraria.h livroTree.c
 	$(CC) $(FLAGS) livroTree.c
+files.o : livraria.h files.c
+	$(CC) $(FLAGS) files.c
 livraria : $(OBS)
 	$(CC)  -o livraria  $(OBS) $(LIBS) -lpthread
 clean limpar:

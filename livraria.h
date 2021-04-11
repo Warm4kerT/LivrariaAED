@@ -17,11 +17,10 @@ typedef struct Cliente {
 }Cliente;
 
 
-
 //Livro
 typedef struct Livro{
     int ISBM, anoPub, stock;
-    float preco;
+    double preco;
     char titulo[50], idioma[25], primAutor[25], secAutor[25], editora[25], area[25];
 }Livro;
 
@@ -35,7 +34,7 @@ typedef struct LivroTree{
     struct LivroTree *right;
 }*Tree;
 
-Tree newNode(Livro book);
+Tree newNode(Livro *book);
 Tree freeNode(Tree n);
 Tree freeTree(Tree t);
 int numNodeT(Tree t);
@@ -45,3 +44,4 @@ Tree addNodoTree(Tree t, Livro l);
 
 //Files
 
+int readLivros(char *path, Tree *books);

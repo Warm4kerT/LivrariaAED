@@ -13,7 +13,7 @@ int readLivros(char *path, Tree *books){
     while (10==fscanf(in," %d %s %s %s %s %s %d %s %le %d", &aux->ISBM, aux->titulo, aux->idioma, aux->primAutor, aux->secAutor, aux->editora, &aux->anoPub, aux->area, &aux->preco, &aux->stock)){
         printLivro(*aux);
         
-        books = addNodoTree(books,*aux);
+        books = addNodoTree(books,&aux);
         memset(aux,0,1);
         aux=(Livro*)malloc(sizeof(Livro));
 

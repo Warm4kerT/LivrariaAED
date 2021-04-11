@@ -40,7 +40,7 @@ Tree freeTree(Tree t);
 int numNodeT(Tree t);
 void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
-Tree addNodoTree(Tree t, Livro l);
+Tree addNodoTree(Tree t, Livro *l);
 
 //Files
 

@@ -62,7 +62,7 @@ Tree searchTree(Livro l, Tree t){
     return searchTree(l,t->right);
 }
 
-Tree addNodoTree(Tree t, Livro l){
+Tree addNodoTree(Tree t, Livro *l){
     if(t==NULL){
         t = newNode(&l);
         return t;

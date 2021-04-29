@@ -66,6 +66,21 @@ Tree searchTree(Livro l, Tree t){
     return searchTree(l,t->right);
 }
 
+Tree searchTreeISBM(Tree t, int ISBM){
+    Tree n;
+        if(t==NULL)
+        return NULL;
+
+    if(t->book.ISBM==ISBM)
+        return t;
+
+    n = searchTreeISBM(t->left,ISBM);
+    if(n!=NULL)
+        return n;
+    
+    return searchTreeISBM(t->right,ISBM);
+}
+
 Tree addNodoTree(Tree t, Livro l){
     
     if(t==NULL){

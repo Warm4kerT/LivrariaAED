@@ -22,7 +22,7 @@ int main(){
             menuFiles();
             break;
         case 2:
-            /* code */
+            menuBooks();
             break;
         case 3:
             /* code */

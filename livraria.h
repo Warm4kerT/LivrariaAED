@@ -45,9 +45,9 @@ int numNodeT(Tree t);
 void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
 Tree addNodoTree(Tree t, Livro l);
+Tree searchTreeISBM(Tree t, int ISBM);
 
 Tree mainTree;
-
 
 //Files
 
@@ -57,3 +57,9 @@ void writeLivros(Tree books, char *path);
 //Menus
 
 void menuFiles();
+void menuBooks();
+
+//Operacoes
+
+Livro pedirLivro();
+Livro alterarLivro(Livro book);

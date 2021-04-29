@@ -101,3 +101,63 @@ void menuFiles(){
     }
     
 }
+
+void menuBooks(){
+    int option = 99;
+    int ISBM;
+    Livro novoLivro, update;
+    Tree search;
+
+    while (option != 0){
+        printf("----Livros----\n");
+        printf("1- Novo Livro\n");
+        printf("2- Remover por ISBM\n");
+        printf("3- Alterar por ISBM\n");
+        printf("4- Consultar\n"); 
+        printf("0- Sair\n");
+
+        scanf("%d",&option);
+
+        switch (option){
+            case 1:
+                novoLivro = pedirLivro();
+                mainTree = addNodoTree(mainTree,novoLivro);
+                printf("Livro Adicionado\n");
+            break;
+
+            case 2:
+                printf("Insira o ISBM do Livro a Remover: "); scanf("%d",&ISBM);
+                search = searchTreeISBM(mainTree,ISBM);
+
+                if(search==NULL){
+                    printf("Livro não existe\n");
+                }else{
+                    mainTree = freeNode(search);
+                    printf("Livro Removido\n");
+                }
+            break;
+
+            case 3:
+                printf("Insira o ISBM do Livro a Alterar: "); scanf("%d",&ISBM);
+                search = searchTreeISBM(mainTree,ISBM);
+
+                if(search==NULL){
+                    printf("Livro não existe\n");
+                }else{
+                    printLivro(search->book);
+                    update = alterarLivro(search->book);
+                    mainTree = freeNode(search);
+                    mainTree = addNodoTree(mainTree,update);
+                    printf("Livro Atualizado\n");
+                }
+            break;
+
+            case 4:
+            break;
+
+            case 5:
+            break;
+        }
+    }
+
+}

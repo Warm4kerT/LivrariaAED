@@ -3,19 +3,43 @@
 int main(){
     printf("Hello World!\n");
 
-    char *file = "livros.txt";
+    int option = 99;
 
-    Tree books;
-    int flag = 1;
-    books = readLivros(file);
+    while (option != 0){
+        printf("----Menu----\n");
+        printf("1- Ficheiros\n");
+        printf("2- Livros\n");
+        printf("3- Clientes\n");
+        printf("4- Encomendas\n");
+        printf("5- Operações\n");
+        printf("0- Sair\n");
 
-    if(flag==1){
-        printTree(books);
-    }else if(flag==-1){
-        printf("ERROR READING!!!\n");
-    }else{
-        printf("Não sei\n");
+        scanf("%d",&option);
+        switch (option){
+        case 1:
+            menuFiles();
+            break;
+        case 2:
+            /* code */
+            break;
+        case 3:
+            /* code */
+            break;
+        case 4:
+            /* code */
+            break;
+        case 5:
+            /* code */
+            break;
+        case 0:
+            printf("Adeus\n");
+            break;
+        
+        default:
+            break;
+        }
     }
-
+    
+    
     return 0;
 }

@@ -43,6 +43,12 @@ void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
 Tree addNodoTree(Tree t, Livro l);
 
+Tree mainTree;
+
 //Files
 
 Tree readLivros(char *path);
+
+//Menus
+
+void menuFiles();

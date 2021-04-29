@@ -1,4 +1,4 @@
-123456789 LivroDeTestesVol1 Portugues Leandro Francisco UBI 2020 Informatica 69.42 26
-123456789 LivroDeTestesVol2 Portugues Leandro Francisco UBI 2020 Informatica 69.42 30
-123456789 LivroDeTestesVol3 Portugues Leandro Francisco UBI 2020 Informatica 69.42 12
-123456789 LivroDeTestesVol4 Portugues Leandro Francisco UBI 2020 Informatica 69.42 28
+123456789 LivroDeTestesVol1 Portugues Leandro Francisco UBI 2020 Informatica 6.942000e+01 26
+123456789 LivroDeTestesVol2 Portugues Leandro Francisco UBI 2020 Informatica 6.942000e+01 30
+123456789 LivroDeTestesVol3 Portugues Leandro Francisco UBI 2020 Informatica 6.942000e+01 28
+123456789 LivroDeTestesVol4 Portugues Leandro Francisco UBI 2020 Informatica 6.942000e+01 12

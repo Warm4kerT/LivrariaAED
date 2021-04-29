@@ -21,8 +21,6 @@ Tree readLivros(char *path){
         return NULL;
     }
 
-    printf("Entrada no read\n");
-
     while (10==fscanf(in,"%d %s %s %s %s %s %d %s %le %d", &ISBM, titulo, idioma, primAutor, secAutor, editora, &anoPub, area, &preco, &stock)){ 
 
         new = newLivro(ISBM, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
@@ -35,4 +33,27 @@ Tree readLivros(char *path){
     fclose(in);
 
     return books;
+}
+
+void writeLoop(Tree books, FILE *out){
+    if(books!=NULL){
+        fprintf(out,"%d %s %s %s %s %s %d %s %.3le %d\n", books->book.ISBM, books->book.titulo, books->book.idioma, books->book.primAutor, books->book.secAutor, books->book.editora, books->book.anoPub, books->book.area, books->book.preco, books->book.stock);
+        writeLoop(books->left,out);
+        writeLoop(books->right,out);
+    }
+}
+
+void writeLivros(Tree books, char *path){
+    Tree P = books;
+    FILE *out;
+
+    out = fopen(path,"w");
+
+    if(out==NULL){
+        return;
+    }
+
+    writeLoop(P,out);
+
+    fclose(out);
 }

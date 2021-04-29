@@ -2,7 +2,7 @@
 
 void menuFiles(){
     int option = 99;
-    char *path=(char*) malloc(30*sizeof(char));
+    int subOption = 99;
 
     while (option != 0){
         printf("----Files----\n");
@@ -15,16 +15,81 @@ void menuFiles(){
 
         switch (option){
         case 1:
+                printf("----Novo----\n");
+                printf("1- Clientes\n");
+                printf("2- Livros\n");
+
+                scanf("%d",&subOption);
+                switch (subOption){
+                case 1:
+                    printf("Insira o nome do novo Ficheiro:\n");
+                    scanf("%s", pathClientes);
+                    //NewFileClientes
+                    break;
+
+                case 2:
+                    printf("Insira o nome do Ficheiro:\n");
+                    scanf("%s", pathLivros);
+                    //NewFileLivros
+                    break;
+                
+                default:
+                    break;
+                }
+
+                subOption = 99;
 
             break;
 
         case 2:
-                printf("Insira o nome do Ficheiro:\n");
-                scanf("%s", path);
-                mainTree = readLivros(path);
+                printf("----Abrir----\n");
+                printf("1- Clientes\n");
+                printf("2- Livros\n");
+
+                scanf("%d",&subOption);
+                switch (subOption){
+                case 1:
+                    printf("Insira o nome do Ficheiro:\n");
+                    scanf("%s", pathClientes);
+                    //Read list of clients
+                    break;
+
+                case 2:
+                    printf("Insira o nome do Ficheiro:\n");
+                    scanf("%s", pathLivros);
+                    mainTree = readLivros(pathLivros);
+                    break;
+                
+                default:
+                    break;
+                }
+
+                subOption = 99;
+                
             break;
         
         case 3:
+                printf("----Guardar----\n");
+                printf("1- Clientes\n");
+                printf("2- Livros\n");
+
+                scanf("%d",&subOption);
+                switch (subOption){
+                case 1:
+                    //write list of clients
+                    printf("Escrito no ficheiro default\n");
+                    break;
+
+                case 2:
+                    writeLivros(mainTree,pathLivros);
+                    printf("Escrito no ficheiro default\n");
+                    break;
+                
+                default:
+                    break;
+                }
+
+                subOption = 99;
             break;
         
         case 0:

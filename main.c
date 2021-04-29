@@ -2,6 +2,8 @@
 
 int main(){
     printf("Hello World!\n");
+    pathLivros = (char*) malloc(30*sizeof(char));
+    pathClientes = (char*) malloc(30*sizeof(char));
 
     int option = 99;
 

@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Paths
+char *pathLivros;
+char *pathClientes;
 
 //Cliente
 typedef struct Morada{
@@ -45,9 +48,11 @@ Tree addNodoTree(Tree t, Livro l);
 
 Tree mainTree;
 
+
 //Files
 
 Tree readLivros(char *path);
+void writeLivros(Tree books, char *path);
 
 //Menus
 

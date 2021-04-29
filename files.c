@@ -4,9 +4,16 @@ Tree readLivros(char *path){
 
     Tree books = NULL;
     Livro new;
+
     int ISBM, anoPub, stock;
     double preco;
-    char titulo[30], idioma[30], primAutor[30], secAutor[30], editora[30], area[30];
+    char *titulo = (char*) malloc(30*sizeof(char));
+    char *idioma = (char*) malloc(30*sizeof(char));
+    char *primAutor = (char*) malloc(30*sizeof(char)); 
+    char *secAutor = (char*) malloc(30*sizeof(char));
+    char *editora = (char*) malloc(30*sizeof(char));
+    char *area = (char*) malloc(30*sizeof(char));
+
     FILE *in;
     in = fopen(path,"r");
 
@@ -19,8 +26,6 @@ Tree readLivros(char *path){
     while (10==fscanf(in,"%d %s %s %s %s %s %d %s %le %d", &ISBM, titulo, idioma, primAutor, secAutor, editora, &anoPub, area, &preco, &stock)){ 
 
         new = newLivro(ISBM, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
-        
-        printf("%s\n",titulo);
 
         books = addNodoTree(books,new);
         if(EOF==fgetc(in))

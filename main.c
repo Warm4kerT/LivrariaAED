@@ -5,12 +5,12 @@ int main(){
 
     char *file = "livros.txt";
 
-    Tree *books = (Tree*)malloc(sizeof(Tree));
-    int flag = 0;
-    flag = readLivros(file, books);
+    Tree books;
+    int flag = 1;
+    books = readLivros(file);
 
     if(flag==1){
-        printTree(*books);
+        printTree(books);
     }else if(flag==-1){
         printf("ERROR READING!!!\n");
     }else{

@@ -21,9 +21,10 @@ typedef struct Cliente {
 typedef struct Livro{
     int ISBM, anoPub, stock;
     double preco;
-    char titulo[50], idioma[25], primAutor[25], secAutor[25], editora[25], area[25];
+    char *titulo, *idioma, *primAutor, *secAutor, *editora, *area;
 }Livro;
 
+Livro newLivro(int ISBM, int anoPub, int stock, double preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area);;
 void printLivro(Livro b);
 int equalsLivro(Livro a, Livro b);
 
@@ -34,14 +35,14 @@ typedef struct LivroTree{
     struct LivroTree *right;
 }*Tree;
 
-Tree newNode(Livro *book);
+Tree newNode(Livro book);
 Tree freeNode(Tree n);
 Tree freeTree(Tree t);
 int numNodeT(Tree t);
 void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
-Tree addNodoTree(Tree t, Livro *l);
+Tree addNodoTree(Tree t, Livro l);
 
 //Files
 
-int readLivros(char *path, Tree *books);
+Tree readLivros(char *path);

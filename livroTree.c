@@ -1,8 +1,12 @@
 #include "livraria.h"
 
-Tree newNode(Livro *book){
+Tree newNode(Livro book){
     Tree n = (Tree) malloc(sizeof(struct LivroTree));
-    n->book = *book;
+    if (n==NULL){
+        return NULL;
+    }
+
+    n->book = book;
     n->left = NULL;
     n->right = NULL;
     
@@ -62,9 +66,10 @@ Tree searchTree(Livro l, Tree t){
     return searchTree(l,t->right);
 }
 
-Tree addNodoTree(Tree t, Livro *l){
+Tree addNodoTree(Tree t, Livro l){
+    
     if(t==NULL){
-        t = newNode(&l);
+        t = newNode(l);
         return t;
     }
 

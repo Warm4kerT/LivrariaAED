@@ -132,7 +132,7 @@ void menuBooks(){
                 if(search==NULL){
                     printf("Livro não existe\n");
                 }else{
-                    mainTree = freeNode(search);
+                    mainTree = removeNodeTree(mainTree,search->book);
                     printf("Livro Removido\n");
                 }
             break;
@@ -146,13 +146,14 @@ void menuBooks(){
                 }else{
                     printLivro(search->book);
                     update = alterarLivro(search->book);
-                    mainTree = freeNode(search);
+                    mainTree = removeNodeTree(mainTree,search->book);
                     mainTree = addNodoTree(mainTree,update);
                     printf("Livro Atualizado\n");
                 }
             break;
 
             case 4:
+                printTree(mainTree); 
             break;
 
             case 5:

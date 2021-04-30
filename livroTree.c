@@ -43,6 +43,21 @@ int numNodeT(Tree t){
     return (r+l+1);
 }
 
+int heightTree(Tree t){
+    int e, d;
+    if(t == NULL)
+        return -1;
+
+    e = heightTree(t->left);
+    d = heightTree(t->right);
+    
+    if(e > d){
+        return (e+1);
+    }else{
+        return (d+1);
+    }
+}
+
 void printTree(Tree t){
     if(t!=NULL){
         printLivro(t->book);
@@ -68,10 +83,10 @@ Tree searchTree(Livro l, Tree t){
 
 Tree searchTreeISBM(Tree t, int ISBM){
     Tree n;
-        if(t==NULL)
+    if(t==NULL)
         return NULL;
 
-    if(t->book.ISBM==ISBM)
+    if((t->book.ISBM) == ISBM)
         return t;
 
     n = searchTreeISBM(t->left,ISBM);
@@ -79,6 +94,18 @@ Tree searchTreeISBM(Tree t, int ISBM){
         return n;
     
     return searchTreeISBM(t->right,ISBM);
+}
+
+Tree searchLeafTree(Tree t, Livro *out){
+    if(t->left == NULL && t->right){
+        *out = t->book;
+        return t;
+    }
+
+    if(heightTree(t->left)>heightTree(t->right))
+        return searchLeafTree(t->left,out);
+    else
+        return searchLeafTree(t->right,out);
 }
 
 Tree addNodoTree(Tree t, Livro l){
@@ -96,5 +123,57 @@ Tree addNodoTree(Tree t, Livro l){
     else
         t->right = addNodoTree(t->right,l);
 
+    return t;
+}
+
+Tree removeNodeAux (Tree t){
+    Tree p, r;
+    Livro l;
+
+    if(t->left == NULL && t->right == NULL){
+        t = freeNode(t);
+        return t;
+    }
+
+    if(t->left == NULL){
+        r=t;
+        t=t->right;
+        r=freeNode(r);
+        return t;
+    }
+
+    if(t->right == NULL){
+        r=t;
+        t=t->left;
+        r=freeNode(r);
+        return t;
+    }
+
+    p = searchLeafTree(t,&l);
+    p = freeNode(p);
+    t->book = l;
+    return t;
+}
+
+Tree removeNodeTree (Tree t, Livro l) {
+    Tree p;
+    printf("passo1\n");
+    if (t == NULL)
+        return NULL;
+    if (equalsLivro(t->book, l) == 0) {
+        t = removeNodeAux(t);
+        return t;
+    }
+    printf("passo2\n");
+    p = searchTree(l,t->left);
+    printf("passo3\n");
+    if (p != NULL){
+        printf("passo4\n");
+        t->left = removeNodeTree(t->left, l);
+    }
+    else{
+        printf("passo5\n");
+        t->right = removeNodeTree(t->right, l);
+    }
     return t;
 }

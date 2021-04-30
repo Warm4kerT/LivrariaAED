@@ -42,10 +42,14 @@ Tree newNode(Livro book);
 Tree freeNode(Tree n);
 Tree freeTree(Tree t);
 int numNodeT(Tree t);
+int heightTree(Tree t);
 void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
+Tree searchLeafTree(Tree t, Livro *out);
 Tree addNodoTree(Tree t, Livro l);
 Tree searchTreeISBM(Tree t, int ISBM);
+Tree removeNodeAux (Tree t);
+Tree removeNodeTree (Tree t, Livro l);
 
 Tree mainTree;
 

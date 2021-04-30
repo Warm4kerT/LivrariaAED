@@ -64,26 +64,32 @@ Livro alterarLivro(Livro book){
 
     case 2:
         printf("Insira o Titulo: "); scanf("%s",titulo);
+        update.titulo = (char*) malloc(30*sizeof(char));
         update.titulo = titulo;
         break;
     
     case 3:
         printf("Insira o Idioma: "); scanf("%s",idioma);
+        update.idioma = (char*) malloc(30*sizeof(char));
         update.idioma = idioma;
         break;
     
     case 4:
         printf("Insira o Primeiro Autor: "); scanf("%s",primAutor);
+        update.primAutor = (char*) malloc(30*sizeof(char));
         update.primAutor = primAutor;
         break;
     
     case 5:
         printf("Insira o Segundo Autor: "); scanf("%s",secAutor);
+        update.secAutor = (char*) malloc(30*sizeof(char));
         update.secAutor = secAutor;
         break;
         
     case 6:
         printf("Insira a Editora: "); scanf("%s",editora);
+        memset(update.editora,0,1);
+        update.editora = (char*) malloc(30*sizeof(char));
         update.editora = editora;
         break;
     
@@ -94,6 +100,7 @@ Livro alterarLivro(Livro book){
     
     case 8:
         printf("Insira a Area Científica: "); scanf("%s",area);
+        update.area = (char*) malloc(30*sizeof(char));
         update.area = area;
         break;
     
@@ -112,4 +119,80 @@ Livro alterarLivro(Livro book){
     }
 
     return update;
+}
+
+void searchByMenu(){
+    int option = 99;
+
+    int ISBM, anoPub, stock;
+    double preco;
+    char *titulo = (char*) malloc(30*sizeof(char));
+    char *idioma = (char*) malloc(30*sizeof(char));
+    char *primAutor = (char*) malloc(30*sizeof(char)); 
+    char *secAutor = (char*) malloc(30*sizeof(char));
+    char *editora = (char*) malloc(30*sizeof(char));
+    char *area = (char*) malloc(30*sizeof(char));
+
+    printf("-- Procurar por --\n");
+    printf("1- ISBM\n");
+    printf("2- Titulo\n"); 
+    printf("3- Idioma\n"); 
+    printf("4- Primeiro Autor\n");
+    printf("5- Segundo Autor\n");
+    printf("6- Editora\n");
+    printf("7- Ano de Publicação\n");
+    printf("8- Area Científica\n");
+    printf("9- Preço\n");
+    printf("10- Stock\n");
+
+    scanf("%d",&option);
+
+    switch (option){
+    case 1:
+        printf("Insira o ISBM: "); scanf("%d",&ISBM);
+        printLivro((searchTreeISBM(mainTree,ISBM))->book);
+        break;
+
+    case 2:
+        printf("Insira o Titulo: "); scanf("%s",titulo);
+
+        break;
+    
+    case 3:
+        printf("Insira o Idioma: "); scanf("%s",idioma);
+
+        break;
+    
+    case 4:
+        printf("Insira o Primeiro Autor: "); scanf("%s",primAutor);
+
+        break;
+    
+    case 5:
+        printf("Insira o Segundo Autor: "); scanf("%s",secAutor);
+
+        break;
+        
+    case 6:
+        printf("Insira a Editora: "); scanf("%s",editora);
+
+        break;
+    
+    case 7:
+        printf("Insira o Ano de Publicação: "); scanf("%d",&anoPub);
+
+        break;
+    
+    case 8:
+        printf("Insira a Area Científica: "); scanf("%s",area);
+
+        break;
+    
+    case 9:
+        printTree(mainTree);
+        break;
+    
+    default:
+        break;
+    }
 }

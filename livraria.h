@@ -13,12 +13,10 @@ typedef struct Morada{
 }Morada;
 
 typedef struct Cliente {
-    long NIF[10];
+    int NIF, telefone;
     char Nome[30];
-    long telefone[10];
     Morada MinhaMorada;
 }Cliente;
-
 
 //Livro
 typedef struct Livro{
@@ -53,10 +51,43 @@ Tree removeNodeTree (Tree t, Livro l);
 
 Tree mainTree;
 
+//Encomendas
+typedef struct Data{
+    int ano,mes,dia;
+}Data;
+
+typedef struct Encomenda{
+    int ISBMLivro, NIFCliente, numUnidades;
+    double preco;
+    Data enc, venda;
+}Encomenda;
+
+Encomenda newEncomenda(int ISBM, int NIF, int quantidade, double preco, Data enc, Data venda);
+Data newDate(int dia, int mes, int ano);
+void printEncomenda(Encomenda o);
+
+//Fila
+typedef struct FilaEnc{
+    Encomenda order;
+    struct FilaEnc *prox;
+}*Fila;
+
+Fila createNodeFila(Encomenda order);
+Fila freeNodeFila(Fila P);
+int emptyFila(Fila P);
+Fila createFila();
+Fila addNodeFila(Encomenda order, Fila P);
+Fila removeFila(Fila F);
+Encomenda front(Fila F);
+
+Fila mainFila;
+
 //Files
 
 Tree readLivros(char *path);
 void writeLivros(Tree books, char *path);
+Fila readEncomenda(char *path);
+void writeEncomendas(Fila order, char *path);
 
 //Menus
 

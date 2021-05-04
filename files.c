@@ -35,7 +35,7 @@ Tree readLivros(char *path){
     return books;
 }
 
-void writeLoop(Tree books, FILE *out){
+void writeLoopLivro(Tree books, FILE *out){
     if(books!=NULL){
         fprintf(out,"%d %s %s %s %s %s %d %s %.3le %d\n", books->book.ISBM, books->book.titulo, books->book.idioma, books->book.primAutor, books->book.secAutor, books->book.editora, books->book.anoPub, books->book.area, books->book.preco, books->book.stock);
         writeLoop(books->left,out);
@@ -53,7 +53,44 @@ void writeLivros(Tree books, char *path){
         return;
     }
 
-    writeLoop(P,out);
+    writeLoopLivro(P,out);
 
     fclose(out);
+}
+
+Fila readEncomenda(char *path){
+    Fila P = createFila();
+    Encomenda new;
+
+    int ISBM, NIF, numUnidades;
+    double preco;
+    Data enc, venda;
+
+    FILE *in;
+    in = fopen(path,"r");
+
+    if(in==NULL)
+        return P;
+
+    while(10==fscanf(in,"%d %d %d %le %d/%d/%d %d/%d/%d",&ISBM,&NIF,&numUnidades,&preco, enc.dia, enc.mes, enc.ano, venda.dia, venda.mes, venda.ano)){
+        new = newEncomenda(ISBM,NIF,numUnidades,preco,enc,venda);
+
+        P = addNodeFila(new,P);
+        if(EOF==fgetc(in))
+            break;
+    }
+
+    return P;
+}
+
+void writeEncomendas(Fila order, char *path){
+    Fila P = order;
+    FILE *out;
+
+    out = fopen(path,"w");
+
+    while (emptyFila(P)!=1){
+        fprintf(out,"%d %d %d %le %d/%d/%d %d/%d/%d\n",P->order.ISBMLivro,P->order.NIFCliente,P->order.numUnidades,P->order.preco,P->order.enc.dia,P->order.enc.mes,P->order.enc.ano,P->order.venda.dia,P->order.venda.mes,P->order.venda.ano);
+        P = removeFila(P);
+    }
 }

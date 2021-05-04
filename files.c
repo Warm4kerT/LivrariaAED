@@ -38,8 +38,8 @@ Tree readLivros(char *path){
 void writeLoopLivro(Tree books, FILE *out){
     if(books!=NULL){
         fprintf(out,"%d %s %s %s %s %s %d %s %.3le %d\n", books->book.ISBM, books->book.titulo, books->book.idioma, books->book.primAutor, books->book.secAutor, books->book.editora, books->book.anoPub, books->book.area, books->book.preco, books->book.stock);
-        writeLoop(books->left,out);
-        writeLoop(books->right,out);
+        writeLoopLivro(books->left,out);
+        writeLoopLivro(books->right,out);
     }
 }
 

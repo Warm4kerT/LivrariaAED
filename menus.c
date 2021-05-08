@@ -11,7 +11,7 @@ void menuFiles(){
         printf("3- Guardar\n");
         printf("0- Sair\n");
 
-        scanf("%d",&option);
+        scanf(" %d",&option);
 
         switch (option){
         case 1:
@@ -22,28 +22,30 @@ void menuFiles(){
 
                 scanf("%d",&subOption);
                 switch (subOption){
-                case 1:
-                    printf("Insira o nome do novo Ficheiro:\n");
-                    scanf("%s", pathClientes);
-                    //NewFileClientes
-                    break;
+                    case 1:
+                        printf("Insira o nome do novo Ficheiro:\n");
+                        scanf("%s", pathClientes);
+                        //NewFileClientes
+                        break;
 
-                case 2:
-                    printf("Insira o nome do Ficheiro:\n");
-                    scanf("%s", pathLivros);
-                    mainTree = freeTree(mainTree);
-                    //NewFileLivros
-                    break;
+                    case 2:
+                        printf("Insira o nome do Ficheiro:\n");
+                        scanf("%s", pathLivros);
+                        mainTree = freeTree(mainTree);
+                        //NewFileLivros
+                        break;
 
-                case 3:
-                    printf("Insira o nomde do Ficheiro:\n");
-                    scanf("%s",pathEncomendas);
-                    mainFila = freeFila(mainFila);
-                
-                default:
-                    break;
+                    case 3:
+                        printf("Insira o nomde do Ficheiro:\n");
+                        scanf("%s",pathEncomendas);
+                        mainFila = freeFila(mainFila);
+                        //NewFileEncomendas
+                        break;
+                    
+                    default:
+                        break;
                 }
-
+                
                 subOption = 99;
 
             break;
@@ -56,29 +58,25 @@ void menuFiles(){
 
                 scanf("%d",&subOption);
                 switch (subOption){
-                case 1:
-                    printf("Insira o nome do Ficheiro:\n");
-                    scanf("%s", pathClientes);
-                    //Read list of clients
-                    break;
+                    case 1:
+                        printf("Insira o nome do Ficheiro:\n");
+                        scanf("%s", pathClientes);
+                        //Read list of clients
+                        break;
 
-                case 2:
-                    printf("Insira o nome do Ficheiro:\n");
-                    scanf("%s", pathLivros);
-                    mainTree = readLivros(pathLivros);
-                    break;
+                    case 2:
+                        printf("Insira o nome do Ficheiro:\n");
+                        scanf("%s", pathLivros);
+                        mainTree = readLivros(pathLivros);
+                        break;
 
-                case 3:
-                    printf("Insira o nome do Ficherio:\n");
-                    scanf("%s",pathEncomendas);
-                    mainFila = readEncomenda(pathEncomendas);
-                
-                default:
-                    break;
+                    case 3:
+                        printf("Insira o nome do Ficherio:\n");
+                        scanf("%s",pathEncomendas);
+                        mainFila = readEncomenda(pathEncomendas);
+                        break;
                 }
-
                 subOption = 99;
-                
             break;
         
         case 3:
@@ -89,22 +87,23 @@ void menuFiles(){
 
                 scanf("%d",&subOption);
                 switch (subOption){
-                case 1:
-                    //write list of clients
-                    printf("Escrito no ficheiro default\n");
-                    break;
+                    case 1:
+                        //write list of clients
+                        printf("Escrito no ficheiro default\n");
+                        break;
 
-                case 2:
-                    writeLivros(mainTree,pathLivros);
-                    printf("Escrito no ficheiro default\n");
-                    break;
+                    case 2:
+                        writeLivros(mainTree,pathLivros);
+                        printf("Escrito no ficheiro default\n");
+                        break;
 
-                case 3:
-                    writeEncomendas(mainFila,pathEncomendas);
-                    printf("Escrito no ficheiro default\n");
-                
-                default:
-                    break;
+                    case 3:
+                        writeEncomendas(mainFila,pathEncomendas);
+                        printf("Escrito no ficheiro default\n");
+                        break;
+                    
+                    default:
+                        break;
                 }
 
                 subOption = 99;
@@ -116,8 +115,7 @@ void menuFiles(){
         default:
             break;
         }
-    }
-    
+    }   
 }
 
 void menuBooks(){

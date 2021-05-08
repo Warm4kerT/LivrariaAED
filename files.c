@@ -62,7 +62,7 @@ Fila readEncomenda(char *path){
     Fila P = createFila();
     Encomenda new;
 
-    int ISBM, NIF, numUnidades;
+    int ISBM, NIF, numUnidades, numEnc;
     double preco;
     Data enc, venda;
 
@@ -72,8 +72,8 @@ Fila readEncomenda(char *path){
     if(in==NULL)
         return P;
 
-    while(10==fscanf(in,"%d %d %d %le %d/%d/%d %d/%d/%d",&ISBM,&NIF,&numUnidades,&preco, enc.dia, enc.mes, enc.ano, venda.dia, venda.mes, venda.ano)){
-        new = newEncomenda(ISBM,NIF,numUnidades,preco,enc,venda);
+    while(10==fscanf(in,"%d %d %d %d %le %d/%d/%d %d/%d/%d",&numEnc,&ISBM,&NIF,&numUnidades,&preco, &enc.dia, &enc.mes, &enc.ano, &venda.dia, &venda.mes, &venda.ano)){
+        new = newEncomenda(numEnc,ISBM,NIF,numUnidades,preco,enc,venda);
 
         P = addNodeFila(new,P);
         if(EOF==fgetc(in))
@@ -90,7 +90,7 @@ void writeEncomendas(Fila order, char *path){
     out = fopen(path,"w");
 
     while (emptyFila(P)!=1){
-        fprintf(out,"%d %d %d %le %d/%d/%d %d/%d/%d\n",P->order.ISBMLivro,P->order.NIFCliente,P->order.numUnidades,P->order.preco,P->order.enc.dia,P->order.enc.mes,P->order.enc.ano,P->order.venda.dia,P->order.venda.mes,P->order.venda.ano);
-        P = removeFila(P);
+        fprintf(out,"%d %d %d %d %le %d/%d/%d %d/%d/%d\n",P->order.numEnc,P->order.ISBMLivro,P->order.NIFCliente,P->order.numUnidades,P->order.preco,P->order.enc.dia,P->order.enc.mes,P->order.enc.ano,P->order.venda.dia,P->order.venda.mes,P->order.venda.ano);
+        P = P->prox;
     }
 }

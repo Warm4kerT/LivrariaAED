@@ -5,6 +5,14 @@
 //Paths
 char *pathLivros;
 char *pathClientes;
+char *pathEncomendas;
+
+//Compras
+typedef struct Compra{
+    int ISBM, quantidade;
+    struct Compra *prox;
+}Compra;
+
 
 //Cliente
 typedef struct Morada{
@@ -57,12 +65,13 @@ typedef struct Data{
 }Data;
 
 typedef struct Encomenda{
+    int numEnc;
     int ISBMLivro, NIFCliente, numUnidades;
     double preco;
     Data enc, venda;
 }Encomenda;
 
-Encomenda newEncomenda(int ISBM, int NIF, int quantidade, double preco, Data enc, Data venda);
+Encomenda newEncomenda(int numEnc, int ISBM, int NIF, int quantidade, double preco, Data enc, Data venda);
 Data newDate(int dia, int mes, int ano);
 void printEncomenda(Encomenda o);
 
@@ -78,7 +87,11 @@ int emptyFila(Fila P);
 Fila createFila();
 Fila addNodeFila(Encomenda order, Fila P);
 Fila removeFila(Fila F);
+Fila freeFila(Fila F);
 Encomenda front(Fila F);
+Fila removeFilaEspecifico(Fila F, int numEnc);
+int searchFilaNumEnc(Fila F, int numEnc);
+int numUltimaEncomenda(Fila F);
 
 Fila mainFila;
 
@@ -93,6 +106,7 @@ void writeEncomendas(Fila order, char *path);
 
 void menuFiles();
 void menuBooks();
+void menuOrders();
 
 //Operacoes
 

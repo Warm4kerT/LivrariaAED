@@ -59,6 +59,52 @@ Fila removeFila(Fila F){
     return F;
 }
 
+Fila freeFila(Fila F){
+    while(F!=NULL)
+        F = removeFila(F);
+
+    return F;
+}
+
 Encomenda front(Fila F){
     return F->order;
+}
+
+Fila removeFilaEspecifico(Fila F, int numEnc){
+    Fila new = createFila();
+
+    while(F!=NULL){
+        if(F->order.numEnc != numEnc)
+            new = addNodeFila(front(F), new);
+    
+        F = removeFila(F);
+    }
+
+    return new;
+}
+
+int searchFilaNumEnc(Fila F, int numEnc){
+    while(F!=NULL){
+        if(F->order.numEnc==numEnc){
+            return 1;
+        }
+
+        F = F->prox;
+    }
+
+    return 0;
+}
+
+int numUltimaEncomenda(Fila F){
+    if(F==NULL){
+        return 0;
+    }
+
+    Fila PAnt = F;
+
+    while(PAnt->prox!=NULL){
+        PAnt = PAnt->prox;
+    }
+
+    return PAnt->order.numEnc;
 }

@@ -124,8 +124,7 @@ Livro alterarLivro(Livro book){
 void searchByMenu(){
     int option = 99;
 
-    int ISBM, anoPub, stock;
-    double preco;
+    int ISBM, anoPub;
     char *titulo = (char*) malloc(30*sizeof(char));
     char *idioma = (char*) malloc(30*sizeof(char));
     char *primAutor = (char*) malloc(30*sizeof(char)); 

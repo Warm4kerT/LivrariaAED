@@ -28,7 +28,7 @@ int main(){
             /* code */
             break;
         case 4:
-            /* code */
+            menuOrders();
             break;
         case 5:
             /* code */

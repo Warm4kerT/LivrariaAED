@@ -29,11 +29,11 @@ typedef struct Cliente {
 //Livro
 typedef struct Livro{
     int ISBM, anoPub, stock;
-    double preco;
+    float preco;
     char *titulo, *idioma, *primAutor, *secAutor, *editora, *area;
 }Livro;
 
-Livro newLivro(int ISBM, int anoPub, int stock, double preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area);;
+Livro newLivro(int ISBM, int anoPub, int stock, float preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area);;
 void printLivro(Livro b);
 int equalsLivro(Livro a, Livro b);
 
@@ -67,11 +67,11 @@ typedef struct Data{
 typedef struct Encomenda{
     int numEnc;
     int ISBMLivro, NIFCliente, numUnidades;
-    double preco;
+    float preco;
     Data enc, venda;
 }Encomenda;
 
-Encomenda newEncomenda(int numEnc, int ISBM, int NIF, int quantidade, double preco, Data enc, Data venda);
+Encomenda newEncomenda(int numEnc, int ISBM, int NIF, int quantidade, float preco, Data enc, Data venda);
 Data newDate(int dia, int mes, int ano);
 void printEncomenda(Encomenda o);
 
@@ -92,6 +92,7 @@ Encomenda front(Fila F);
 Fila removeFilaEspecifico(Fila F, int numEnc);
 int searchFilaNumEnc(Fila F, int numEnc);
 int numUltimaEncomenda(Fila F);
+void printFila(Fila F);
 
 Fila mainFila;
 

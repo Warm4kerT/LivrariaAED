@@ -1,6 +1,6 @@
 #include "livraria.h"
 
-Livro newLivro(int ISBM, int anoPub, int stock, double preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area){
+Livro newLivro(int ISBM, int anoPub, int stock, float preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area){
     Livro new;
     new.ISBM = ISBM;
     new.anoPub = anoPub;

@@ -4,10 +4,11 @@ int main(){
     printf("Hello World!\n");
     pathLivros = (char*) malloc(30*sizeof(char));
     pathClientes = (char*) malloc(30*sizeof(char));
+    pathEncomendas = (char*) malloc(30*sizeof(char));
 
-    int option = 99;
+    int mainOption = 99;
 
-    while (option != 0){
+    while (mainOption != 0){
         printf("----Menu----\n");
         printf("1- Ficheiros\n");
         printf("2- Livros\n");
@@ -16,8 +17,8 @@ int main(){
         printf("5- Operações\n");
         printf("0- Sair\n");
 
-        scanf("%d",&option);
-        switch (option){
+        scanf("%d",&mainOption);
+        switch (mainOption){
         case 1:
             menuFiles();
             break;

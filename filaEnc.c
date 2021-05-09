@@ -108,3 +108,12 @@ int numUltimaEncomenda(Fila F){
 
     return PAnt->order.numEnc;
 }
+
+void printFila(Fila F){
+    Fila P;
+    P = F;
+    while(P!=NULL){
+        printEncomenda(P->order);
+        P = P->prox;
+    }
+}

@@ -6,7 +6,7 @@ Tree readLivros(char *path){
     Livro new;
 
     int ISBM, anoPub, stock;
-    double preco;
+    float preco;
     char *titulo = (char*) malloc(30*sizeof(char));
     char *idioma = (char*) malloc(30*sizeof(char));
     char *primAutor = (char*) malloc(30*sizeof(char)); 
@@ -21,7 +21,7 @@ Tree readLivros(char *path){
         return NULL;
     }
 
-    while (10==fscanf(in,"%d %s %s %s %s %s %d %s %le %d", &ISBM, titulo, idioma, primAutor, secAutor, editora, &anoPub, area, &preco, &stock)){ 
+    while (10==fscanf(in,"%d %s %s %s %s %s %d %s %f %d", &ISBM, titulo, idioma, primAutor, secAutor, editora, &anoPub, area, &preco, &stock)){ 
 
         new = newLivro(ISBM, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
 
@@ -37,7 +37,7 @@ Tree readLivros(char *path){
 
 void writeLoopLivro(Tree books, FILE *out){
     if(books!=NULL){
-        fprintf(out,"%d %s %s %s %s %s %d %s %.3le %d\n", books->book.ISBM, books->book.titulo, books->book.idioma, books->book.primAutor, books->book.secAutor, books->book.editora, books->book.anoPub, books->book.area, books->book.preco, books->book.stock);
+        fprintf(out,"%d %s %s %s %s %s %d %s %f %d\n", books->book.ISBM, books->book.titulo, books->book.idioma, books->book.primAutor, books->book.secAutor, books->book.editora, books->book.anoPub, books->book.area, books->book.preco, books->book.stock);
         writeLoopLivro(books->left,out);
         writeLoopLivro(books->right,out);
     }
@@ -63,7 +63,7 @@ Fila readEncomenda(char *path){
     Encomenda new;
 
     int ISBM, NIF, numUnidades, numEnc;
-    double preco;
+    float preco;
     Data enc, venda;
 
     FILE *in;
@@ -72,9 +72,9 @@ Fila readEncomenda(char *path){
     if(in==NULL)
         return P;
 
-    while(10==fscanf(in,"%d %d %d %d %le %d/%d/%d %d/%d/%d",&numEnc,&ISBM,&NIF,&numUnidades,&preco, &enc.dia, &enc.mes, &enc.ano, &venda.dia, &venda.mes, &venda.ano)){
+    while(11==fscanf(in,"%d %d %d %d %f %d/%d/%d %d/%d/%d",&numEnc,&ISBM,&NIF,&numUnidades,&preco, &enc.dia, &enc.mes, &enc.ano, &venda.dia, &venda.mes, &venda.ano)){
         new = newEncomenda(numEnc,ISBM,NIF,numUnidades,preco,enc,venda);
-
+        
         P = addNodeFila(new,P);
         if(EOF==fgetc(in))
             break;
@@ -90,7 +90,7 @@ void writeEncomendas(Fila order, char *path){
     out = fopen(path,"w");
 
     while (emptyFila(P)!=1){
-        fprintf(out,"%d %d %d %d %le %d/%d/%d %d/%d/%d\n",P->order.numEnc,P->order.ISBMLivro,P->order.NIFCliente,P->order.numUnidades,P->order.preco,P->order.enc.dia,P->order.enc.mes,P->order.enc.ano,P->order.venda.dia,P->order.venda.mes,P->order.venda.ano);
+        fprintf(out,"%d %d %d %d %f %d/%d/%d %d/%d/%d\n",P->order.numEnc,P->order.ISBMLivro,P->order.NIFCliente,P->order.numUnidades,P->order.preco,P->order.enc.dia,P->order.enc.mes,P->order.enc.ano,P->order.venda.dia,P->order.venda.mes,P->order.venda.ano);
         P = P->prox;
     }
 }

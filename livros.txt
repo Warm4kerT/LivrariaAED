@@ -1,5 +1,5 @@
-123455555 LivroDeTestesVol5 Portugues Teofilo Lenadro UBI 2021 Informática 6.690e+00 25
-111111111 LivroDeTestesVol1 Portugues Teofilo Lenadro UBI 2021 Informática 6.690e+00 50
-123333333 LivroDeTestesVol3 Portugues Teofilo Lenadro UBI 2021 Informática 6.690e+00 63
-122222222 LivroDeTestesVol2 Portugues Teofilo Lenadro UBI 2021 Informática 6.690e+00 2
-123444444 LivroDeTestesVol4 Portugues Teofilo Lenadro UBI 2021 Informática 6.690e+00 29
+123455555 LivroDeTestesVol5 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 25
+111111111 LivroDeTestesVol1 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 50
+123333333 LivroDeTestesVol3 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 63
+122222222 LivroDeTestesVol2 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 2
+123444444 LivroDeTestesVol4 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 29

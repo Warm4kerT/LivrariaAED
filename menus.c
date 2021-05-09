@@ -4,17 +4,17 @@ void menuFiles(){
     int option = 99;
     int subOption = 99;
 
-    while (option != 0){
-        printf("----Files----\n");
-        printf("1- Novo\n");
-        printf("2- Abrir\n");
-        printf("3- Guardar\n");
-        printf("0- Sair\n");
+    while(option != 0){
+        printf("----Files----\n1- Novo\n2- Abrir\n3- Guardar\n0- Sair\n");
 
-        scanf(" %d",&option);
+        scanf("%d", &option);
 
-        switch (option){
-        case 1:
+        switch(option){
+            default:
+                scanf("%d", &option);
+            break;
+
+            case 1:
                 printf("----Novo----\n");
                 printf("1- Clientes\n");
                 printf("2- Livros\n");
@@ -42,22 +42,20 @@ void menuFiles(){
                         //NewFileEncomendas
                         break;
                     
-                    default:
+                    case 0:
                         break;
                 }
-                
                 subOption = 99;
-
             break;
 
-        case 2:
+            case 2:
                 printf("----Abrir----\n");
                 printf("1- Clientes\n");
                 printf("2- Livros\n");
                 printf("3- Encomendas\n");
 
                 scanf("%d",&subOption);
-                switch (subOption){
+                switch(subOption){
                     case 1:
                         printf("Insira o nome do Ficheiro:\n");
                         scanf("%s", pathClientes);
@@ -75,11 +73,15 @@ void menuFiles(){
                         scanf("%s",pathEncomendas);
                         mainFila = readEncomenda(pathEncomendas);
                         break;
+
+                    case 0:
+                        break;
                 }
                 subOption = 99;
+
             break;
         
-        case 3:
+            case 3:
                 printf("----Guardar----\n");
                 printf("1- Clientes\n");
                 printf("2- Livros\n");
@@ -102,18 +104,14 @@ void menuFiles(){
                         printf("Escrito no ficheiro default\n");
                         break;
                     
-                    default:
+                    case 0:
                         break;
                 }
-
                 subOption = 99;
             break;
         
-        case 0:
-            break;
-        
-        default:
-            break;
+            case 0:
+                break;
         }
     }   
 }
@@ -228,6 +226,8 @@ void menuOrders(){
                 printf("Insira quantidade: "); scanf("%d",&numUnidades);
                 newOrder.numUnidades = numUnidades;
 
+                printf("%f\n",search->book.preco);
+
                 newOrder.preco = (search->book.preco)*numUnidades;
 
                 printf("Insira a data de Encomenda (dd/mm/aaaa): "); scanf("%d/%d/%d",&enc.dia,&enc.mes,&enc.ano);
@@ -259,6 +259,10 @@ void menuOrders(){
                 break;
 
             case 0:
+                break;
+
+            case 9:
+                printFila(mainFila);
                 break;
 
         }

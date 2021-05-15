@@ -1,7 +1,7 @@
 CC=cc
 FLAGS=-c -Wall 
 LIBS=-lm
-OBS=main.o livro.o livrotree.o files.o menus.o operacoes.o encomenda.o filaEnc.o
+OBS=main.o livro.o livrotree.o files.o menus.o operacoes.o encomenda.o filaEnc.o cliente.o clienteLista.o compraLista.o
 
 #Alvo por defeito é o primeiro
 all :  livraria
@@ -22,6 +22,12 @@ encomenda.o : livraria.h encomenda.c
 	$(CC) $(FLAGS) encomenda.c
 filaEnc.o : livraria.h filaEnc.c
 	$(CC) $(FLAGS) filaEnc.c
+cliente.o : livraria.h cliente.c
+	$(CC) $(FLAGS) cliente.c
+clienteLista.o : livraria.h clienteLista.c
+	$(CC) $(FLAGS) clienteLista.c
+compraLista.o : livraria.h compraLista.c
+	$(CC) $(FLAGS) compraLista.c
 livraria : $(OBS)
 	$(CC)  -o livraria  $(OBS) $(LIBS) -lpthread
 clean limpar:

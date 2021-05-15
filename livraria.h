@@ -16,15 +16,43 @@ typedef struct Compra{
 
 //Cliente
 typedef struct Morada{
-    char Casa[50], Cidade[30];
-    double CODPostal;
+    char *Casa, *Cidade;
+    int CODPostal[2];
 }Morada;
 
 typedef struct Cliente {
     int NIF, telefone;
-    char Nome[30];
+    char *Nome;
     Morada MinhaMorada;
+    Compra *lista;
 }Cliente;
+
+Cliente newCliente(int NIF, int Telefone, char *Nome, Morada morada);
+Morada newMorada(char *Casa, char *Cidade, int COD1, int COD2);
+void printCliente(Cliente b);
+void printMorada(Morada b);
+int equalsMorada(Morada a, Morada b);
+int equalsCliente(Cliente a, Cliente b);
+
+//Lista ligada
+ typedef struct ClienteLista
+ {
+     Cliente Cli;
+     struct ClienteLista *Prox;
+ }*Lista;
+
+Lista CriarNodoLista(Cliente CLI);
+Lista LibertarNodoLista(Lista L);
+Lista InserirInicioLista(Cliente CLI,Lista L);
+void ListarLista (Lista L);
+int PesquisaLista(Cliente CLI,Lista L);
+Lista ProcurarAnteriorLista (Cliente X, Lista L);
+Lista RemoverNodoLista (Cliente X, Lista L);
+Lista FreeLista(Lista L);
+Lista PesquisaPorm(Lista L, int NIF);
+
+ Lista mainLista;
+ 
 
 //Livro
 typedef struct Livro{
@@ -113,3 +141,4 @@ void menuOrders();
 
 Livro pedirLivro();
 Livro alterarLivro(Livro book);
+

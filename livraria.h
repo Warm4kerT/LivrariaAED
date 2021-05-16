@@ -10,8 +10,18 @@ char *pathEncomendas;
 //Compras
 typedef struct Compra{
     int ISBM, quantidade;
-    struct Compra *prox;
-}Compra;
+    struct Compra *Prox;
+} *Compra;
+
+void printCompra(Compra b);
+int equalsCompra(Compra a, Compra b);
+Compra CriarNodoLista(int ISBM, int quantidade);
+Compra LibertarNodoLista(Compra L);
+Compra InserirInicioLista(int ISBM, int quantidade , Compra L);
+void ListarLista (Compra L);
+int PesquisaLista(int ISBM,Compra L);
+Compra ProcurarAnteriorLista (int ISBM, Compra L);
+Compra FreeLista(Compra L);
 
 
 //Cliente
@@ -34,12 +44,13 @@ void printMorada(Morada b);
 int equalsMorada(Morada a, Morada b);
 int equalsCliente(Cliente a, Cliente b);
 
-//Lista ligada
+//Lista ligada Cliente
  typedef struct ClienteLista
  {
      Cliente Cli;
      struct ClienteLista *Prox;
  }*Lista;
+
 
 Lista CriarNodoLista(Cliente CLI);
 Lista LibertarNodoLista(Lista L);

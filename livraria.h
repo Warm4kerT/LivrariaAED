@@ -100,8 +100,6 @@ Fila mainFila;
 
 Tree readLivros(char *path);
 void writeLivros(Tree books, char *path);
-Fila readEncomenda(char *path);
-void writeEncomendas(Fila order, char *path);
 
 //Menus
 

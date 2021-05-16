@@ -25,6 +25,7 @@ void menuFiles(){
                     case 1:
                         printf("Insira o nome do novo Ficheiro:\n");
                         scanf("%s", pathClientes);
+                        //mainCliente = FreeLista(mainCliente);
                         //NewFileClientes
                         break;
 
@@ -267,4 +268,8 @@ void menuOrders(){
 
         }
     }
+}
+
+void MenuClientes(){
+
 }

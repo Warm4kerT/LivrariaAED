@@ -26,7 +26,7 @@ int main(){
             menuBooks();
             break;
         case 3:
-            /* code */
+            MenuClientes();
             break;
         case 4:
             menuOrders();

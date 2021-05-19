@@ -195,3 +195,77 @@ void searchByMenu(){
         break;
     }
 }
+
+Cliente pedirCliente(){
+    int NIF, telefone;
+    char *nome = (char*) malloc(30*sizeof(char));
+    char *casa = (char*) malloc(30*sizeof(char));
+    char *cidade = (char*) malloc(30*sizeof(char)); 
+    int cod1, cod2;
+    Cliente newC;
+    Morada newM;
+
+    printf("Insira o NIF: "); scanf("%d",&NIF);
+    printf("Insira o Nome: "); scanf("%s",nome);
+    printf("Insira o Telefone: "); scanf("%d",&telefone);
+    printf("Insira o Morada:\nRua: "); scanf("%s",casa);
+    printf("Cidade: "); scanf("%s",cidade);
+    printf("Codigo Postal (xxxx-yyy): "); scanf("%d-%d",&cod1,&cod2);
+    
+    newM = newMorada(casa,cidade,cod1,cod2);
+    newC = newCliente(NIF,telefone,nome,newM);
+
+    return newC;
+}
+
+Cliente alterarCliente(Cliente cli){
+    int option;
+    Cliente update = cli;
+    Morada updateM;
+
+    int NIF, telefone;
+    char *nome = (char*) malloc(30*sizeof(char));
+    char *casa = (char*) malloc(30*sizeof(char));
+    char *cidade = (char*) malloc(30*sizeof(char)); 
+    int cod1, cod2;
+
+    printf("--Valor a Alterar--\n");
+    printf("1- NIF\n");
+    printf("2- Nome\n"); 
+    printf("3- Telefone\n"); 
+    printf("4- Morada\n");
+
+    scanf("%d",&option);
+
+    switch (option)
+    {
+    case 1:
+        printf("Insira o novo NIF: "); scanf("%d",&NIF);
+        update.NIF = NIF;
+        break;
+
+    case 2:
+        printf("Insira o NOme: "); scanf("%s",nome);
+        update.Nome = (char*) malloc(30*sizeof(char));
+        update.Nome = nome;
+        break;
+    
+    case 3:
+        printf("Insira o Telefone: "); scanf("%d",&telefone);
+        update.telefone = telefone;
+        break;
+    
+    case 4:
+        printf("Insira o Morada:\nRua: "); scanf("%s",casa);
+        printf("Cidade: "); scanf("%s",cidade);
+        printf("Codigo Postal (xxxx-yyy): "); scanf("%d-%d",&cod1,&cod2);
+        updateM = newMorada(casa,cidade,cod1,cod2);
+        update.MinhaMorada = updateM;
+        break;
+        
+    default:
+        break;
+    }
+
+    return update;
+}

@@ -57,3 +57,93 @@ void writeLivros(Tree books, char *path){
 
     fclose(out);
 }
+
+Lista readClientes(char * path){
+    Compra lCompras = NULL;
+    int ISBM, quantidade;
+    char *pathCompras =(char*) malloc(30*sizeof(char));
+    FILE *compras;
+   
+    Lista clientes = NULL;
+    Cliente newC;
+    Morada newM;
+    
+    int NIF, telefone;
+    char *nome = (char*) malloc(30*sizeof(char));
+    char *casa = (char*) malloc(30*sizeof(char));
+    char *cidade = (char*) malloc(30*sizeof(char)); 
+    int cod1, cod2;
+
+    FILE *in;
+    in = fopen(path,"r");
+
+    if(in==NULL){
+        return NULL;
+    }
+
+    while (7==fscanf(in,"%d %d %s %s %s %d-%d ", &NIF, &telefone, nome, casa, cidade, &cod1, &cod2)){ 
+        newM = newMorada(casa,cidade,cod1,cod2);
+        newC = newCliente(NIF,telefone,nome,newM);
+
+        sprintf(pathCompras,"Compras/%d.txt",NIF);
+        compras = fopen(pathCompras,"r");
+
+        if(compras!=NULL){
+            while(2==fscanf(compras,"%d %d",&ISBM,&quantidade)){
+                lCompras = InserirInicioCompra(ISBM,quantidade,lCompras);
+                if(EOF==fgetc(in))
+                    break;
+            }
+            fclose(compras);
+        }
+
+        newC.lista = lCompras;
+        clientes = InserirInicioLista(newC,clientes);
+
+        lCompras = NULL;
+        pathCompras = (char*) malloc(30*sizeof(char));
+        
+        if(EOF==fgetc(in))
+            break;
+    }
+    
+    fclose(in);
+
+    return clientes;
+}
+
+void writeCompras(Compra lista, char *path){
+    FILE *out;
+    out = fopen(path,"w");
+
+    if(out==NULL){
+        return;
+    }
+
+    while(lista!=NULL){
+        fprintf(out,"%d %d",lista->ISBM,lista->quantidade);
+        lista = lista->Prox;
+    }
+
+    fclose(out);
+}
+
+void writeClientes(Lista clientes, char *path){
+    Lista P = clientes;
+    char *pathCompras = (char*) malloc(30*sizeof(char));
+    FILE *out;
+    out = fopen(path,"w");
+
+    if(out==NULL){
+        return;
+    }
+
+    while(P!=NULL){
+        fprintf(out,"%d %d %s %s %s %d-%d ", P->Cli.NIF, P->Cli.telefone, P->Cli.Nome, P->Cli.MinhaMorada.Casa, P->Cli.MinhaMorada.Cidade, P->Cli.MinhaMorada.CODPostal[0], P->Cli.MinhaMorada.CODPostal[1]);
+        sprintf(pathCompras,"Compras/%d.txt",P->Cli.NIF);
+        writeCompras(P->Cli.lista,pathCompras);
+    }
+
+    fclose(out);
+
+}

@@ -18,14 +18,13 @@ void menuFiles(){
                 printf("----Novo----\n");
                 printf("1- Clientes\n");
                 printf("2- Livros\n");
-                printf("3- Encomendas\n");
 
                 scanf("%d",&subOption);
                 switch (subOption){
                     case 1:
                         printf("Insira o nome do novo Ficheiro:\n");
                         scanf("%s", pathClientes);
-                        //mainCliente = FreeLista(mainCliente);
+                        mainLista = FreeLista(mainLista);
                         //NewFileClientes
                         break;
 
@@ -36,13 +35,6 @@ void menuFiles(){
                         //NewFileLivros
                         break;
 
-                    case 3:
-                        printf("Insira o nomde do Ficheiro:\n");
-                        scanf("%s",pathEncomendas);
-                        mainFila = freeFila(mainFila);
-                        //NewFileEncomendas
-                        break;
-                    
                     case 0:
                         break;
                 }
@@ -53,26 +45,19 @@ void menuFiles(){
                 printf("----Abrir----\n");
                 printf("1- Clientes\n");
                 printf("2- Livros\n");
-                printf("3- Encomendas\n");
 
                 scanf("%d",&subOption);
                 switch(subOption){
                     case 1:
                         printf("Insira o nome do Ficheiro:\n");
                         scanf("%s", pathClientes);
-                        //Read list of clients
+                        mainLista = readClientes(pathClientes);
                         break;
 
                     case 2:
                         printf("Insira o nome do Ficheiro:\n");
                         scanf("%s", pathLivros);
                         mainTree = readLivros(pathLivros);
-                        break;
-
-                    case 3:
-                        printf("Insira o nome do Ficherio:\n");
-                        scanf("%s",pathEncomendas);
-                        mainFila = readEncomenda(pathEncomendas);
                         break;
 
                     case 0:
@@ -86,22 +71,16 @@ void menuFiles(){
                 printf("----Guardar----\n");
                 printf("1- Clientes\n");
                 printf("2- Livros\n");
-                printf("3- Encomendas\n");
 
                 scanf("%d",&subOption);
                 switch (subOption){
                     case 1:
-                        //write list of clients
+                        writeClientes(mainLista,pathClientes);
                         printf("Escrito no ficheiro default\n");
                         break;
 
                     case 2:
                         writeLivros(mainTree,pathLivros);
-                        printf("Escrito no ficheiro default\n");
-                        break;
-
-                    case 3:
-                        writeEncomendas(mainFila,pathEncomendas);
                         printf("Escrito no ficheiro default\n");
                         break;
                     
@@ -271,5 +250,61 @@ void menuOrders(){
 }
 
 void MenuClientes(){
+    int option = 99;
+    int NIF;
+    Cliente novoCliente, updateC;
+    Lista search;
 
+    while (option != 0){
+        printf("----Clientes----\n");
+        printf("1- Novo Cliente\n");
+        printf("2- Remover por NIF\n");
+        printf("3- Alterar por NIF\n");
+        printf("4- Consultar\n"); 
+        printf("0- Sair\n");
+
+        scanf("%d",&option);
+
+        switch (option){
+            case 1:
+                novoCliente = pedirCliente();
+                mainLista = InserirInicioLista(novoCliente,mainLista);
+                printf("Cliente Adicionado\n");
+            break;
+
+            case 2:
+                printf("Insira o NIF do Cliente a Remover: "); scanf("%d",&NIF);
+                search = PesquisaPorm(mainLista,NIF);
+
+                if(search==NULL){
+                    printf("Cliente não existe\n");
+                }else{
+                    mainLista = RemoverNodoLista(search->Cli,mainLista);
+                    printf("Cliente Removido\n");
+                }
+            break;
+
+            case 3:
+                printf("Insira o NIF do Cliente a Alterar: "); scanf("%d",&NIF);
+                search = PesquisaPorm(mainLista,NIF);
+
+                if(search==NULL){
+                    printf("Cliente não existe\n");
+                }else{
+                    printCliente(search->Cli);
+                    updateC = alterarCliente(search->Cli);
+                    mainLista = RemoverNodoLista(search->Cli,mainLista);
+                    mainLista = InserirInicioLista(updateC,mainLista);
+                    printf("Cliente Atualizado\n");
+                }
+            break;
+
+            case 4:
+                ListarLista(mainLista); 
+            break;
+
+            case 0:
+            break;
+        }
+    }
 }

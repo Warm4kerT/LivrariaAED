@@ -11,17 +11,18 @@ char *pathEncomendas;
 typedef struct Compra{
     int ISBM, quantidade;
     struct Compra *Prox;
-} *Compra;
+}*Compra;
 
 void printCompra(Compra b);
 int equalsCompra(Compra a, Compra b);
-Compra CriarNodoLista(int ISBM, int quantidade);
-Compra LibertarNodoLista(Compra L);
-Compra InserirInicioLista(int ISBM, int quantidade , Compra L);
-void ListarLista (Compra L);
-int PesquisaLista(int ISBM,Compra L);
-Compra ProcurarAnteriorLista (int ISBM, Compra L);
-Compra FreeLista(Compra L);
+Compra FreeCompra(Compra l);
+Compra CriarNodoCompra(int ISBM, int quantidade);
+Compra LibertarNodoCompra(Compra L);
+Compra InserirInicioCompra(int ISBM, int quantidade , Compra L);
+void ListarListaCompra (Compra L);
+int PesquisaCompra(int ISBM,Compra L);
+Compra ProcurarAnteriorCompra (int ISBM, Compra L);
+Compra FreeListaCompra(Compra L);
 
 
 //Cliente
@@ -34,7 +35,7 @@ typedef struct Cliente {
     int NIF, telefone;
     char *Nome;
     Morada MinhaMorada;
-    Compra *lista;
+    Compra lista;
 }Cliente;
 
 Cliente newCliente(int NIF, int Telefone, char *Nome, Morada morada);
@@ -45,8 +46,7 @@ int equalsMorada(Morada a, Morada b);
 int equalsCliente(Cliente a, Cliente b);
 
 //Lista ligada Cliente
- typedef struct ClienteLista
- {
+ typedef struct ClienteLista{
      Cliente Cli;
      struct ClienteLista *Prox;
  }*Lista;
@@ -139,15 +139,21 @@ Fila mainFila;
 
 Tree readLivros(char *path);
 void writeLivros(Tree books, char *path);
+Lista readClientes(char * path);
+void writeClientes(Lista clientes, char *path);
 
 //Menus
 
 void menuFiles();
 void menuBooks();
 void menuOrders();
+void MenuClientes();
 
 //Operacoes
 
 Livro pedirLivro();
 Livro alterarLivro(Livro book);
+
+Cliente pedirCliente();
+Cliente alterarCliente(Cliente cli);
 

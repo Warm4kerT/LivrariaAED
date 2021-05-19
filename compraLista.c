@@ -1,9 +1,23 @@
 #include "livraria.h"
 
 void printCompra(Compra b){
-    Tree livroaux = searchTreeISBM(mainTree, b->ISBM);
-    float PrecoTot = livroaux->book.preco * b->quantidade; 
-    printf( "ISBM: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n", b->ISBM, livroaux->book.titulo, b->quantidade, PrecoTot);
+	Compra list = b;
+	Tree livroaux;
+	while(list!=NULL){
+		livroaux = searchTreeISBM(mainTree, list->ISBM);
+		float PrecoTot = (livroaux->book.preco) * (list->quantidade);
+		printf( "ISBM: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n\n", list->ISBM, livroaux->book.titulo, list->quantidade, PrecoTot);
+		livroaux = NULL;
+		list = list->Prox;
+	}
+}
+
+Compra FreeCompra(Compra l){
+	l->Prox = NULL;
+	free(l);
+	l = NULL;
+	
+	return l;
 }
 
 int equalsCompra(Compra a, Compra b){
@@ -13,7 +27,7 @@ int equalsCompra(Compra a, Compra b){
     return 0;
 }
 
-Compra CriarNodoLista(int ISBM, int quantidade){
+Compra CriarNodoCompra(int ISBM, int quantidade){
 	Compra P;
 
 	P = (Compra) malloc(sizeof(struct Compra));
@@ -27,14 +41,14 @@ Compra CriarNodoLista(int ISBM, int quantidade){
 	return P;
 }	
 
-Compra LibertarNodoLista(Compra L){	
+Compra LibertarNodoCompra(Compra L){	
 	free(L);
 	L = NULL;
     return L;
 }
-Compra InserirInicioLista(int ISBM, int quantidade , Compra L){
+Compra InserirInicioCompra(int ISBM, int quantidade , Compra L){
 Compra P;
-	P = CriarNodoLista(ISBM, quantidade);
+	P = CriarNodoCompra(ISBM, quantidade);
 	if (P == NULL)
 		return L;
 	P->Prox = L;
@@ -42,14 +56,14 @@ Compra P;
 	return L;
 }
 
-void ListarLista (Compra L){
+void ListarCompra (Compra L){
 	while(L!=NULL){
 		printCompra(L);
 		L = L->Prox;
 	}
 }
 
-int PesquisaLista(int ISBM,Compra L){
+int PesquisaCompra(int ISBM,Compra L){
 	while((L != NULL) && (equalsCompra((L->ISBM), ISBM)!= 0)){
         L = L->Prox;
 	}
@@ -61,7 +75,7 @@ int PesquisaLista(int ISBM,Compra L){
 
 }
 
-Compra ProcurarAnteriorLista (int ISBM, Compra L){
+Compra ProcurarAnteriorCompra (int ISBM, Compra L){
   Compra  Ant = NULL; 
 	while (L != NULL && equalsCompra(L->ISBM, ISBM) != 0){
 	  Ant = L;
@@ -88,10 +102,10 @@ Compra RemoverNodoLista (Compra X, Compra L){
 }
 */
 
-Compra FreeLista(Compra L){
+Compra FreeListaCompras(Compra L){
     if(L == NULL) return NULL;
-    L->Prox = FreeLista(L->Prox);
-    return LibertarNodoLista(L);
+    L->Prox = FreeCompra(L->Prox);
+    return LibertarNodoCompra(L);
 }
 
 /*

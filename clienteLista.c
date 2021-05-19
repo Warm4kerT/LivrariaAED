@@ -19,13 +19,14 @@ Lista LibertarNodoLista(Lista L){
     return L;
 }
 Lista InserirInicioLista(Cliente CLI,Lista L){
-Lista P;
+	Lista P;
+	printCliente(CLI);
+	printCompra(CLI.lista);
 	P = CriarNodoLista(CLI);
 	if (P == NULL)
 		return L;
 	P->Prox = L;
-	L = P;
-	return L;
+	return P;
 }
 
 void ListarLista (Lista L){
@@ -40,10 +41,10 @@ int PesquisaLista(Cliente CLI,Lista L){
         L = L->Prox;
 	}
     
-		if(L == NULL)
-			return 0;
-		else
-			return 1;
+	if(L == NULL)
+		return 0;
+	else
+		return 1;
 
 }
 

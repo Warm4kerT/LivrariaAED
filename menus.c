@@ -308,3 +308,40 @@ void MenuClientes(){
         }
     }
 }
+
+
+void menuOperacoes(){
+    int option = 99;
+
+    int mes, ano, NIF, ISBM;
+
+    while(option!=0){
+        printf("----Operações----\n");
+        printf("1- Vendas Num Periodo de tempo\n");
+        printf("2- Ultima Venda de um Livro (ISBM)\n");
+        printf("3- Quantidade de Livros comprados Por Cliente (NIF)\n");
+        printf("0- Sair\n");
+
+        scanf("%d",&option);
+
+        switch(option){
+            case 1:
+                printf("Insira o mes e ano (mm/aaaa): "); scanf("%d/%d",&mes,&ano);
+                vendasNumPeriodo(mes,ano);
+                break;
+
+            case 2:
+                printf("Insira o ISBM do Livro a consultar: "); scanf("%d",&ISBM);
+                ultimaVendaLivro(ISBM);
+                break;
+
+            case 3:
+                printf("Insira o NIF do Cliente a Consultar: "); scanf("%d",&NIF);
+                quantidadeVendidaCliente(NIF);
+                break; 
+        
+            default:
+                break;
+        }
+    }
+}

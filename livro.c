@@ -16,6 +16,15 @@ Livro newLivro(int ISBM, int anoPub, int stock, float preco, char *titulo, char 
     return new;
 }
 
+Data newData(int dia, int mes, int ano){
+    Data new;
+    new.dia = dia;
+    new.mes = mes;
+    new.ano = ano;
+
+    return new;    
+}
+
 void printLivro(Livro b){
     printf( " ISBM: %d\n Titulo: %s\n Idioma: %s\n Autor 1: %s\n Autor 2: %s\n Editora: %s\n Ano de Publicacao: %d\n Area Cientifica: %s\n Preco: %f\n Stock: %d\n\n", 
             b.ISBM, b.titulo, b.idioma, b.primAutor, b.secAutor, b.editora, b.anoPub, b.area, b.preco, b.stock);

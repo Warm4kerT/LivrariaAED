@@ -88,5 +88,6 @@ Lista PesquisaPorm(Lista L, int NIF){
         if(p->Cli.NIF == NIF){
             return p;
         }
+		p = p->Prox;
     } return NULL;
 }

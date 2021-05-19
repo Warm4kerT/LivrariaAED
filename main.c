@@ -32,7 +32,7 @@ int main(){
             menuOrders();
             break;
         case 5:
-            /* code */
+            menuOperacoes();
             break;
         case 0:
             printf("Adeus\n");

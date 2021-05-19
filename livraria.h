@@ -7,22 +7,28 @@ char *pathLivros;
 char *pathClientes;
 char *pathEncomendas;
 
+//Data
+typedef struct Data{
+    int ano,mes,dia;
+}Data;
+
 //Compras
 typedef struct Compra{
     int ISBM, quantidade;
+    Data dataVenda;
     struct Compra *Prox;
 }*Compra;
 
 void printCompra(Compra b);
 int equalsCompra(Compra a, Compra b);
 Compra FreeCompra(Compra l);
-Compra CriarNodoCompra(int ISBM, int quantidade);
+Compra CriarNodoCompra(int ISBM, int quantidade, Data data);
 Compra LibertarNodoCompra(Compra L);
-Compra InserirInicioCompra(int ISBM, int quantidade , Compra L);
+Compra InserirInicioCompra(int ISBM, int quantidade, Data data, Compra L);
 void ListarListaCompra (Compra L);
 int PesquisaCompra(int ISBM,Compra L);
 Compra ProcurarAnteriorCompra (int ISBM, Compra L);
-Compra FreeListaCompra(Compra L);
+Compra FreeListaCompras(Compra L);
 
 
 //Cliente
@@ -73,6 +79,7 @@ typedef struct Livro{
 }Livro;
 
 Livro newLivro(int ISBM, int anoPub, int stock, float preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area);;
+Data newData(int dia, int mes, int ano);
 void printLivro(Livro b);
 int equalsLivro(Livro a, Livro b);
 
@@ -99,10 +106,6 @@ Tree removeNodeTree (Tree t, Livro l);
 Tree mainTree;
 
 //Encomendas
-typedef struct Data{
-    int ano,mes,dia;
-}Data;
-
 typedef struct Encomenda{
     int numEnc;
     int ISBMLivro, NIFCliente, numUnidades;
@@ -148,12 +151,17 @@ void menuFiles();
 void menuBooks();
 void menuOrders();
 void MenuClientes();
+void menuOperacoes();
 
-//Operacoes
+//Menu Auxiliar
 
 Livro pedirLivro();
 Livro alterarLivro(Livro book);
-
 Cliente pedirCliente();
 Cliente alterarCliente(Cliente cli);
 
+//Operações
+
+void vendasNumPeriodo(int mes, int ano);
+void ultimaVendaLivro(int ISBM);
+void quantidadeVendidaCliente(int NIF);

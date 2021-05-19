@@ -60,7 +60,9 @@ void writeLivros(Tree books, char *path){
 
 Lista readClientes(char * path){
     Compra lCompras = NULL;
+    Data newD;
     int ISBM, quantidade;
+    int ano,mes,dia;
     char *pathCompras =(char*) malloc(30*sizeof(char));
     FILE *compras;
    
@@ -89,8 +91,9 @@ Lista readClientes(char * path){
         compras = fopen(pathCompras,"r");
 
         if(compras!=NULL){
-            while(2==fscanf(compras,"%d %d",&ISBM,&quantidade)){
-                lCompras = InserirInicioCompra(ISBM,quantidade,lCompras);
+            while(5==fscanf(compras,"%d %d %d/%d/%d",&ISBM,&quantidade,&dia,&mes,&ano)){
+                newD = newData(dia,mes,ano);
+                lCompras = InserirInicioCompra(ISBM,quantidade,newD,lCompras);
                 if(EOF==fgetc(in))
                     break;
             }
@@ -100,9 +103,9 @@ Lista readClientes(char * path){
         newC.lista = lCompras;
         clientes = InserirInicioLista(newC,clientes);
 
-        lCompras = NULL;
+        lCompras = FreeListaCompras(lCompras);
         pathCompras = (char*) malloc(30*sizeof(char));
-        
+
         if(EOF==fgetc(in))
             break;
     }

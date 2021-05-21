@@ -15,20 +15,21 @@ typedef struct Data{
 //Compras
 typedef struct Compra{
     int ISBM, quantidade;
+    float precoTotal;
     Data dataVenda;
     struct Compra *Prox;
-}*Compra;
+}*ListaCompra;
 
-void printCompra(Compra b);
-int equalsCompra(Compra a, Compra b);
-Compra FreeCompra(Compra l);
-Compra CriarNodoCompra(int ISBM, int quantidade, Data data);
-Compra LibertarNodoCompra(Compra L);
-Compra InserirInicioCompra(int ISBM, int quantidade, Data data, Compra L);
-void ListarListaCompra (Compra L);
-int PesquisaCompra(int ISBM,Compra L);
-Compra ProcurarAnteriorCompra (int ISBM, Compra L);
-Compra FreeListaCompras(Compra L);
+void printCompra(ListaCompra b);
+int equalsCompra(ListaCompra a, ListaCompra b);
+ListaCompra FreeCompra(ListaCompra l);
+ListaCompra CriarNodoCompra(int ISBM, int quantidade, float precoTotal, Data data);
+ListaCompra LibertarNodoCompra(ListaCompra L);
+ListaCompra InserirInicioCompra(int ISBM, int quantidade, float precoTotal, Data data, ListaCompra L);
+void ListarCompra (ListaCompra L);
+int PesquisaCompra(int ISBM,ListaCompra L);
+ListaCompra ProcurarAnteriorCompra (int ISBM, ListaCompra L);
+ListaCompra FreeListaCompras(ListaCompra L);
 
 
 //Cliente
@@ -41,7 +42,7 @@ typedef struct Cliente {
     int NIF, telefone;
     char *Nome;
     Morada MinhaMorada;
-    Compra lista;
+    ListaCompra lista;
 }Cliente;
 
 Cliente newCliente(int NIF, int Telefone, char *Nome, Morada morada);
@@ -62,7 +63,7 @@ Lista CriarNodoLista(Cliente CLI);
 Lista LibertarNodoLista(Lista L);
 Lista InserirInicioLista(Cliente CLI,Lista L);
 void ListarLista (Lista L);
-int PesquisaLista(Cliente CLI,Lista L);
+int PesquisaLista(int NIF,Lista L);
 Lista ProcurarAnteriorLista (Cliente X, Lista L);
 Lista RemoverNodoLista (Cliente X, Lista L);
 Lista FreeLista(Lista L);
@@ -135,6 +136,7 @@ Fila removeFilaEspecifico(Fila F, int numEnc);
 int searchFilaNumEnc(Fila F, int numEnc);
 int numUltimaEncomenda(Fila F);
 void printFila(Fila F);
+Encomenda searchFilaEnc(Fila F, int numEnc);
 
 Fila mainFila;
 
@@ -159,6 +161,7 @@ Livro pedirLivro();
 Livro alterarLivro(Livro book);
 Cliente pedirCliente();
 Cliente alterarCliente(Cliente cli);
+Lista insereCompraCliente(int ISBM, int quantidade, float precoTotal, Data data, int NIF, Lista L);
 
 //Operações
 

@@ -20,24 +20,26 @@ Lista LibertarNodoLista(Lista L){
 }
 Lista InserirInicioLista(Cliente CLI,Lista L){
 	Lista P;
-	printCliente(CLI);
-	printCompra(CLI.lista);
 	P = CriarNodoLista(CLI);
+	
 	if (P == NULL)
 		return L;
+
 	P->Prox = L;
 	return P;
 }
 
 void ListarLista (Lista L){
-	while(L!=NULL){
-		printCliente(L->Cli);
-		L = L->Prox;
+	Lista P = L;
+	while(P!=NULL){
+		printCliente(P->Cli);
+		ListarCompra(P->Cli.lista);
+		P = P->Prox;
 	}
 }
 
-int PesquisaLista(Cliente CLI,Lista L){
-	while((L != NULL) && (equalsCliente((L->Cli),CLI)!= 0)){
+int PesquisaLista(int NIF,Lista L){
+	while((L != NULL) && (L->Cli.NIF != NIF)){
         L = L->Prox;
 	}
     

@@ -158,7 +158,6 @@ void menuBooks(){
 
 void menuOrders(){
     int options = 99;
-
     Tree search;
     Encomenda newOrder;
     int flag = 0;
@@ -195,7 +194,7 @@ void menuOrders(){
                     printf("Insira o NIF: "); scanf("%d",&NIFCliente);
                     //search clientes para verificar a existencia
                     
-                    if(NIFCliente == 0){
+                    if(PesquisaLista(NIFCliente,mainLista) == 0){
                         printf("Cliente não encontrado\n");
                     }else{
                         flag = 1;
@@ -227,10 +226,9 @@ void menuOrders(){
                     if(searchFilaNumEnc(mainFila,numEnc)==0){
                         printf("Encomenda não encontrada.\n");
                     }else{
+                        newOrder = searchFilaEnc(mainFila, numEnc);
+                        mainLista = insereCompraCliente(newOrder.ISBMLivro,newOrder.numUnidades,newOrder.preco,newOrder.venda,newOrder.NIFCliente,mainLista);
                         mainFila = removeFilaEspecifico(mainFila,numEnc);
-
-                        //Falta remover a encomenda do Cliente
-
                         printf("Encomenda Removida");
                         flag = 1;
                     }

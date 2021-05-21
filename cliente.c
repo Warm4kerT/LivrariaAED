@@ -20,7 +20,7 @@ Morada newMorada(char *Casa, char *Cidade, int COD1, int COD2){
 
 
 void printMorada(Morada b){
-    printf("Morada: %s  %s  %d-%d \n", b.Casa, b.Cidade, b.CODPostal[0], b.CODPostal[1]);
+    printf("Morada: %s  %s  %d-%d \n\n", b.Casa, b.Cidade, b.CODPostal[0], b.CODPostal[1]);
 }
 void printCliente(Cliente b){
     printf( "Nome: %s\n NIF: %d\n Telefone: %d\n", b.Nome, b.NIF, b.telefone);

@@ -95,6 +95,17 @@ int searchFilaNumEnc(Fila F, int numEnc){
     return 0;
 }
 
+Encomenda searchFilaEnc(Fila F, int numEnc){
+    while(F!=NULL){
+        if(F->order.numEnc==numEnc){
+            break;
+        }
+        F = F->prox;
+    }
+
+    return F->order;
+}
+
 int numUltimaEncomenda(Fila F){
     if(F==NULL){
         return 0;

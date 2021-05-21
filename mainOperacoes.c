@@ -2,7 +2,7 @@
 
 void vendasNumPeriodo(int mes, int ano){
     Lista P = mainLista;
-    Compra C = NULL;
+    ListaCompra C = NULL;
 
     while(P!=NULL){
         C = P->Cli.lista;
@@ -17,7 +17,7 @@ void vendasNumPeriodo(int mes, int ano){
 
 void ultimaVendaLivro(int ISBM){
     Lista P = mainLista;
-    Compra C = NULL;
+    ListaCompra C = NULL;
     Data final = newData(0,0,0);
     Data aux;
 
@@ -53,7 +53,7 @@ void quantidadeVendidaCliente(int NIF){
         return;
     }
 
-    Compra C = search->Cli.lista;
+    ListaCompra C = search->Cli.lista;
     int total = 0;
 
     while(C!=NULL){

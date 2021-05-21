@@ -1,14 +1,13 @@
 #include "livraria.h"
 
-void printCompra(Compra b){
-	Compra list = b;
+void printCompra(ListaCompra b){
+	ListaCompra list = b;
 	Tree livroaux;
 	livroaux = searchTreeISBM(mainTree, list->ISBM);
-	float PrecoTot = (livroaux->book.preco) * (list->quantidade);
-	printf( "ISBM: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n Data de Venda: %d/%d/%d\n\n", list->ISBM, livroaux->book.titulo, list->quantidade, PrecoTot, list->dataVenda.dia, list->dataVenda.mes, list->dataVenda.ano);
+	printf( "ISBM: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n Data de Venda: %d/%d/%d\n\n", list->ISBM, livroaux->book.titulo, list->quantidade, list->precoTotal, list->dataVenda.dia, list->dataVenda.mes, list->dataVenda.ano);
 }
 
-Compra FreeCompra(Compra l){
+ListaCompra FreeCompra(ListaCompra l){
 	l->Prox = NULL;
 	free(l);
 	l = NULL;
@@ -16,17 +15,17 @@ Compra FreeCompra(Compra l){
 	return l;
 }
 
-int equalsCompra(Compra a, Compra b){
+int equalsCompra(ListaCompra a, ListaCompra b){
         if((a->ISBM == b->ISBM) && (a->quantidade==b->quantidade)){
             return 1;
         }
     return 0;
 }
 
-Compra CriarNodoCompra(int ISBM, int quantidade, Data data){
-	Compra P;
+ListaCompra CriarNodoCompra(int ISBM, int quantidade, float precoTotal, Data data){
+	ListaCompra P;
 
-	P = (Compra) malloc(sizeof(struct Compra));
+	P = (ListaCompra) malloc(sizeof(struct Compra));
 
 	if (P == NULL)
 		return NULL;
@@ -34,19 +33,20 @@ Compra CriarNodoCompra(int ISBM, int quantidade, Data data){
     P->ISBM = ISBM;
     P->quantidade = quantidade;
 	P->dataVenda = data;
+	P->precoTotal = precoTotal;
 	P->Prox = NULL;
 	return P;
 }	
 
-Compra LibertarNodoCompra(Compra L){	
+ListaCompra LibertarNodoCompra(ListaCompra L){	
 	free(L);
 	L = NULL;
     return L;
 }
 
-Compra InserirInicioCompra(int ISBM, int quantidade, Data data, Compra L){
-	Compra P;
-	P = CriarNodoCompra(ISBM, quantidade, data);
+ListaCompra InserirInicioCompra(int ISBM, int quantidade, float precoTotal, Data data, ListaCompra L){
+	ListaCompra P;
+	P = CriarNodoCompra(ISBM, quantidade, precoTotal, data);
 	if (P == NULL)
 		return L;
 	P->Prox = L;
@@ -54,14 +54,14 @@ Compra InserirInicioCompra(int ISBM, int quantidade, Data data, Compra L){
 	return L;
 }
 
-void ListarCompra (Compra L){
+void ListarCompra (ListaCompra L){
 	while(L!=NULL){
 		printCompra(L);
 		L = L->Prox;
 	}
 }
 
-int PesquisaCompra(int ISBM,Compra L){
+int PesquisaCompra(int ISBM,ListaCompra L){
 	while((L != NULL) && (L->ISBM == ISBM)){
         L = L->Prox;
 	}
@@ -73,8 +73,8 @@ int PesquisaCompra(int ISBM,Compra L){
 
 }
 
-Compra ProcurarAnteriorCompra (int ISBM, Compra L){
-  Compra  Ant = NULL; 
+ListaCompra ProcurarAnteriorCompra (int ISBM, ListaCompra L){
+  ListaCompra Ant = NULL; 
 	while (L != NULL && (L->ISBM == ISBM)){
 	  Ant = L;
 		L = L->Prox;
@@ -82,7 +82,7 @@ Compra ProcurarAnteriorCompra (int ISBM, Compra L){
 	return Ant;
 }
 
-Compra FreeListaCompras(Compra L){
+ListaCompra FreeListaCompras(ListaCompra L){
     if(L == NULL) return NULL;
     L->Prox = FreeCompra(L->Prox);
     return LibertarNodoCompra(L);

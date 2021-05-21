@@ -269,3 +269,17 @@ Cliente alterarCliente(Cliente cli){
 
     return update;
 }
+
+Lista insereCompraCliente(int ISBM, int quantidade, float precoTotal, Data data, int NIF, Lista L){
+	Lista search, final;
+	Cliente updateC;
+	search = PesquisaPorm(L, NIF); 
+	updateC = search->Cli;
+
+	updateC.lista = InserirInicioCompra(ISBM,quantidade,precoTotal,data,search->Cli.lista);
+
+	final = RemoverNodoLista(search->Cli,L);
+    final = InserirInicioLista(updateC,final);
+
+	return final;
+}

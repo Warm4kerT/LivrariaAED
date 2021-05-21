@@ -26,6 +26,14 @@ Tree readLivros(char *path){
         new = newLivro(ISBM, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
 
         books = addNodoTree(books,new);
+
+        titulo = (char*) malloc(30*sizeof(char));
+        idioma = (char*) malloc(30*sizeof(char));
+        primAutor = (char*) malloc(30*sizeof(char)); 
+        secAutor = (char*) malloc(30*sizeof(char));
+        editora = (char*) malloc(30*sizeof(char));
+        area = (char*) malloc(30*sizeof(char));
+
         if(EOF==fgetc(in))
             break;
     }
@@ -59,9 +67,10 @@ void writeLivros(Tree books, char *path){
 }
 
 Lista readClientes(char * path){
-    Compra lCompras = NULL;
+    ListaCompra *lCompras = NULL;
     Data newD;
     int ISBM, quantidade;
+    float precoTotal;
     int ano,mes,dia;
     char *pathCompras =(char*) malloc(30*sizeof(char));
     FILE *compras;
@@ -83,7 +92,7 @@ Lista readClientes(char * path){
         return NULL;
     }
 
-    while (7==fscanf(in,"%d %d %s %s %s %d-%d ", &NIF, &telefone, nome, casa, cidade, &cod1, &cod2)){ 
+    while (7==fscanf(in,"%d %d %s %s %s %d-%d", &NIF, &telefone, nome, casa, cidade, &cod1, &cod2)){ 
         newM = newMorada(casa,cidade,cod1,cod2);
         newC = newCliente(NIF,telefone,nome,newM);
 
@@ -91,20 +100,31 @@ Lista readClientes(char * path){
         compras = fopen(pathCompras,"r");
 
         if(compras!=NULL){
-            while(5==fscanf(compras,"%d %d %d/%d/%d",&ISBM,&quantidade,&dia,&mes,&ano)){
+            printf("1\n");
+            while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBM,&quantidade,&precoTotal,&dia,&mes,&ano)){
                 newD = newData(dia,mes,ano);
-                lCompras = InserirInicioCompra(ISBM,quantidade,newD,lCompras);
-                if(EOF==fgetc(in))
+                printf("2\n");
+                lCompras = InserirInicioCompra(ISBM,quantidade,precoTotal,newD,lCompras);
+                printf("3\n");
+                if(EOF==fgetc(compras)){
+                    fclose(compras);
+                    printf("4\n");
                     break;
+                }
             }
-            fclose(compras);
         }
 
-        newC.lista = lCompras;
-        clientes = InserirInicioLista(newC,clientes);
+         printf("5\n");
 
-        lCompras = FreeListaCompras(lCompras);
+        newC.lista = lCompras;
+        printf("6\n");
+        clientes = InserirInicioLista(newC,clientes);
+        
+        lCompras = NULL;
         pathCompras = (char*) malloc(30*sizeof(char));
+        nome = (char*) malloc(30*sizeof(char));
+        casa = (char*) malloc(30*sizeof(char));
+        cidade = (char*) malloc(30*sizeof(char));
 
         if(EOF==fgetc(in))
             break;
@@ -115,7 +135,7 @@ Lista readClientes(char * path){
     return clientes;
 }
 
-void writeCompras(Compra lista, char *path){
+void writeCompras(ListaCompra lista, char *path){
     FILE *out;
     out = fopen(path,"w");
 
@@ -123,8 +143,10 @@ void writeCompras(Compra lista, char *path){
         return;
     }
 
-    while(lista!=NULL){
-        fprintf(out,"%d %d",lista->ISBM,lista->quantidade);
+    while(lista != NULL){
+        printf("teste 4\n");
+        fprintf(out,"%d %d %f %d/%d/%d\n",lista->ISBM,lista->quantidade,lista->precoTotal,lista->dataVenda.dia,lista->dataVenda.mes,lista->dataVenda.ano);
+        printf("teste 5\n");
         lista = lista->Prox;
     }
 
@@ -142,9 +164,13 @@ void writeClientes(Lista clientes, char *path){
     }
 
     while(P!=NULL){
-        fprintf(out,"%d %d %s %s %s %d-%d ", P->Cli.NIF, P->Cli.telefone, P->Cli.Nome, P->Cli.MinhaMorada.Casa, P->Cli.MinhaMorada.Cidade, P->Cli.MinhaMorada.CODPostal[0], P->Cli.MinhaMorada.CODPostal[1]);
+        printf("teste 1\n");
+        fprintf(out,"%d %d %s %s %s %d-%d\n", P->Cli.NIF, P->Cli.telefone, P->Cli.Nome, P->Cli.MinhaMorada.Casa, P->Cli.MinhaMorada.Cidade, P->Cli.MinhaMorada.CODPostal[0], P->Cli.MinhaMorada.CODPostal[1]);
+        printf("teste 2\n");
         sprintf(pathCompras,"Compras/%d.txt",P->Cli.NIF);
+        printf("teste 3\n");
         writeCompras(P->Cli.lista,pathCompras);
+        P = P->Prox;
     }
 
     fclose(out);

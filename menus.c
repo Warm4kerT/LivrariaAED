@@ -312,12 +312,16 @@ void menuOperacoes(){
     int option = 99;
 
     int mes, ano, NIF, ISBM;
+    ListaCompra show;
+    Tree livros;
+    int k;
 
     while(option!=0){
         printf("----Operações----\n");
         printf("1- Vendas Num Periodo de tempo\n");
         printf("2- Ultima Venda de um Livro (ISBM)\n");
         printf("3- Quantidade de Livros comprados Por Cliente (NIF)\n");
+        printf("5- Mostrar os K livros mais vendidos de um Periodo de tempo\n");
         printf("0- Sair\n");
 
         scanf("%d",&option);
@@ -325,7 +329,8 @@ void menuOperacoes(){
         switch(option){
             case 1:
                 printf("Insira o mes e ano (mm/aaaa): "); scanf("%d/%d",&mes,&ano);
-                vendasNumPeriodo(mes,ano);
+                show = vendasNumPeriodo(mes,ano);
+                ListarCompra(show);
                 break;
 
             case 2:
@@ -336,7 +341,15 @@ void menuOperacoes(){
             case 3:
                 printf("Insira o NIF do Cliente a Consultar: "); scanf("%d",&NIF);
                 quantidadeVendidaCliente(NIF);
-                break; 
+                break;
+
+            case 5:
+                printf("Insira o mes e ano (mm/aaaa): "); scanf("%d/%d",&mes,&ano);
+                printf("Insira o numero de livros: "); scanf("%d",&k);
+                show = vendasNumPeriodo(mes,ano);
+                livros = LivrosMaisVendidosK(show,k);
+                printTree(livros);
+                break;
         
             default:
                 break;

@@ -62,7 +62,7 @@ void ListarCompra (ListaCompra L){
 }
 
 int PesquisaCompra(int ISBM,ListaCompra L){
-	while((L != NULL) && (L->ISBM == ISBM)){
+	while((L != NULL) && (L->ISBM != ISBM)){
         L = L->Prox;
 	}
     
@@ -73,7 +73,7 @@ int PesquisaCompra(int ISBM,ListaCompra L){
 
 }
 
-ListaCompra ProcurarAnteriorCompra (int ISBM, ListaCompra L){
+ListaCompra ProcurarAnteriorCompraISBM (int ISBM, ListaCompra L){
   ListaCompra Ant = NULL; 
 	while (L != NULL && (L->ISBM == ISBM)){
 	  Ant = L;
@@ -82,40 +82,42 @@ ListaCompra ProcurarAnteriorCompra (int ISBM, ListaCompra L){
 	return Ant;
 }
 
+ListaCompra ProcurarAnteriorCompra(ListaCompra a, ListaCompra L){
+	ListaCompra ant;
+	while(L!=NULL && (equalsCompra(a,L)==0)){
+		ant = L;
+		L = L->Prox;
+	}
+
+	return ant;
+}
+
 ListaCompra FreeListaCompras(ListaCompra L){
     if(L == NULL) return NULL;
     L->Prox = FreeCompra(L->Prox);
     return LibertarNodoCompra(L);
 }
 
-// remover X da lista L, em que X está na lista
-/*
-Compra RemoverNodoLista (Compra X, Compra L){ 
-  Compra P, PAnt;
-	PAnt = ProcurarAnteriorLista(X, L); 
-	if (PAnt == NULL){   // remover elemento do início de L
-	  P = L;
-		L = L->Prox;
-	} 
-	else{
-	  P = PAnt->Prox;
-		PAnt->Prox = P->Prox; // ou (PAnt->Prox)->Prox
-	} 
-	LibertarNodoLista(P); 
-	return  L;
-}
-*/
+void swapCompra(ListaCompra a, ListaCompra b, ListaCompra L){
+	ListaCompra aAnt = ProcurarAnteriorCompra(a,L);
+	ListaCompra bAnt = ProcurarAnteriorCompra(b,L);
+	ListaCompra aux;
 
-/*
-Compra PesquisaPorm(Compra L, int NIF){
-    Compra p;
-    p = L;
-    if(L==NULL) 
-        return NULL;
-    while(p != NULL){
-        if(p->Cliente. == NIF){
-            return p;
-        }
-    } return NULL;
+	aux = b->Prox;
+	bAnt->Prox = a;
+	b->Prox = a->Prox;
+	a->Prox = aux;
+	aAnt->Prox = b;
 }
-*/
+
+ListaCompra bubbleSortCompra(ListaCompra L){
+	ListaCompra P = L;
+
+	while (P->Prox!=NULL){
+		if(P->quantidade < P->Prox->quantidade){
+			swapCompra(P,P->Prox,L);
+		}
+	}
+
+	return L;
+}

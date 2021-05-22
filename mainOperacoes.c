@@ -1,18 +1,21 @@
 #include "livraria.h"
 
-void vendasNumPeriodo(int mes, int ano){
+ListaCompra vendasNumPeriodo(int mes, int ano){
     Lista P = mainLista;
+    ListaCompra final;
     ListaCompra C = NULL;
 
     while(P!=NULL){
         C = P->Cli.lista;
         while(C!=NULL){
             if((C->dataVenda.mes == mes) && (C->dataVenda.ano == ano)){
-                printCompra(C);
+                final = InserirInicioCompra(C->ISBM, C->quantidade, C->precoTotal, C->dataVenda, final);
             }
         }
         P = P->Prox;
     }
+
+    return final;
 }
 
 void ultimaVendaLivro(int ISBM){
@@ -63,4 +66,32 @@ void quantidadeVendidaCliente(int NIF){
 
     printf("Quantidade vendida ao Cliente %d : %d\n\n",NIF,total);
 
+}
+
+
+Tree LivrosMaisVendidosK(ListaCompra L, int k){
+    ListaCompra P = L;
+    ListaCompra T, searchL;
+    Tree final, searchT;
+
+    while(P!=NULL){
+        if(PesquisaCompra(P->ISBM,T)==1){
+            searchL = ProcurarAnteriorCompraISBM(P->ISBM,T)->Prox;
+            searchL->quantidade = searchL->quantidade + P->quantidade;
+        }else{
+            T = InserirInicioCompra(P->ISBM, P->quantidade, P->precoTotal, P->dataVenda,T);
+        }
+
+        P = P->Prox;
+    }
+
+    T = bubbleSortCompra(T);
+
+    for(int i = k; i>=0; i--){
+        searchT = searchTreeISBM(mainTree,T->ISBM);
+        final = addNodoTree(final,searchT->book);
+        T = T->Prox;
+    }
+
+    return final;
 }

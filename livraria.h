@@ -28,9 +28,10 @@ ListaCompra LibertarNodoCompra(ListaCompra L);
 ListaCompra InserirInicioCompra(int ISBM, int quantidade, float precoTotal, Data data, ListaCompra L);
 void ListarCompra (ListaCompra L);
 int PesquisaCompra(int ISBM,ListaCompra L);
-ListaCompra ProcurarAnteriorCompra (int ISBM, ListaCompra L);
+ListaCompra ProcurarAnteriorCompraISBM (int ISBM, ListaCompra L);
 ListaCompra FreeListaCompras(ListaCompra L);
-
+void swapCompra(ListaCompra a, ListaCompra b, ListaCompra L);
+ListaCompra bubbleSortCompra(ListaCompra L);
 
 //Cliente
 typedef struct Morada{
@@ -165,6 +166,7 @@ Lista insereCompraCliente(int ISBM, int quantidade, float precoTotal, Data data,
 
 //Operações
 
-void vendasNumPeriodo(int mes, int ano);
+ListaCompra vendasNumPeriodo(int mes, int ano);
 void ultimaVendaLivro(int ISBM);
 void quantidadeVendidaCliente(int NIF);
+Tree LivrosMaisVendidosK(ListaCompra L, int k);

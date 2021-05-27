@@ -5,7 +5,7 @@ Tree readLivros(char *path){
     Tree books = NULL;
     Livro new;
 
-    int ISBM, anoPub, stock;
+    int ISBN, anoPub, stock;
     float preco;
     char *titulo = (char*) malloc(30*sizeof(char));
     char *idioma = (char*) malloc(30*sizeof(char));
@@ -21,9 +21,9 @@ Tree readLivros(char *path){
         return NULL;
     }
 
-    while (10==fscanf(in,"%d %s %s %s %s %s %d %s %f %d", &ISBM, titulo, idioma, primAutor, secAutor, editora, &anoPub, area, &preco, &stock)){ 
+    while (10==fscanf(in,"%d %s %s %s %s %s %d %s %f %d", &ISBN, titulo, idioma, primAutor, secAutor, editora, &anoPub, area, &preco, &stock)){ 
 
-        new = newLivro(ISBM, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
+        new = newLivro(ISBN, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
 
         books = addNodoTree(books,new);
 
@@ -45,7 +45,7 @@ Tree readLivros(char *path){
 
 void writeLoopLivro(Tree books, FILE *out){
     if(books!=NULL){
-        fprintf(out,"%d %s %s %s %s %s %d %s %f %d\n", books->book.ISBM, books->book.titulo, books->book.idioma, books->book.primAutor, books->book.secAutor, books->book.editora, books->book.anoPub, books->book.area, books->book.preco, books->book.stock);
+        fprintf(out,"%d %s %s %s %s %s %d %s %f %d\n", books->book.ISBN, books->book.titulo, books->book.idioma, books->book.primAutor, books->book.secAutor, books->book.editora, books->book.anoPub, books->book.area, books->book.preco, books->book.stock);
         writeLoopLivro(books->left,out);
         writeLoopLivro(books->right,out);
     }
@@ -69,7 +69,7 @@ void writeLivros(Tree books, char *path){
 Lista readClientes(char * path){
     ListaCompra *lCompras = NULL;
     Data newD;
-    int ISBM, quantidade;
+    int ISBN, quantidade;
     float precoTotal;
     int ano,mes,dia;
     char *pathCompras =(char*) malloc(30*sizeof(char));
@@ -101,10 +101,10 @@ Lista readClientes(char * path){
 
         if(compras!=NULL){
             printf("1\n");
-            while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBM,&quantidade,&precoTotal,&dia,&mes,&ano)){
+            while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBN,&quantidade,&precoTotal,&dia,&mes,&ano)){
                 newD = newData(dia,mes,ano);
                 printf("2\n");
-                lCompras = InserirInicioCompra(ISBM,quantidade,precoTotal,newD,lCompras);
+                lCompras = InserirInicioCompra(ISBN,quantidade,precoTotal,newD,lCompras);
                 printf("3\n");
                 if(EOF==fgetc(compras)){
                     fclose(compras);
@@ -145,7 +145,7 @@ void writeCompras(ListaCompra lista, char *path){
 
     while(lista != NULL){
         printf("teste 4\n");
-        fprintf(out,"%d %d %f %d/%d/%d\n",lista->ISBM,lista->quantidade,lista->precoTotal,lista->dataVenda.dia,lista->dataVenda.mes,lista->dataVenda.ano);
+        fprintf(out,"%d %d %f %d/%d/%d\n",lista->ISBN,lista->quantidade,lista->precoTotal,lista->dataVenda.dia,lista->dataVenda.mes,lista->dataVenda.ano);
         printf("teste 5\n");
         lista = lista->Prox;
     }

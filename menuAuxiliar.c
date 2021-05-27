@@ -1,7 +1,7 @@
 #include "livraria.h"
 
 Livro pedirLivro(){
-    int ISBM, anoPub, stock;
+    int ISBN, anoPub, stock;
     double preco;
     char *titulo = (char*) malloc(30*sizeof(char));
     char *idioma = (char*) malloc(30*sizeof(char));
@@ -12,7 +12,7 @@ Livro pedirLivro(){
 
     Livro new;
 
-    printf("Insira o ISBM: "); scanf("%d",&ISBM);
+    printf("Insira o ISBN: "); scanf("%d",&ISBN);
     printf("Insira o Titulo: "); scanf("%s",titulo);
     printf("Insira o Idioma: "); scanf("%s",idioma);
     printf("Insira o Primeiro Autor: "); scanf("%s",primAutor);
@@ -23,7 +23,7 @@ Livro pedirLivro(){
     printf("Insira o Preço: "); scanf("%le",&preco);
     printf("Insira o Stock: "); scanf("%d",&stock);
 
-    new = newLivro(ISBM, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
+    new = newLivro(ISBN, anoPub, stock, preco, titulo, idioma, primAutor, secAutor, editora, area);
 
     return new;
 }
@@ -32,7 +32,7 @@ Livro alterarLivro(Livro book){
     int option;
     Livro update = book;
 
-    int ISBM, anoPub, stock;
+    int ISBN, anoPub, stock;
     double preco;
     char *titulo = (char*) malloc(30*sizeof(char));
     char *idioma = (char*) malloc(30*sizeof(char));
@@ -42,7 +42,7 @@ Livro alterarLivro(Livro book){
     char *area = (char*) malloc(30*sizeof(char));
 
     printf("--Valor a Alterar--\n");
-    printf("1- ISBM\n");
+    printf("1- ISBN\n");
     printf("2- Titulo\n"); 
     printf("3- Idioma\n"); 
     printf("4- Primeiro Autor\n");
@@ -58,8 +58,8 @@ Livro alterarLivro(Livro book){
     switch (option)
     {
     case 1:
-        printf("Insira o novo ISBM: "); scanf("%d",&ISBM);
-        update.ISBM = ISBM;
+        printf("Insira o novo ISBN: "); scanf("%d",&ISBN);
+        update.ISBN = ISBN;
         break;
 
     case 2:
@@ -124,7 +124,7 @@ Livro alterarLivro(Livro book){
 void searchByMenu(){
     int option = 99;
 
-    int ISBM, anoPub;
+    int ISBN, anoPub;
     char *titulo = (char*) malloc(30*sizeof(char));
     char *idioma = (char*) malloc(30*sizeof(char));
     char *primAutor = (char*) malloc(30*sizeof(char)); 
@@ -133,7 +133,7 @@ void searchByMenu(){
     char *area = (char*) malloc(30*sizeof(char));
 
     printf("-- Procurar por --\n");
-    printf("1- ISBM\n");
+    printf("1- ISBN\n");
     printf("2- Titulo\n"); 
     printf("3- Idioma\n"); 
     printf("4- Primeiro Autor\n");
@@ -148,8 +148,8 @@ void searchByMenu(){
 
     switch (option){
     case 1:
-        printf("Insira o ISBM: "); scanf("%d",&ISBM);
-        printLivro((searchTreeISBM(mainTree,ISBM))->book);
+        printf("Insira o ISBN: "); scanf("%d",&ISBN);
+        printLivro((searchTreeISBM(mainTree,ISBN))->book);
         break;
 
     case 2:
@@ -270,13 +270,13 @@ Cliente alterarCliente(Cliente cli){
     return update;
 }
 
-Lista insereCompraCliente(int ISBM, int quantidade, float precoTotal, Data data, int NIF, Lista L){
+Lista insereCompraCliente(int ISBN, int quantidade, float precoTotal, Data data, int NIF, Lista L){
 	Lista search, final;
 	Cliente updateC;
 	search = PesquisaPorm(L, NIF); 
 	updateC = search->Cli;
 
-	updateC.lista = InserirInicioCompra(ISBM,quantidade,precoTotal,data,search->Cli.lista);
+	updateC.lista = InserirInicioCompra(ISBN,quantidade,precoTotal,data,search->Cli.lista);
 
 	final = RemoverNodoLista(search->Cli,L);
     final = InserirInicioLista(updateC,final);

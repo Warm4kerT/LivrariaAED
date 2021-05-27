@@ -81,19 +81,19 @@ Tree searchTree(Livro l, Tree t){
     return searchTree(l,t->right);
 }
 
-Tree searchTreeISBM(Tree t, int ISBM){
+Tree searchTreeISBM(Tree t, int ISBN){
     Tree n;
     if(t==NULL)
         return NULL;
 
-    if((t->book.ISBM) == ISBM)
+    if((t->book.ISBN) == ISBN)
         return t;
 
-    n = searchTreeISBM(t->left,ISBM);
+    n = searchTreeISBM(t->left,ISBN);
     if(n!=NULL)
         return n;
     
-    return searchTreeISBM(t->right,ISBM);
+    return searchTreeISBM(t->right,ISBN);
 }
 
 Tree searchLeafTree(Tree t, Livro *out){

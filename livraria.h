@@ -14,7 +14,7 @@ typedef struct Data{
 
 //Compras
 typedef struct Compra{
-    int ISBM, quantidade;
+    int ISBN, quantidade;
     float precoTotal;
     Data dataVenda;
     struct Compra *Prox;
@@ -23,12 +23,12 @@ typedef struct Compra{
 void printCompra(ListaCompra b);
 int equalsCompra(ListaCompra a, ListaCompra b);
 ListaCompra FreeCompra(ListaCompra l);
-ListaCompra CriarNodoCompra(int ISBM, int quantidade, float precoTotal, Data data);
+ListaCompra CriarNodoCompra(int ISBN, int quantidade, float precoTotal, Data data);
 ListaCompra LibertarNodoCompra(ListaCompra L);
-ListaCompra InserirInicioCompra(int ISBM, int quantidade, float precoTotal, Data data, ListaCompra L);
+ListaCompra InserirInicioCompra(int ISBN, int quantidade, float precoTotal, Data data, ListaCompra L);
 void ListarCompra (ListaCompra L);
-int PesquisaCompra(int ISBM,ListaCompra L);
-ListaCompra ProcurarAnteriorCompraISBM (int ISBM, ListaCompra L);
+int PesquisaCompra(int ISBN,ListaCompra L);
+ListaCompra ProcurarAnteriorCompraISBM (int ISBN, ListaCompra L);
 ListaCompra FreeListaCompras(ListaCompra L);
 void swapCompra(ListaCompra a, ListaCompra b, ListaCompra L);
 ListaCompra bubbleSortCompra(ListaCompra L);
@@ -75,12 +75,12 @@ Lista mainLista;
 
 //Livro
 typedef struct Livro{
-    int ISBM, anoPub, stock;
+    int ISBN, anoPub, stock;
     float preco;
     char *titulo, *idioma, *primAutor, *secAutor, *editora, *area;
 }Livro;
 
-Livro newLivro(int ISBM, int anoPub, int stock, float preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area);;
+Livro newLivro(int ISBN, int anoPub, int stock, float preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area);;
 Data newData(int dia, int mes, int ano);
 void printLivro(Livro b);
 int equalsLivro(Livro a, Livro b);
@@ -101,7 +101,7 @@ void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
 Tree searchLeafTree(Tree t, Livro *out);
 Tree addNodoTree(Tree t, Livro l);
-Tree searchTreeISBM(Tree t, int ISBM);
+Tree searchTreeISBM(Tree t, int ISBN);
 Tree removeNodeAux (Tree t);
 Tree removeNodeTree (Tree t, Livro l);
 
@@ -115,7 +115,7 @@ typedef struct Encomenda{
     Data enc, venda;
 }Encomenda;
 
-Encomenda newEncomenda(int numEnc, int ISBM, int NIF, int quantidade, float preco, Data enc, Data venda);
+Encomenda newEncomenda(int numEnc, int ISBN, int NIF, int quantidade, float preco, Data enc, Data venda);
 Data newDate(int dia, int mes, int ano);
 void printEncomenda(Encomenda o);
 
@@ -162,11 +162,11 @@ Livro pedirLivro();
 Livro alterarLivro(Livro book);
 Cliente pedirCliente();
 Cliente alterarCliente(Cliente cli);
-Lista insereCompraCliente(int ISBM, int quantidade, float precoTotal, Data data, int NIF, Lista L);
+Lista insereCompraCliente(int ISBN, int quantidade, float precoTotal, Data data, int NIF, Lista L);
 
 //Operações
 
 ListaCompra vendasNumPeriodo(int mes, int ano);
-void ultimaVendaLivro(int ISBM);
+void ultimaVendaLivro(int ISBN);
 void quantidadeVendidaCliente(int NIF);
 Tree LivrosMaisVendidosK(ListaCompra L, int k);

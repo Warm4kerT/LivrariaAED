@@ -3,8 +3,8 @@
 void printCompra(ListaCompra b){
 	ListaCompra list = b;
 	Tree livroaux;
-	livroaux = searchTreeISBM(mainTree, list->ISBM);
-	printf( "ISBM: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n Data de Venda: %d/%d/%d\n\n", list->ISBM, livroaux->book.titulo, list->quantidade, list->precoTotal, list->dataVenda.dia, list->dataVenda.mes, list->dataVenda.ano);
+	livroaux = searchTreeISBM(mainTree, list->ISBN);
+	printf( "ISBN: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n Data de Venda: %d/%d/%d\n\n", list->ISBN, livroaux->book.titulo, list->quantidade, list->precoTotal, list->dataVenda.dia, list->dataVenda.mes, list->dataVenda.ano);
 }
 
 ListaCompra FreeCompra(ListaCompra l){
@@ -16,13 +16,13 @@ ListaCompra FreeCompra(ListaCompra l){
 }
 
 int equalsCompra(ListaCompra a, ListaCompra b){
-        if((a->ISBM == b->ISBM) && (a->quantidade==b->quantidade)){
+        if((a->ISBN == b->ISBN) && (a->quantidade==b->quantidade)){
             return 1;
         }
     return 0;
 }
 
-ListaCompra CriarNodoCompra(int ISBM, int quantidade, float precoTotal, Data data){
+ListaCompra CriarNodoCompra(int ISBN, int quantidade, float precoTotal, Data data){
 	ListaCompra P;
 
 	P = (ListaCompra) malloc(sizeof(struct Compra));
@@ -30,7 +30,7 @@ ListaCompra CriarNodoCompra(int ISBM, int quantidade, float precoTotal, Data dat
 	if (P == NULL)
 		return NULL;
 
-    P->ISBM = ISBM;
+    P->ISBN = ISBN;
     P->quantidade = quantidade;
 	P->dataVenda = data;
 	P->precoTotal = precoTotal;
@@ -44,9 +44,9 @@ ListaCompra LibertarNodoCompra(ListaCompra L){
     return L;
 }
 
-ListaCompra InserirInicioCompra(int ISBM, int quantidade, float precoTotal, Data data, ListaCompra L){
+ListaCompra InserirInicioCompra(int ISBN, int quantidade, float precoTotal, Data data, ListaCompra L){
 	ListaCompra P;
-	P = CriarNodoCompra(ISBM, quantidade, precoTotal, data);
+	P = CriarNodoCompra(ISBN, quantidade, precoTotal, data);
 	if (P == NULL)
 		return L;
 	P->Prox = L;
@@ -61,8 +61,8 @@ void ListarCompra (ListaCompra L){
 	}
 }
 
-int PesquisaCompra(int ISBM,ListaCompra L){
-	while((L != NULL) && (L->ISBM != ISBM)){
+int PesquisaCompra(int ISBN,ListaCompra L){
+	while((L != NULL) && (L->ISBN != ISBN)){
         L = L->Prox;
 	}
     
@@ -73,9 +73,9 @@ int PesquisaCompra(int ISBM,ListaCompra L){
 
 }
 
-ListaCompra ProcurarAnteriorCompraISBM (int ISBM, ListaCompra L){
+ListaCompra ProcurarAnteriorCompraISBM (int ISBN, ListaCompra L){
   ListaCompra Ant = NULL; 
-	while (L != NULL && (L->ISBM == ISBM)){
+	while (L != NULL && (L->ISBN == ISBN)){
 	  Ant = L;
 		L = L->Prox;
 	} 

@@ -9,7 +9,7 @@ ListaCompra vendasNumPeriodo(int mes, int ano){
         C = P->Cli.lista;
         while(C!=NULL){
             if((C->dataVenda.mes == mes) && (C->dataVenda.ano == ano)){
-                final = InserirInicioCompra(C->ISBM, C->quantidade, C->precoTotal, C->dataVenda, final);
+                final = InserirInicioCompra(C->ISBN, C->quantidade, C->precoTotal, C->dataVenda, final);
             }
         }
         P = P->Prox;
@@ -18,7 +18,7 @@ ListaCompra vendasNumPeriodo(int mes, int ano){
     return final;
 }
 
-void ultimaVendaLivro(int ISBM){
+void ultimaVendaLivro(int ISBN){
     Lista P = mainLista;
     ListaCompra C = NULL;
     Data final = newData(0,0,0);
@@ -27,7 +27,7 @@ void ultimaVendaLivro(int ISBM){
     while(P!=NULL){
         C = P->Cli.lista;
         while(C!=NULL){
-            if(C->ISBM == ISBM){
+            if(C->ISBN == ISBN){
                 aux = C->dataVenda;
 
                 if((aux.ano>=final.ano) && (aux.mes>=final.mes) && (aux.dia>=final.dia)){
@@ -42,7 +42,7 @@ void ultimaVendaLivro(int ISBM){
     if(final.ano == 0 || final.dia == 0 || final.mes == 0){
         printf("Nunca foi vendido!\n\n");
     }else{
-        printf("Ultima compra do Livro %d : %d/%d/%d\n\n",ISBM,final.dia,final.mes,final.ano);
+        printf("Ultima compra do Livro %d : %d/%d/%d\n\n",ISBN,final.dia,final.mes,final.ano);
     }
 
     
@@ -75,11 +75,11 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
     Tree final, searchT;
 
     while(P!=NULL){
-        if(PesquisaCompra(P->ISBM,T)==1){
-            searchL = ProcurarAnteriorCompraISBM(P->ISBM,T)->Prox;
+        if(PesquisaCompra(P->ISBN,T)==1){
+            searchL = ProcurarAnteriorCompraISBM(P->ISBN,T)->Prox;
             searchL->quantidade = searchL->quantidade + P->quantidade;
         }else{
-            T = InserirInicioCompra(P->ISBM, P->quantidade, P->precoTotal, P->dataVenda,T);
+            T = InserirInicioCompra(P->ISBN, P->quantidade, P->precoTotal, P->dataVenda,T);
         }
 
         P = P->Prox;
@@ -88,7 +88,7 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
     T = bubbleSortCompra(T);
 
     for(int i = k; i>=0; i--){
-        searchT = searchTreeISBM(mainTree,T->ISBM);
+        searchT = searchTreeISBM(mainTree,T->ISBN);
         final = addNodoTree(final,searchT->book);
         T = T->Prox;
     }

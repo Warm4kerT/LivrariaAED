@@ -164,11 +164,8 @@ void writeClientes(Lista clientes, char *path){
     }
 
     while(P!=NULL){
-        printf("teste 1\n");
         fprintf(out,"%d %d %s %s %s %d-%d\n", P->Cli.NIF, P->Cli.telefone, P->Cli.Nome, P->Cli.MinhaMorada.Casa, P->Cli.MinhaMorada.Cidade, P->Cli.MinhaMorada.CODPostal[0], P->Cli.MinhaMorada.CODPostal[1]);
-        printf("teste 2\n");
         sprintf(pathCompras,"Compras/%d.txt",P->Cli.NIF);
-        printf("teste 3\n");
         writeCompras(P->Cli.lista,pathCompras);
         P = P->Prox;
     }

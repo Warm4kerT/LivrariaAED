@@ -117,6 +117,8 @@ ListaCompra bubbleSortCompra(ListaCompra L){
 		if(P->quantidade < P->Prox->quantidade){
 			swapCompra(P,P->Prox,L);
 		}
+		
+		P=P->Prox;
 	}
 
 	return L;

@@ -70,7 +70,7 @@ Lista RemoverNodoLista (Cliente X, Lista L);
 Lista FreeLista(Lista L);
 Lista PesquisaPorm(Lista L, int NIF);
 
- Lista mainLista;
+Lista mainLista;
  
 
 //Livro

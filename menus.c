@@ -98,15 +98,15 @@ void menuFiles(){
 
 void menuBooks(){
     int option = 99;
-    int ISBM;
+    int ISBN;
     Livro novoLivro, update;
     Tree search;
 
     while (option != 0){
         printf("----Livros----\n");
         printf("1- Novo Livro\n");
-        printf("2- Remover por ISBM\n");
-        printf("3- Alterar por ISBM\n");
+        printf("2- Remover por ISBN\n");
+        printf("3- Alterar por ISBN\n");
         printf("4- Consultar\n"); 
         printf("0- Sair\n");
 
@@ -120,8 +120,8 @@ void menuBooks(){
             break;
 
             case 2:
-                printf("Insira o ISBM do Livro a Remover: "); scanf("%d",&ISBM);
-                search = searchTreeISBM(mainTree,ISBM);
+                printf("Insira o ISBN do Livro a Remover: "); scanf("%d",&ISBN);
+                search = searchTreeISBN(mainTree,ISBN);
 
                 if(search==NULL){
                     printf("Livro não existe\n");
@@ -132,8 +132,8 @@ void menuBooks(){
             break;
 
             case 3:
-                printf("Insira o ISBM do Livro a Alterar: "); scanf("%d",&ISBM);
-                search = searchTreeISBM(mainTree,ISBM);
+                printf("Insira o ISBN do Livro a Alterar: "); scanf("%d",&ISBN);
+                search = searchTreeISBN(mainTree,ISBN);
 
                 if(search==NULL){
                     printf("Livro não existe\n");
@@ -162,7 +162,7 @@ void menuOrders(){
     Encomenda newOrder;
     int flag = 0;
     int numEnc;
-    int ISBMLivro, NIFCliente, numUnidades;
+    int ISBNLivro, NIFCliente, numUnidades;
     Data enc, venda;
 
     while(options!=0){
@@ -177,14 +177,14 @@ void menuOrders(){
         switch(options){
             case 1:
                 do{
-                    printf("Insira o ISBM: "); scanf("%d",&ISBMLivro);
-                    search = searchTreeISBM(mainTree, ISBMLivro);
+                    printf("Insira o ISBN: "); scanf("%d",&ISBNLivro);
+                    search = searchTreeISBN(mainTree, ISBNLivro);
                     
                     if(search==NULL){
                         printf("Livro não encontrado\n");
                     }else{
                         flag = 1;
-                        newOrder.ISBMLivro = ISBMLivro;
+                        newOrder.ISBNLivro = ISBNLivro;
                     }
                 }while(flag == 0);
 
@@ -227,7 +227,7 @@ void menuOrders(){
                         printf("Encomenda não encontrada.\n");
                     }else{
                         newOrder = searchFilaEnc(mainFila, numEnc);
-                        mainLista = insereCompraCliente(newOrder.ISBMLivro,newOrder.numUnidades,newOrder.preco,newOrder.venda,newOrder.NIFCliente,mainLista);
+                        mainLista = insereCompraCliente(newOrder.ISBNLivro,newOrder.numUnidades,newOrder.preco,newOrder.venda,newOrder.NIFCliente,mainLista);
                         mainFila = removeFilaEspecifico(mainFila,numEnc);
                         printf("Encomenda Removida");
                         flag = 1;
@@ -311,7 +311,7 @@ void MenuClientes(){
 void menuOperacoes(){
     int option = 99;
 
-    int mes, ano, NIF, ISBM;
+    int mes, ano, NIF, ISBN;
     ListaCompra show;
     Tree livros;
     int k;
@@ -319,7 +319,7 @@ void menuOperacoes(){
     while(option!=0){
         printf("----Operações----\n");
         printf("1- Vendas Num Periodo de tempo\n");
-        printf("2- Ultima Venda de um Livro (ISBM)\n");
+        printf("2- Ultima Venda de um Livro (ISBN)\n");
         printf("3- Quantidade de Livros comprados Por Cliente (NIF)\n");
         printf("5- Mostrar os K livros mais vendidos de um Periodo de tempo\n");
         printf("0- Sair\n");
@@ -334,8 +334,8 @@ void menuOperacoes(){
                 break;
 
             case 2:
-                printf("Insira o ISBM do Livro a consultar: "); scanf("%d",&ISBM);
-                ultimaVendaLivro(ISBM);
+                printf("Insira o ISBN do Livro a consultar: "); scanf("%d",&ISBN);
+                ultimaVendaLivro(ISBN);
                 break;
 
             case 3:

@@ -3,7 +3,7 @@
 Lista CriarNodoLista(Cliente CLI){
 	Lista P;
 
-	P = (Lista) malloc(sizeof(struct ClienteLista));
+	P = (Lista) malloc(sizeof(*P));
 
 	if (P == NULL)
 		return NULL;
@@ -19,8 +19,7 @@ Lista LibertarNodoLista(Lista L){
     return L;
 }
 Lista InserirInicioLista(Cliente CLI,Lista L){
-	Lista P;
-	printf("1\n");
+	Lista P = NULL;
 	P = CriarNodoLista(CLI);
 
 	if (P == NULL){
@@ -28,10 +27,7 @@ Lista InserirInicioLista(Cliente CLI,Lista L){
 		return L;
 	}
 
-	printf("3\n");
 	P->Prox = L;
-	printf("4\n");
-	ListarLista(P);
 	return P;
 }
 
@@ -39,8 +35,12 @@ void ListarLista (Lista L){
 	Lista P = L;
 	while(P!=NULL){
 		printCliente(P->Cli);
-		if(P->Cli.lista!=NULL)
+		
+		if(P->Cli.lista!=NULL){
+			printf("LISTA NAO NULL\n");
 			ListarCompra(P->Cli.lista);
+		}
+
 		P = P->Prox;
 	}
 }

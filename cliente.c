@@ -6,6 +6,7 @@ Cliente newCliente(int NIF, int Telefone, char *Nome, Morada morada){
     new.telefone = Telefone;
     new.Nome = Nome;
     new.MinhaMorada = morada;
+    new.lista = NULL;
     return new;
 }
 

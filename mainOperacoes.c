@@ -77,7 +77,7 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
 
     while(P!=NULL){
         if(PesquisaCompra(P->ISBN,T)==1){
-            searchL = ProcurarAnteriorCompraISBM(P->ISBN,T)->Prox;
+            searchL = ProcurarAnteriorCompraISBN(P->ISBN,T)->Prox;
             searchL->quantidade = searchL->quantidade + P->quantidade;
         }else{
             T = InserirInicioCompra(P->ISBN, P->quantidade, P->precoTotal, P->dataVenda,T);
@@ -89,7 +89,7 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
     T = bubbleSortCompra(T);
 
     for(int i = k+1; i>=0; i--){
-        searchT = searchTreeISBM(mainTree,T->ISBN);
+        searchT = searchTreeISBN(mainTree,T->ISBN);
         final = addNodoTree(final,searchT->book);
         if(T->Prox == NULL){
             break;

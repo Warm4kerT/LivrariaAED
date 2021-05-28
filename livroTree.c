@@ -81,7 +81,7 @@ Tree searchTree(Livro l, Tree t){
     return searchTree(l,t->right);
 }
 
-Tree searchTreeISBM(Tree t, int ISBN){
+Tree searchTreeISBN(Tree t, int ISBN){
     Tree n;
     if(t==NULL)
         return NULL;
@@ -89,11 +89,11 @@ Tree searchTreeISBM(Tree t, int ISBN){
     if((t->book.ISBN) == ISBN)
         return t;
 
-    n = searchTreeISBM(t->left,ISBN);
+    n = searchTreeISBN(t->left,ISBN);
     if(n!=NULL)
         return n;
     
-    return searchTreeISBM(t->right,ISBN);
+    return searchTreeISBN(t->right,ISBN);
 }
 
 Tree searchLeafTree(Tree t, Livro *out){
@@ -157,18 +157,14 @@ Tree removeNodeAux (Tree t){
 
 Tree removeNodeTree (Tree t, Livro l) {
     Tree p;
-    printf("passo1\n");
     if (t == NULL)
         return NULL;
     if (equalsLivro(t->book, l) == 0) {
         t = removeNodeAux(t);
         return t;
     }
-    printf("passo2\n");
     p = searchTree(l,t->left);
-    printf("passo3\n");
     if (p != NULL){
-        printf("passo4\n");
         t->left = removeNodeTree(t->left, l);
     }
     else{

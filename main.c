@@ -6,8 +6,8 @@ int main(){
     pathClientes = (char*) malloc(30*sizeof(char));
     pathEncomendas = (char*) malloc(30*sizeof(char));
 
-    mainLista = readClientes("clientes.txt");
     mainTree = readLivros("livros.txt");
+    mainLista = readClientes("clientes.txt");
 
     int mainOption = 99;
 

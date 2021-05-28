@@ -98,27 +98,47 @@ ListaCompra FreeListaCompras(ListaCompra L){
     return LibertarNodoCompra(L);
 }
 
-void swapCompra(ListaCompra a, ListaCompra b, ListaCompra L){
-	ListaCompra aAnt = ProcurarAnteriorCompra(a,L);
-	ListaCompra bAnt = ProcurarAnteriorCompra(b,L);
-	ListaCompra aux;
+int getSizeCompra(ListaCompra L){
+	int i=0;
+	while (L!=NULL){
+		++i;
+		L = L->Prox;
+	}
+	
+	return i;
+}
 
-	aux = b->Prox;
-	bAnt->Prox = a;
-	b->Prox = a->Prox;
-	a->Prox = aux;
-	aAnt->Prox = b;
+ListaCompra swapCompra(ListaCompra a, ListaCompra b, ListaCompra L){
+	ListaCompra aAnt;
+	
+	if(equalsCompra(a,L)==1){
+		a->Prox=b->Prox;
+		b->Prox=a;
+		L = b;
+	}else{
+		aAnt = ProcurarAnteriorCompra(a,L);
+		aAnt->Prox = b;
+		a->Prox = b->Prox;
+		b->Prox = a;
+	} 
+
+	return L;
 }
 
 ListaCompra bubbleSortCompra(ListaCompra L){
 	ListaCompra P = L;
+	int size = getSizeCompra(P);
 
-	while (P->Prox!=NULL){
-		if(P->quantidade < P->Prox->quantidade){
-			swapCompra(P,P->Prox,L);
+	for(int i=0;i < size-1;++i){
+
+		for(int j=0; j< size-i-1; ++j){
+			if(P->quantidade < P->Prox->quantidade){
+				L = swapCompra(P,P->Prox,L);
+			}else{
+				P=P->Prox;
+			}
 		}
-		
-		P=P->Prox;
+		P = L;
 	}
 
 	return L;

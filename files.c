@@ -100,24 +100,18 @@ Lista readClientes(char * path){
         compras = fopen(pathCompras,"r");
 
         if(compras!=NULL){
-            printf("1\n");
             while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBN,&quantidade,&precoTotal,&dia,&mes,&ano)){
                 newD = newData(dia,mes,ano);
-                printf("2\n");
                 lCompras = InserirInicioCompra(ISBN,quantidade,precoTotal,newD,lCompras);
-                printf("3\n");
                 if(EOF==fgetc(compras)){
                     fclose(compras);
-                    printf("4\n");
                     break;
                 }
             }
         }
 
-         printf("5\n");
-
         newC.lista = lCompras;
-        printf("6\n");
+
         clientes = InserirInicioLista(newC,clientes);
         
         lCompras = NULL;

@@ -20,12 +20,18 @@ Lista LibertarNodoLista(Lista L){
 }
 Lista InserirInicioLista(Cliente CLI,Lista L){
 	Lista P;
+	printf("1\n");
 	P = CriarNodoLista(CLI);
-	
-	if (P == NULL)
-		return L;
 
+	if (P == NULL){
+		printf("2\n");
+		return L;
+	}
+
+	printf("3\n");
 	P->Prox = L;
+	printf("4\n");
+	ListarLista(P);
 	return P;
 }
 
@@ -33,7 +39,8 @@ void ListarLista (Lista L){
 	Lista P = L;
 	while(P!=NULL){
 		printCliente(P->Cli);
-		ListarCompra(P->Cli.lista);
+		if(P->Cli.lista!=NULL)
+			ListarCompra(P->Cli.lista);
 		P = P->Prox;
 	}
 }

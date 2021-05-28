@@ -2,7 +2,7 @@
 
 ListaCompra vendasNumPeriodo(int mes, int ano){
     Lista P = mainLista;
-    ListaCompra final;
+    ListaCompra final = NULL;
     ListaCompra C = NULL;
 
     while(P!=NULL){
@@ -11,10 +11,11 @@ ListaCompra vendasNumPeriodo(int mes, int ano){
             if((C->dataVenda.mes == mes) && (C->dataVenda.ano == ano)){
                 final = InserirInicioCompra(C->ISBN, C->quantidade, C->precoTotal, C->dataVenda, final);
             }
+            C = C->Prox;
         }
         P = P->Prox;
     }
-
+    
     return final;
 }
 
@@ -71,7 +72,7 @@ void quantidadeVendidaCliente(int NIF){
 
 Tree LivrosMaisVendidosK(ListaCompra L, int k){
     ListaCompra P = L;
-    ListaCompra T, searchL;
+    ListaCompra T = NULL, searchL = NULL;
     Tree final, searchT;
 
     while(P!=NULL){
@@ -87,9 +88,12 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
 
     T = bubbleSortCompra(T);
 
-    for(int i = k; i>=0; i--){
+    for(int i = k+1; i>=0; i--){
         searchT = searchTreeISBM(mainTree,T->ISBN);
         final = addNodoTree(final,searchT->book);
+        if(T->Prox == NULL){
+            break;
+        }
         T = T->Prox;
     }
 

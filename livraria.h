@@ -30,7 +30,7 @@ void ListarCompra (ListaCompra L);
 int PesquisaCompra(int ISBN,ListaCompra L);
 ListaCompra ProcurarAnteriorCompraISBM (int ISBN, ListaCompra L);
 ListaCompra FreeListaCompras(ListaCompra L);
-void swapCompra(ListaCompra a, ListaCompra b, ListaCompra L);
+ListaCompra swapCompra(ListaCompra a, ListaCompra b, ListaCompra L);
 ListaCompra bubbleSortCompra(ListaCompra L);
 
 //Cliente

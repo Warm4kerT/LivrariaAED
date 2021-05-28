@@ -66,16 +66,38 @@ void writeLivros(Tree books, char *path){
     fclose(out);
 }
 
-Lista readClientes(char * path){
-    ListaCompra *lCompras = NULL;
+ListaCompra readCompras(char *path){
+    ListaCompra lCompras = NULL;
     Data newD;
     int ISBN, quantidade;
     float precoTotal;
     int ano,mes,dia;
-    char *pathCompras =(char*) malloc(30*sizeof(char));
     FILE *compras;
+
+    compras = fopen(path,"r");
+
+    if(compras == NULL){
+        return NULL;
+    }
+
+    while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBN,&quantidade,&precoTotal,&dia,&mes,&ano)){
+        newD = newData(dia,mes,ano);
+        lCompras = InserirInicioCompra(ISBN,quantidade,precoTotal,newD,lCompras);
+        if(EOF==fgetc(compras)){
+            fclose(compras);
+            break;
+        }
+    }
+
+    return lCompras;
+
+}
+
+Lista readClientes(char *path){
+    char *pathCompras =(char*) malloc(30*sizeof(char));
    
     Lista clientes = NULL;
+    Lista aux = (Lista) malloc(sizeof(*aux));
     Cliente newC;
     Morada newM;
     
@@ -92,29 +114,16 @@ Lista readClientes(char * path){
         return NULL;
     }
 
-    while (7==fscanf(in,"%d %d %s %s %s %d-%d", &NIF, &telefone, nome, casa, cidade, &cod1, &cod2)){ 
+    while (7==fscanf(in," %d %d %s %s %s %d-%d", &NIF, &telefone, nome, casa, cidade, &cod1, &cod2)){ 
         newM = newMorada(casa,cidade,cod1,cod2);
         newC = newCliente(NIF,telefone,nome,newM);
 
         sprintf(pathCompras,"Compras/%d.txt",NIF);
-        compras = fopen(pathCompras,"r");
 
-        if(compras!=NULL){
-            while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBN,&quantidade,&precoTotal,&dia,&mes,&ano)){
-                newD = newData(dia,mes,ano);
-                lCompras = InserirInicioCompra(ISBN,quantidade,precoTotal,newD,lCompras);
-                if(EOF==fgetc(compras)){
-                    fclose(compras);
-                    break;
-                }
-            }
-        }
-
-        newC.lista = lCompras;
+        newC.lista = readCompras(pathCompras);
 
         clientes = InserirInicioLista(newC,clientes);
-        
-        lCompras = NULL;
+    
         pathCompras = (char*) malloc(30*sizeof(char));
         nome = (char*) malloc(30*sizeof(char));
         casa = (char*) malloc(30*sizeof(char));

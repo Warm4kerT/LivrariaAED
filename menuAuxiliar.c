@@ -149,7 +149,7 @@ void searchByMenu(){
     switch (option){
     case 1:
         printf("Insira o ISBN: "); scanf("%d",&ISBN);
-        printLivro((searchTreeISBM(mainTree,ISBN))->book);
+        printLivro((searchTreeISBN(mainTree,ISBN))->book);
         break;
 
     case 2:

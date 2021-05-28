@@ -1,10 +1,9 @@
 #include "livraria.h"
 
 void printCompra(ListaCompra b){
-	ListaCompra list = b;
-	Tree livroaux;
-	livroaux = searchTreeISBM(mainTree, list->ISBN);
-	printf( "ISBN: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n Data de Venda: %d/%d/%d\n\n", list->ISBN, livroaux->book.titulo, list->quantidade, list->precoTotal, list->dataVenda.dia, list->dataVenda.mes, list->dataVenda.ano);
+	printf("ISBN: %d\n", b->ISBN);
+	Tree livroaux = searchTreeISBN(mainTree, b->ISBN);
+	printf( " ISBN: %d\n Nome: %s\n quantidade: %d\n Preço Total: %f\n Data de Venda: %d/%d/%d\n\n", b->ISBN, livroaux->book.titulo, b->quantidade, b->precoTotal, b->dataVenda.dia, b->dataVenda.mes, b->dataVenda.ano);
 }
 
 ListaCompra FreeCompra(ListaCompra l){
@@ -23,12 +22,7 @@ int equalsCompra(ListaCompra a, ListaCompra b){
 }
 
 ListaCompra CriarNodoCompra(int ISBN, int quantidade, float precoTotal, Data data){
-	ListaCompra P;
-
-	P = (ListaCompra) malloc(sizeof(struct Compra));
-
-	if (P == NULL)
-		return NULL;
+	ListaCompra P = (ListaCompra) malloc(sizeof(*P));
 
     P->ISBN = ISBN;
     P->quantidade = quantidade;
@@ -45,16 +39,21 @@ ListaCompra LibertarNodoCompra(ListaCompra L){
 }
 
 ListaCompra InserirInicioCompra(int ISBN, int quantidade, float precoTotal, Data data, ListaCompra L){
-	ListaCompra P;
+	ListaCompra P = NULL;
 	P = CriarNodoCompra(ISBN, quantidade, precoTotal, data);
 	if (P == NULL)
 		return L;
+
+	if(L == NULL){
+		return P;
+	}
+
 	P->Prox = L;
 	L = P;
 	return L;
 }
 
-void ListarCompra (ListaCompra L){
+void ListarCompra(ListaCompra L){
 	while(L!=NULL){
 		printCompra(L);
 		L = L->Prox;
@@ -66,14 +65,14 @@ int PesquisaCompra(int ISBN,ListaCompra L){
         L = L->Prox;
 	}
     
-		if(L == NULL)
-			return 0;
-		else
-			return 1;
+	if(L == NULL)
+		return 0;
+	else
+		return 1;
 
 }
 
-ListaCompra ProcurarAnteriorCompraISBM (int ISBN, ListaCompra L){
+ListaCompra ProcurarAnteriorCompraISBN (int ISBN, ListaCompra L){
   ListaCompra Ant = NULL; 
 	while (L != NULL && (L->ISBN == ISBN)){
 	  Ant = L;

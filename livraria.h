@@ -28,7 +28,7 @@ ListaCompra LibertarNodoCompra(ListaCompra L);
 ListaCompra InserirInicioCompra(int ISBN, int quantidade, float precoTotal, Data data, ListaCompra L);
 void ListarCompra (ListaCompra L);
 int PesquisaCompra(int ISBN,ListaCompra L);
-ListaCompra ProcurarAnteriorCompraISBM (int ISBN, ListaCompra L);
+ListaCompra ProcurarAnteriorCompraISBN(int ISBN, ListaCompra L);
 ListaCompra FreeListaCompras(ListaCompra L);
 ListaCompra swapCompra(ListaCompra a, ListaCompra b, ListaCompra L);
 ListaCompra bubbleSortCompra(ListaCompra L);
@@ -101,7 +101,7 @@ void printTree(Tree t);
 Tree searchTree(Livro l, Tree t);
 Tree searchLeafTree(Tree t, Livro *out);
 Tree addNodoTree(Tree t, Livro l);
-Tree searchTreeISBM(Tree t, int ISBN);
+Tree searchTreeISBN(Tree t, int ISBN);
 Tree removeNodeAux (Tree t);
 Tree removeNodeTree (Tree t, Livro l);
 
@@ -110,7 +110,7 @@ Tree mainTree;
 //Encomendas
 typedef struct Encomenda{
     int numEnc;
-    int ISBMLivro, NIFCliente, numUnidades;
+    int ISBNLivro, NIFCliente, numUnidades;
     float preco;
     Data enc, venda;
 }Encomenda;

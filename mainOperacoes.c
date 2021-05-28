@@ -100,7 +100,16 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
     return final;
 }
 
-Tree AreaCientificaKRecentes(int K, char * AC){
-    
-}
+Tree AreaCientificaKRecentes(Tree t, int K){~
+    K = 0;
+    int i = 0;
+    Livro l;
+    char AC;
+    printf(" Insira K Livros mais recentes: ");
+    scanf("%i", K);
+    while(i < K - 1){
+        searchTreeAC(t, AC);
+        }
+    }
+   
     

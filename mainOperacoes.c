@@ -99,3 +99,41 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
 
     return final;
 }
+
+int wastedLoopTree(Tree T){
+    
+    if(T == NULL){
+        return 0;
+    }
+
+    int count = 0;
+
+    count = count + (30 - strlen(T->book.titulo));
+    count = count + (30 - strlen(T->book.primAutor));
+    count = count + (30 - strlen(T->book.secAutor));
+    count = count + (30 - strlen(T->book.editora));
+    count = count + (30 - strlen(T->book.idioma));
+    count = count + (30 - strlen(T->book.area));
+
+    return wastedLoopTree(T->right)+wastedLoopTree(T->left)+count;
+}
+
+int wastedMemory(){
+    Lista P = mainLista;
+    Tree T = mainTree;
+    int total, clientes = 0, livro = 0;
+
+    while(P!=NULL){
+        clientes = clientes + (30 - strlen(P->Cli.Nome));
+        clientes = clientes + (30 - strlen(P->Cli.MinhaMorada.Casa));
+        clientes = clientes + (30 - strlen(P->Cli.MinhaMorada.Cidade));
+
+        P = P->Prox;
+    }
+
+    livro = wastedLoopTree(T);
+
+    total = clientes*sizeof(char) + livro*sizeof(char);
+
+    return total;
+}

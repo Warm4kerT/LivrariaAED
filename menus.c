@@ -322,6 +322,7 @@ void menuOperacoes(){
         printf("2- Ultima Venda de um Livro (ISBN)\n");
         printf("3- Quantidade de Livros comprados Por Cliente (NIF)\n");
         printf("5- Mostrar os K livros mais vendidos de um Periodo de tempo\n");
+        printf("11- Memória Desperdiçada\n");
         printf("0- Sair\n");
 
         scanf("%d",&option);
@@ -349,6 +350,11 @@ void menuOperacoes(){
                 show = vendasNumPeriodo(mes,ano);
                 livros = LivrosMaisVendidosK(show,k);
                 printTree(livros);
+                break;
+
+            case 11:
+                printf("Memória Despercidade: \n");
+                printf(" %d bytes\n",wastedMemory());
                 break;
         
             default:

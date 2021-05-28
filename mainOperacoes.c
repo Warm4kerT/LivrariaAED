@@ -100,6 +100,7 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
     return final;
 }
 
+<<<<<<< HEAD
 Tree AreaCientificaKRecentes(Tree t, int K){~
     K = 0;
     int i = 0;
@@ -113,3 +114,42 @@ Tree AreaCientificaKRecentes(Tree t, int K){~
     }
    
     
+=======
+int wastedLoopTree(Tree T){
+    
+    if(T == NULL){
+        return 0;
+    }
+
+    int count = 0;
+
+    count = count + (allocSize - strlen(T->book.titulo));
+    count = count + (allocSize - strlen(T->book.primAutor));
+    count = count + (allocSize - strlen(T->book.secAutor));
+    count = count + (allocSize - strlen(T->book.editora));
+    count = count + (allocSize - strlen(T->book.idioma));
+    count = count + (allocSize - strlen(T->book.area));
+
+    return wastedLoopTree(T->right)+wastedLoopTree(T->left)+count;
+}
+
+int wastedMemory(){
+    Lista P = mainLista;
+    Tree T = mainTree;
+    int total, clientes = 0, livro = 0;
+
+    while(P!=NULL){
+        clientes = clientes + (allocSize - strlen(P->Cli.Nome));
+        clientes = clientes + (allocSize - strlen(P->Cli.MinhaMorada.Casa));
+        clientes = clientes + (allocSize - strlen(P->Cli.MinhaMorada.Cidade));
+
+        P = P->Prox;
+    }
+
+    livro = wastedLoopTree(T);
+
+    total = clientes*sizeof(char) + livro*sizeof(char);
+
+    return total;
+}
+>>>>>>> 2b27de5a7cee49b567c842c5c81a24a5644f0522

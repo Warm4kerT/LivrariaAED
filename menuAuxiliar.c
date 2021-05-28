@@ -3,12 +3,12 @@
 Livro pedirLivro(){
     int ISBN, anoPub, stock;
     double preco;
-    char *titulo = (char*) malloc(30*sizeof(char));
-    char *idioma = (char*) malloc(30*sizeof(char));
-    char *primAutor = (char*) malloc(30*sizeof(char)); 
-    char *secAutor = (char*) malloc(30*sizeof(char));
-    char *editora = (char*) malloc(30*sizeof(char));
-    char *area = (char*) malloc(30*sizeof(char));
+    char *titulo = (char*) malloc(allocSize*sizeof(char));
+    char *idioma = (char*) malloc(allocSize*sizeof(char));
+    char *primAutor = (char*) malloc(allocSize*sizeof(char)); 
+    char *secAutor = (char*) malloc(allocSize*sizeof(char));
+    char *editora = (char*) malloc(allocSize*sizeof(char));
+    char *area = (char*) malloc(allocSize*sizeof(char));
 
     Livro new;
 
@@ -34,12 +34,12 @@ Livro alterarLivro(Livro book){
 
     int ISBN, anoPub, stock;
     double preco;
-    char *titulo = (char*) malloc(30*sizeof(char));
-    char *idioma = (char*) malloc(30*sizeof(char));
-    char *primAutor = (char*) malloc(30*sizeof(char)); 
-    char *secAutor = (char*) malloc(30*sizeof(char));
-    char *editora = (char*) malloc(30*sizeof(char));
-    char *area = (char*) malloc(30*sizeof(char));
+    char *titulo = (char*) malloc(allocSize*sizeof(char));
+    char *idioma = (char*) malloc(allocSize*sizeof(char));
+    char *primAutor = (char*) malloc(allocSize*sizeof(char)); 
+    char *secAutor = (char*) malloc(allocSize*sizeof(char));
+    char *editora = (char*) malloc(allocSize*sizeof(char));
+    char *area = (char*) malloc(allocSize*sizeof(char));
 
     printf("--Valor a Alterar--\n");
     printf("1- ISBN\n");
@@ -64,32 +64,32 @@ Livro alterarLivro(Livro book){
 
     case 2:
         printf("Insira o Titulo: "); scanf("%s",titulo);
-        update.titulo = (char*) malloc(30*sizeof(char));
+        update.titulo = (char*) malloc(allocSize*sizeof(char));
         update.titulo = titulo;
         break;
     
     case 3:
         printf("Insira o Idioma: "); scanf("%s",idioma);
-        update.idioma = (char*) malloc(30*sizeof(char));
+        update.idioma = (char*) malloc(allocSize*sizeof(char));
         update.idioma = idioma;
         break;
     
     case 4:
         printf("Insira o Primeiro Autor: "); scanf("%s",primAutor);
-        update.primAutor = (char*) malloc(30*sizeof(char));
+        update.primAutor = (char*) malloc(allocSize*sizeof(char));
         update.primAutor = primAutor;
         break;
     
     case 5:
         printf("Insira o Segundo Autor: "); scanf("%s",secAutor);
-        update.secAutor = (char*) malloc(30*sizeof(char));
+        update.secAutor = (char*) malloc(allocSize*sizeof(char));
         update.secAutor = secAutor;
         break;
         
     case 6:
         printf("Insira a Editora: "); scanf("%s",editora);
         memset(update.editora,0,1);
-        update.editora = (char*) malloc(30*sizeof(char));
+        update.editora = (char*) malloc(allocSize*sizeof(char));
         update.editora = editora;
         break;
     
@@ -100,7 +100,7 @@ Livro alterarLivro(Livro book){
     
     case 8:
         printf("Insira a Area Científica: "); scanf("%s",area);
-        update.area = (char*) malloc(30*sizeof(char));
+        update.area = (char*) malloc(allocSize*sizeof(char));
         update.area = area;
         break;
     
@@ -125,12 +125,12 @@ void searchByMenu(){
     int option = 99;
 
     int ISBN, anoPub;
-    char *titulo = (char*) malloc(30*sizeof(char));
-    char *idioma = (char*) malloc(30*sizeof(char));
-    char *primAutor = (char*) malloc(30*sizeof(char)); 
-    char *secAutor = (char*) malloc(30*sizeof(char));
-    char *editora = (char*) malloc(30*sizeof(char));
-    char *area = (char*) malloc(30*sizeof(char));
+    char *titulo = (char*) malloc(allocSize*sizeof(char));
+    char *idioma = (char*) malloc(allocSize*sizeof(char));
+    char *primAutor = (char*) malloc(allocSize*sizeof(char)); 
+    char *secAutor = (char*) malloc(allocSize*sizeof(char));
+    char *editora = (char*) malloc(allocSize*sizeof(char));
+    char *area = (char*) malloc(allocSize*sizeof(char));
 
     printf("-- Procurar por --\n");
     printf("1- ISBN\n");
@@ -198,9 +198,9 @@ void searchByMenu(){
 
 Cliente pedirCliente(){
     int NIF, telefone;
-    char *nome = (char*) malloc(30*sizeof(char));
-    char *casa = (char*) malloc(30*sizeof(char));
-    char *cidade = (char*) malloc(30*sizeof(char)); 
+    char *nome = (char*) malloc(allocSize*sizeof(char));
+    char *casa = (char*) malloc(allocSize*sizeof(char));
+    char *cidade = (char*) malloc(allocSize*sizeof(char)); 
     int cod1, cod2;
     Cliente newC;
     Morada newM;
@@ -224,9 +224,9 @@ Cliente alterarCliente(Cliente cli){
     Morada updateM;
 
     int NIF, telefone;
-    char *nome = (char*) malloc(30*sizeof(char));
-    char *casa = (char*) malloc(30*sizeof(char));
-    char *cidade = (char*) malloc(30*sizeof(char)); 
+    char *nome = (char*) malloc(allocSize*sizeof(char));
+    char *casa = (char*) malloc(allocSize*sizeof(char));
+    char *cidade = (char*) malloc(allocSize*sizeof(char)); 
     int cod1, cod2;
 
     printf("--Valor a Alterar--\n");
@@ -246,7 +246,7 @@ Cliente alterarCliente(Cliente cli){
 
     case 2:
         printf("Insira o NOme: "); scanf("%s",nome);
-        update.Nome = (char*) malloc(30*sizeof(char));
+        update.Nome = (char*) malloc(allocSize*sizeof(char));
         update.Nome = nome;
         break;
     

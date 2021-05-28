@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Memory size alloc
+#define allocSize 30
+
 //Paths
 char *pathLivros;
 char *pathClientes;
@@ -170,3 +173,4 @@ ListaCompra vendasNumPeriodo(int mes, int ano);
 void ultimaVendaLivro(int ISBN);
 void quantidadeVendidaCliente(int NIF);
 Tree LivrosMaisVendidosK(ListaCompra L, int k);
+int wastedMemory();

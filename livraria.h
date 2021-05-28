@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+//Memory size alloc
+#define allocSize 30
+
 //Paths
 char *pathLivros;
 char *pathClientes;

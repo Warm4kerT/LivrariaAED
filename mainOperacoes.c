@@ -108,12 +108,12 @@ int wastedLoopTree(Tree T){
 
     int count = 0;
 
-    count = count + (30 - strlen(T->book.titulo));
-    count = count + (30 - strlen(T->book.primAutor));
-    count = count + (30 - strlen(T->book.secAutor));
-    count = count + (30 - strlen(T->book.editora));
-    count = count + (30 - strlen(T->book.idioma));
-    count = count + (30 - strlen(T->book.area));
+    count = count + (allocSize - strlen(T->book.titulo));
+    count = count + (allocSize - strlen(T->book.primAutor));
+    count = count + (allocSize - strlen(T->book.secAutor));
+    count = count + (allocSize - strlen(T->book.editora));
+    count = count + (allocSize - strlen(T->book.idioma));
+    count = count + (allocSize - strlen(T->book.area));
 
     return wastedLoopTree(T->right)+wastedLoopTree(T->left)+count;
 }
@@ -124,9 +124,9 @@ int wastedMemory(){
     int total, clientes = 0, livro = 0;
 
     while(P!=NULL){
-        clientes = clientes + (30 - strlen(P->Cli.Nome));
-        clientes = clientes + (30 - strlen(P->Cli.MinhaMorada.Casa));
-        clientes = clientes + (30 - strlen(P->Cli.MinhaMorada.Cidade));
+        clientes = clientes + (allocSize - strlen(P->Cli.Nome));
+        clientes = clientes + (allocSize - strlen(P->Cli.MinhaMorada.Casa));
+        clientes = clientes + (allocSize - strlen(P->Cli.MinhaMorada.Cidade));
 
         P = P->Prox;
     }

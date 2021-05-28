@@ -2,9 +2,9 @@
 
 int main(){
     printf("Hello World!\n");
-    pathLivros = (char*) malloc(30*sizeof(char));
-    pathClientes = (char*) malloc(30*sizeof(char));
-    pathEncomendas = (char*) malloc(30*sizeof(char));
+    pathLivros = (char*) malloc(allocSize*sizeof(char));
+    pathClientes = (char*) malloc(allocSize*sizeof(char));
+    pathEncomendas = (char*) malloc(allocSize*sizeof(char));
 
     mainTree = readLivros("livros.txt");
     mainLista = readClientes("clientes.txt");

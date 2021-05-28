@@ -7,12 +7,12 @@ Tree readLivros(char *path){
 
     int ISBN, anoPub, stock;
     float preco;
-    char *titulo = (char*) malloc(30*sizeof(char));
-    char *idioma = (char*) malloc(30*sizeof(char));
-    char *primAutor = (char*) malloc(30*sizeof(char)); 
-    char *secAutor = (char*) malloc(30*sizeof(char));
-    char *editora = (char*) malloc(30*sizeof(char));
-    char *area = (char*) malloc(30*sizeof(char));
+    char *titulo = (char*) malloc(allocSize*sizeof(char));
+    char *idioma = (char*) malloc(allocSize*sizeof(char));
+    char *primAutor = (char*) malloc(allocSize*sizeof(char)); 
+    char *secAutor = (char*) malloc(allocSize*sizeof(char));
+    char *editora = (char*) malloc(allocSize*sizeof(char));
+    char *area = (char*) malloc(allocSize*sizeof(char));
 
     FILE *in;
     in = fopen(path,"r");
@@ -27,12 +27,12 @@ Tree readLivros(char *path){
 
         books = addNodoTree(books,new);
 
-        titulo = (char*) malloc(30*sizeof(char));
-        idioma = (char*) malloc(30*sizeof(char));
-        primAutor = (char*) malloc(30*sizeof(char)); 
-        secAutor = (char*) malloc(30*sizeof(char));
-        editora = (char*) malloc(30*sizeof(char));
-        area = (char*) malloc(30*sizeof(char));
+        titulo = (char*) malloc(allocSize*sizeof(char));
+        idioma = (char*) malloc(allocSize*sizeof(char));
+        primAutor = (char*) malloc(allocSize*sizeof(char)); 
+        secAutor = (char*) malloc(allocSize*sizeof(char));
+        editora = (char*) malloc(allocSize*sizeof(char));
+        area = (char*) malloc(allocSize*sizeof(char));
 
         if(EOF==fgetc(in))
             break;
@@ -94,7 +94,7 @@ ListaCompra readCompras(char *path){
 }
 
 Lista readClientes(char *path){
-    char *pathCompras =(char*) malloc(30*sizeof(char));
+    char *pathCompras =(char*) malloc(allocSize*sizeof(char));
    
     Lista clientes = NULL;
     Lista aux = (Lista) malloc(sizeof(*aux));
@@ -102,9 +102,9 @@ Lista readClientes(char *path){
     Morada newM;
     
     int NIF, telefone;
-    char *nome = (char*) malloc(30*sizeof(char));
-    char *casa = (char*) malloc(30*sizeof(char));
-    char *cidade = (char*) malloc(30*sizeof(char)); 
+    char *nome = (char*) malloc(allocSize*sizeof(char));
+    char *casa = (char*) malloc(allocSize*sizeof(char));
+    char *cidade = (char*) malloc(allocSize*sizeof(char)); 
     int cod1, cod2;
 
     FILE *in;
@@ -124,10 +124,10 @@ Lista readClientes(char *path){
 
         clientes = InserirInicioLista(newC,clientes);
     
-        pathCompras = (char*) malloc(30*sizeof(char));
-        nome = (char*) malloc(30*sizeof(char));
-        casa = (char*) malloc(30*sizeof(char));
-        cidade = (char*) malloc(30*sizeof(char));
+        pathCompras = (char*) malloc(allocSize*sizeof(char));
+        nome = (char*) malloc(allocSize*sizeof(char));
+        casa = (char*) malloc(allocSize*sizeof(char));
+        cidade = (char*) malloc(allocSize*sizeof(char));
 
         if(EOF==fgetc(in))
             break;
@@ -158,7 +158,7 @@ void writeCompras(ListaCompra lista, char *path){
 
 void writeClientes(Lista clientes, char *path){
     Lista P = clientes;
-    char *pathCompras = (char*) malloc(30*sizeof(char));
+    char *pathCompras = (char*) malloc(allocSize*sizeof(char));
     FILE *out;
     out = fopen(path,"w");
 

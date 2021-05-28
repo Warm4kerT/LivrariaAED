@@ -101,5 +101,6 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
 }
 
 Tree AreaCientificaKRecentes(int K, char * AC){
-    Tree T = mainTree;
+    
+}
     

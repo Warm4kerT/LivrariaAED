@@ -276,6 +276,8 @@ Lista insereCompraCliente(int ISBN, int quantidade, float precoTotal, Data data,
 	search = PesquisaPorm(L, NIF); 
 	updateC = search->Cli;
 
+    
+
 	updateC.lista = InserirInicioCompra(ISBN,quantidade,precoTotal,data,search->Cli.lista);
 
 	final = RemoverNodoLista(search->Cli,L);

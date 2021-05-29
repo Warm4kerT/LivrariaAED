@@ -1,5 +1,6 @@
-123455555 LivroDeTestesVol5 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 25
-111111111 LivroDeTestesVol1 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 50
-123333333 LivroDeTestesVol3 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 63
-122222222 LivroDeTestesVol2 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 2
-123444444 LivroDeTestesVol4 Portugues Teofilo Lenadro UBI 2021 Informática 6.69 29
+123455555 LivroDeTestesVol5 Portugues Teofilo Lenadro UBI 2021 Informática 6.690000 25
+111111111 LivroDeTestesVol1 Portugues Teofilo Lenadro UBI 2021 Informática 6.690000 50
+122222222 LivroDeTestesVol2 Portugues Teofilo Lenadro UBI 2021 Informática 6.690000 2
+256256256 OGuiFazMerda Tuga Guilherme Leandro Sanitas 2021 Picheleiro 420.690002 150
+123333333 LivroDeTestesVol3 Portugues Teofilo Lenadro UBI 2021 Informática 6.690000 63
+123444444 LivroDeTestesVol4 Portugues Teofilo Lenadro UBI 2021 Informática 6.690000 29

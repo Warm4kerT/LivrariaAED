@@ -117,7 +117,7 @@ Lista readClientes(char *path){
         return NULL;
     }
 
-    while (7==fscanf(in," %d %d %s %s %s %d-%d", &NIF, &telefone, nome, casa, cidade, &cod1, &cod2)){ 
+    while(7 == fscanf(in," %d %d %s %s %s %d-%d", &NIF, &telefone, nome, casa, cidade, &cod1, &cod2)){ 
         newM = newMorada(casa,cidade,cod1,cod2);
         newC = newCliente(NIF,telefone,nome,newM);
 

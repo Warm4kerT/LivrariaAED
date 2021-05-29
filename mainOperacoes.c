@@ -31,22 +31,30 @@ void ultimaVendaLivro(int ISBN){
             if(C->ISBN == ISBN){
                 aux = C->dataVenda;
 
-                if((aux.ano>=final.ano) && (aux.mes>=final.mes) && (aux.dia>=final.dia)){
+                if( aux.ano > final.ano ){
                     final = aux;
-                }
-            }   
+                }else if( aux.ano == final.ano){
+                    if( aux.mes > final.mes ){
+                        final = aux;
+                    }else if( aux.mes == final.mes ){
+                        if( aux.dia > final.dia ){
+                            final = aux;
+                        }else if( aux.dia == final.dia ){
+                            final = aux;
+                        }
+                    }
+                }      
+            }
             C = C->Prox;
-        }
-        P = P->Prox; 
+        } 
+        P = P->Prox;      
     }
 
     if(final.ano == 0 || final.dia == 0 || final.mes == 0){
         printf("Nunca foi vendido!\n\n");
     }else{
         printf("Ultima compra do Livro %d : %d/%d/%d\n\n",ISBN,final.dia,final.mes,final.ano);
-    }
-
-    
+    }      
 }
 
 void quantidadeVendidaCliente(int NIF){
@@ -102,6 +110,10 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
 
 int wastedLoopTree(Tree T){
 
+    if(T==NULL){
+        return 0;
+    }
+
     int count = 0;
 
     count = count + (30 - strlen(T->book.titulo));
@@ -119,6 +131,7 @@ int wastedMemory(){
     Tree T = mainTree;
 
     int total, clientes = 0, livros = 0;
+
 
     while (P!=NULL){
         clientes = clientes + (30 - strlen(P->Cli.Nome));
@@ -142,11 +155,8 @@ Cliente bigSpender(int ano, int mes){
     float shmoney = 0, aux = 0;
 
     while (P!=NULL){
-        printCliente(P->Cli);
-
         C = P->Cli.lista;
 
-        ListarCompra(C);
         if(C!=NULL){
             while(C!=NULL){
                 if(C->dataVenda.ano == ano && C->dataVenda.mes == mes){
@@ -158,15 +168,13 @@ Cliente bigSpender(int ano, int mes){
             printf("%s\n", P->Cli.Nome);
             if(aux > shmoney){
                 shmoney = aux;
-                printf("%s\n", P->Cli.Nome);
+                bigTimeSpender = newCliente(0,0,"NULL",newMorada("NULL","NULL",0000,000));
                 bigTimeSpender = newCliente(P->Cli.NIF,P->Cli.telefone,P->Cli.Nome,P->Cli.MinhaMorada);
             }
         }
         
         P = P->Prox;
     } 
-
-    printCliente(bigTimeSpender);
 
     return bigTimeSpender;
 }

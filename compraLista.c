@@ -74,9 +74,12 @@ int PesquisaCompra(int ISBN,ListaCompra L){
 
 ListaCompra ProcurarAnteriorCompraISBN (int ISBN, ListaCompra L){
   ListaCompra Ant = NULL; 
-	while (L != NULL && (L->ISBN == ISBN)){
-	  Ant = L;
+	while (L != NULL){
+		Ant = L;
 		L = L->Prox;
+		if(L->ISBN == ISBN){
+			break;
+		}
 	} 
 	return Ant;
 }
@@ -131,7 +134,7 @@ ListaCompra bubbleSortCompra(ListaCompra L){
 	for(int i=0;i < size-1;++i){
 
 		for(int j=0; j< size-i-1; ++j){
-			if(P->quantidade < P->Prox->quantidade){
+			if(P->quantidade > P->Prox->quantidade){
 				L = swapCompra(P,P->Prox,L);
 			}else{
 				P=P->Prox;

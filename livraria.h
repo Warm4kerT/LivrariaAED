@@ -105,6 +105,7 @@ Tree searchTree(Livro l, Tree t);
 Tree searchLeafTree(Tree t, Livro *out);
 Tree addNodoTree(Tree t, Livro l);
 Tree searchTreeISBN(Tree t, int ISBN);
+void searchTreeAC(Tree t, Tree *Final, char *AC);
 Tree removeNodeAux (Tree t);
 Tree removeNodeTree (Tree t, Livro l);
 
@@ -174,3 +175,4 @@ void ultimaVendaLivro(int ISBN);
 void quantidadeVendidaCliente(int NIF);
 Tree LivrosMaisVendidosK(ListaCompra L, int k);
 int wastedMemory();
+Cliente bigSpender(int ano, int mes);

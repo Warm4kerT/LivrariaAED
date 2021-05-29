@@ -82,7 +82,7 @@ Tree searchTree(Livro l, Tree t){
 }
 
    
-Tree searchTreeISBM(Tree t, int ISBN){
+Tree searchTreeISBN(Tree t, int ISBN){
     Tree n;
     if(t==NULL)
         return NULL;
@@ -90,26 +90,25 @@ Tree searchTreeISBM(Tree t, int ISBN){
     if((t->book.ISBN) == ISBN)
         return t;
 
-    n = searchTreeISBM(t->left,ISBN);
+    n = searchTreeISBN(t->left,ISBN);
     if(n!=NULL)
         return n;
     
-    return searchTreeISBM(t->right,ISBN);
+    return searchTreeISBN(t->right,ISBN);
 }
 
-Tree searchTreeAC(Tree t, char AC){
-    Tree n;
-    if (t==NULL)
-        return NULL;
-    if((t->book.area)==AC)
-        return t->book.titulo;
+void searchTreeAC(Tree t, Tree *Final, char *AC){
+    if (t==NULL){
+        Final = NULL;
+        return;
+    }
 
-n = searchTreeAC(t->left, AC);
-if(n!=NULL)
-    return n;
+    if(strcmp(t->book.area,AC) != 0){
+        *Final = addNodoTree(*Final,t->book);
+    }
 
-    return searchTreeAC(t->right, AC);
-
+    searchTreeAC(t->left,Final,AC);
+    searchTreeAC(t->right,Final,AC);
 }
 
 Tree searchLeafTree(Tree t, Livro *out){

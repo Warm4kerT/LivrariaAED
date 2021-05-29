@@ -73,16 +73,19 @@ ListaCompra readCompras(char *path){
     float precoTotal;
     int ano,mes,dia;
     FILE *compras;
-
+    
     compras = fopen(path,"r");
 
     if(compras == NULL){
+        printf("ITS NULL\n");
         return NULL;
     }
 
     while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBN,&quantidade,&precoTotal,&dia,&mes,&ano)){
         newD = newData(dia,mes,ano);
         lCompras = InserirInicioCompra(ISBN,quantidade,precoTotal,newD,lCompras);
+        printf("1");
+        ListarCompra(lCompras);
         if(EOF==fgetc(compras)){
             fclose(compras);
             break;
@@ -123,7 +126,9 @@ Lista readClientes(char *path){
         newC.lista = readCompras(pathCompras);
 
         clientes = InserirInicioLista(newC,clientes);
-    
+
+        ListarCompra(clientes->Cli.lista);    
+
         pathCompras = (char*) malloc(allocSize*sizeof(char));
         nome = (char*) malloc(allocSize*sizeof(char));
         casa = (char*) malloc(allocSize*sizeof(char));

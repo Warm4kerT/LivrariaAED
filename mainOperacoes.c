@@ -100,56 +100,80 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
     return final;
 }
 
-<<<<<<< HEAD
-Tree AreaCientificaKRecentes(Tree t, int K){~
-    K = 0;
-    int i = 0;
-    Livro l;
-    char AC;
-    printf(" Insira K Livros mais recentes: ");
-    scanf("%i", K);
-    while(i < K - 1){
-        searchTreeAC(t, AC);
-        }
-    }
-   
-    
-=======
 int wastedLoopTree(Tree T){
-    
-    if(T == NULL){
-        return 0;
-    }
 
     int count = 0;
 
-    count = count + (allocSize - strlen(T->book.titulo));
-    count = count + (allocSize - strlen(T->book.primAutor));
-    count = count + (allocSize - strlen(T->book.secAutor));
-    count = count + (allocSize - strlen(T->book.editora));
-    count = count + (allocSize - strlen(T->book.idioma));
-    count = count + (allocSize - strlen(T->book.area));
+    count = count + (30 - strlen(T->book.titulo));
+    count = count + (30 - strlen(T->book.primAutor));
+    count = count + (30 - strlen(T->book.secAutor));
+    count = count + (30 - strlen(T->book.editora));
+    count = count + (30 - strlen(T->book.area));
+    count = count + (30 - strlen(T->book.idioma));
 
-    return wastedLoopTree(T->right)+wastedLoopTree(T->left)+count;
+    return wastedLoopTree(T->left) + wastedLoopTree(T->right) + count;
 }
 
 int wastedMemory(){
     Lista P = mainLista;
     Tree T = mainTree;
-    int total, clientes = 0, livro = 0;
 
-    while(P!=NULL){
-        clientes = clientes + (allocSize - strlen(P->Cli.Nome));
-        clientes = clientes + (allocSize - strlen(P->Cli.MinhaMorada.Casa));
-        clientes = clientes + (allocSize - strlen(P->Cli.MinhaMorada.Cidade));
+    int total, clientes = 0, livros = 0;
+
+    while (P!=NULL){
+        clientes = clientes + (30 - strlen(P->Cli.Nome));
+        clientes = clientes + (30 - strlen(P->Cli.MinhaMorada.Casa));
+        clientes = clientes + (30 - strlen(P->Cli.MinhaMorada.Cidade));
 
         P = P->Prox;
     }
 
-    livro = wastedLoopTree(T);
-
-    total = clientes*sizeof(char) + livro*sizeof(char);
-
+    livros = wastedLoopTree(T);
+    
+    total = livros*sizeof(char) + clientes*sizeof(char);
+    
     return total;
 }
->>>>>>> 2b27de5a7cee49b567c842c5c81a24a5644f0522
+
+Cliente bigSpender(int ano, int mes){
+    Lista P = mainLista;
+    ListaCompra C = NULL;
+    Cliente bigTimeSpender;
+    float shmoney = 0, aux = 0;
+
+    while (P!=NULL){
+        printCliente(P->Cli);
+
+        C = P->Cli.lista;
+
+        ListarCompra(C);
+        if(C!=NULL){
+            while(C!=NULL){
+                if(C->dataVenda.ano == ano && C->dataVenda.mes == mes){
+                    aux = aux + C->precoTotal;
+                }
+                
+                C = C->Prox;
+            }
+            printf("%s\n", P->Cli.Nome);
+            if(aux > shmoney){
+                shmoney = aux;
+                printf("%s\n", P->Cli.Nome);
+                bigTimeSpender = newCliente(P->Cli.NIF,P->Cli.telefone,P->Cli.Nome,P->Cli.MinhaMorada);
+            }
+        }
+        
+        P = P->Prox;
+    } 
+
+    printCliente(bigTimeSpender);
+
+    return bigTimeSpender;
+}
+
+int AnoMaisLivros(Tree T, int Ano){
+    int ano = 1900;
+    
+}
+
+

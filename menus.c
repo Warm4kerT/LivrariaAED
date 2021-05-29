@@ -312,7 +312,9 @@ void menuOperacoes(){
     int option = 99;
 
     int mes, ano, NIF, ISBN;
+    char *area = (char*) malloc(allocSize*sizeof(char));
     ListaCompra show;
+    Cliente C;
     Tree livros;
     int k;
 
@@ -321,7 +323,9 @@ void menuOperacoes(){
         printf("1- Vendas Num Periodo de tempo\n");
         printf("2- Ultima Venda de um Livro (ISBN)\n");
         printf("3- Quantidade de Livros comprados Por Cliente (NIF)\n");
+        printf("4- Mostrar os K livros mais recentes de uma Area Cientifica\n");
         printf("5- Mostrar os K livros mais vendidos de um Periodo de tempo\n");
+        printf("10- Mostrar que mais gastou num Periodo de tempo\n"),
         printf("11- Memória Desperdiçada\n");
         printf("0- Sair\n");
 
@@ -339,9 +343,19 @@ void menuOperacoes(){
                 ultimaVendaLivro(ISBN);
                 break;
 
+
             case 3:
                 printf("Insira o NIF do Cliente a Consultar: "); scanf("%d",&NIF);
                 quantidadeVendidaCliente(NIF);
+                break;
+
+            case 4:
+                printf("Insira a Area Cientifica a consultar: "); scanf("%s",area);
+                searchTreeAC(mainTree,&livros,area);
+                if(livros != NULL){
+                    printTree(livros);
+                }
+                
                 break;
 
             case 5:
@@ -350,6 +364,12 @@ void menuOperacoes(){
                 show = vendasNumPeriodo(mes,ano);
                 livros = LivrosMaisVendidosK(show,k);
                 printTree(livros);
+                break;
+
+            case 10:
+                printf("Insira o mes e ano (mm/aaaa): "); scanf("%d/%d",&mes,&ano);
+                C = bigSpender(ano, mes);
+                printCliente(C);
                 break;
 
             case 11:

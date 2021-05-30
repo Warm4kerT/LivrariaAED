@@ -1,3 +1,7 @@
+/**
+ * @file encomenda.c
+*/
+
 #include "livraria.h"
 
 Encomenda newEncomenda(int numEnc, int ISBN, int NIF, int quantidade, float preco, Data enc, Data venda){

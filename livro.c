@@ -1,3 +1,7 @@
+
+/**
+ * @file livro.c
+*/
 #include "livraria.h"
 
 Livro newLivro(int ISBN, int anoPub, int stock, float preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area){

@@ -1,3 +1,7 @@
+/**
+ * @file cliente.c
+*/
+
 #include "livraria.h"
 
 Cliente newCliente(int NIF, int Telefone, char *Nome, Morada morada){

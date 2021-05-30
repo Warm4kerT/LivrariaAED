@@ -1,3 +1,8 @@
+
+/**
+ * @file mainOperacoes.c
+*/
+
 #include "livraria.h"
 
 ListaCompra vendasNumPeriodo(int mes, int ano){
@@ -205,7 +210,6 @@ Cliente maisLivrosComprados(){
 
         P = P->Prox;
     }
-
     return cli;
 }
 Tree KRecentesAC (Tree T, Livro l){

@@ -1,3 +1,7 @@
+/**
+ * @file menuAuxiliar.c
+*/
+
 #include "livraria.h"
 
 Livro pedirLivro(){

@@ -468,13 +468,13 @@ void menuOperacoes(){
         printf("1- Vendas Num Periodo de tempo\n");
         printf("2- Ultima Venda de um Livro (ISBN)\n");
         printf("3- Quantidade de Livros comprados Por Cliente (NIF)\n");
-        printf("4- Mostrar os K livros mais recentes de uma Area Cientifica\n");
+        printf("4- (Não Funciona) Mostrar os K livros mais recentes de uma Area Cientifica\n");
         printf("5- Mostrar os K livros mais vendidos de um Periodo de tempo\n");
-        printf("6- Determinar a Área Científica com mais livros\n");
+        printf("6- (Não Funciona) Determinar a Área Científica com mais livros\n");
         printf("7- Mostrar Cliente com mais Livros comprados\n");
         printf("8- Mostrar os Clientes por ordem decrescente do número de compras\n");
         printf("9- Determinar o Ano com mais publicações\n");
-        printf("10- Mostrar que mais gastou num Periodo de tempo\n"),
+        printf("10- Mostrar Cliente que mais gastou num Periodo de tempo\n"),
         printf("11- Memória Desperdiçada\n");
         printf("0- Sair\n");
 

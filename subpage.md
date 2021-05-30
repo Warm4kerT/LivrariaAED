@@ -21,7 +21,7 @@ ListaCompra vendasNumPeriodo(int mes, int ano){
     return final;
 }
 @endcode
-Explicação: 
+Explicação: Função de procura de compras num dado mês e ano. A função vai iterando na lista de Clientes e verifica cada lista de compras que o cliente contem. Se essa compra pertencer a esse mês e ano então adiciona a uma lista de Compras e no final devolve-a.
 
 2. Algoritmo Número 2:
 @code 
@@ -63,7 +63,7 @@ void ultimaVendaLivro(int ISBN){
     }      
 }
 @endcode
-Explicação: 
+Explicação: Esta função procura a mais recente compra de um Livro especificado pelo utilizador. Tal como a função alterior procura em cada lista de Compras de cada Cliente. Se encontrar alguma compra com o ISBN dado pelo Utilizador então guarda essa Data, até encontrar uma mais recente com esses critérios. No final apresenta a data.
 
 3.  Algoritmo Número 3:
 @code 
@@ -87,7 +87,7 @@ void quantidadeVendidaCliente(int NIF){
 
 }
 @endcode
-Explicação: 
+Explicação: Função simples de interpeção, conta o numero de Livros que um Cliente comprou. É invocada um função de pesquisa do Cliente dado pelo Utilizador e esse Cliente e guardado num apontador. Depois iteramos na lista de Compras contando o numero de livros. No final esse valor é apresentado.
 
 4.  Algoritmo Número 4:
 @code 
@@ -121,7 +121,7 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k){
     return final;
 }
 @endcode
-Explicação: 
+Explicação: Nesta função recebemos já uma lista de Compras do mês e ano especificos e depois fazemos uma "condensação" dessa lista. Isto é removemos compras dos mesmos Livros guardando numa so compra a quantidade total de Livros vendidos numa so compra. Após esse processo organizamos a lista através de um BubbleSort e apresentamos k Livros através do ISBN da Compra. 
 
 5.  Algoritmo Número 5:
 @code 
@@ -165,7 +165,7 @@ int wastedMemory(){
     return total;
 }
 @endcode
-Explicação: 
+Explicação: Estas duas funções trabalham em conjunto para determinar a memória desperdiçada pelas estruturas de dados dos Livros e Clientes. Como o espaço reservado para cada String é a mesma, este calculo é simples de fazer. A primeira função calcula o espaço desperdiçado pela árvore e o segundo calcula o desperdicio dos Clientes e junta os dois valores e devolve a quantidade de bytes desperdiçados.
 
 6.  Algoritmo Número 6:
 @code 
@@ -200,7 +200,7 @@ Cliente bigSpender(int ano, int mes){
     return bigTimeSpender;
 }
 @endcode
-Explicação: 
+Explicação: Esta função procura faz o somatório de valor gasto dos Clientes num dado mês e ano, guardando sempre o maior valor gasto e o Cliente em questão. No final devolve o Cliente que mais gastou nesse período de tempo.
 
 7.  Algoritmo Número 7:
 @code
@@ -215,11 +215,7 @@ int numLivrosComprados(Cliente P){
     
     return numL;
 }
-@endcode
-Explicação:
 
-8.  Algoritmo Número 8:
-@code
 Cliente maisLivrosComprados(){
     Lista P = mainLista;
     Cliente cli;
@@ -237,38 +233,9 @@ Cliente maisLivrosComprados(){
     return cli;
 }
 @endcode
-Explicação:
+Explicação: Estas duas funções trabalham juntas para determinar que Cliente mais Livros comprou. A primeira determina o numero de Livros comprados por um Cliente expecifico. A segunda é o loop pela Lista de Clientes invocando a primeira função, guardando sempre o maior numero de livros e os eu respetivo Cliente. No final devolve o Cliente com mais Livros comprados.
 
-9.  Algoritmo Número 9:
-@code
-Tree KRecentesAC (Tree T, Livro l){
-    int K = 0, i;
-    Tree AC = T;
-    char AreaC[allocSize];
-    printf("Área Científca a ser pesquisada -> ");
-    scanf("%s", &AreaC[allocSize]);
-    printf("\nIntroduza o valor 'k' Livros mais recentes da Área pretendida");
-    scanf("%i", K);
-    while(i < K - 1){
-        if(T==NULL)
-            return NULL;
-    
-        if(strcmp(l.area , AreaC[allocSize])==0){
-            printLivro(T->book);
-            i++; 
-        }
-
-        AC = searchTree(l, T->left);
-        if(AC!=NULL)
-            return AC;
-
-        return searchTree(l, T->right);
-    }
-}
-@endcode
-Explicação:
-
-10.  Algoritmo Número 10:
+8.  Algoritmo Número 8:
 @code
 int contagemPorAno(Tree T, int ano){
     if(T==NULL){
@@ -300,76 +267,8 @@ int anoMaisPublicacoes(){
     return anoFinal;
 }
 @endcode
-Explicação:
+Explicação: Novamente duas funções que trabalham juntas para atingir um fim. A primeira faz a contagem de Livros num dado ano. A segunda vai verificar a quantidade de Livros para cada ano desde 2010 até 2021, devolvendo no final o ano com mais publicações.
 
-11.  Algoritmo Número 11:
-@code
-int contagemAreaCientifica(Tree T, char *area){
-    if(T==NULL){
-        return 0;
-    }
-
-    if(strcmp(T->book.area,area)==0){
-        return contagemAreaCientifica(T->left,area)+contagemAreaCientifica(T->right,area)+1;
-    }
-
-    return contagemAreaCientifica(T->left,area)+contagemAreaCientifica(T->right,area);
-}
-
-void getAreas(Tree T, char **areas, int *size){
-
-    int flag = 0;
-    int i = 0;
-    printf("%d\n",size);
-    if(T==NULL){
-        return;
-    }
-
-    if(size!=0){
-        for(i = 0; i < (size-1);++i){
-            printf("size!=0 %s\n",areas[i]);
-            if(strcmp(areas[i],T->book.area)==0){
-                flag = 1;
-            }
-        }
-    }
-    
-
-    if(flag == 1){
-        getAreas(T->left,areas,size);
-        getAreas(T->right,areas,size);
-    }else{
-        printf("NOVA AREA\n");
-        areas[i+1] = (char *) malloc(allocSize*sizeof(char));
-        areas[i+1] = T->book.area;
-        size = size+1;
-        getAreas(T->left,areas,size);
-        getAreas(T->right,areas,size);
-    }
-}
-
-char *areaMaisLivros(){
-    char **areas = (char**) malloc(allocSize*sizeof(char*));
-    char *areaFinal = (char*) malloc(allocSize*sizeof(char));
-    int size = 0, aux, final = 0;
-    getAreas(mainTree,areas,size);
-
-
-    printf("%d\n",size);
-
-    for(int i = 0; i < (size-1); ++i){
-        aux = contagemAreaCientifica(mainTree,areas[i]);
-        printf("%s\n",areas[i]);
-        if(aux > final){
-            final = aux;
-            areaFinal = areas[i];
-        }
-    }
-
-    return areaFinal;
-}
-@endcode
-Explicação:
 
 
 

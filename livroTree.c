@@ -191,3 +191,60 @@ Tree removeNodeTree (Tree t, Livro l) {
     }
     return t;
 }
+
+Tree pesquisaPorNome(Tree T, char* nome){
+    Tree n;
+    if(T == NULL){
+        return NULL;
+    }
+
+    if(strcmp(T->book.titulo,nome)==0){
+        return T;
+    }
+
+    n = pesquisaPorNome(T->right,nome);
+
+    if(n != NULL){
+        return n;
+    }
+
+    return pesquisaPorNome(T->left,nome);
+}
+
+Tree pesquisaPorAreaEditora(Tree T, char* editora, char* area){
+    Tree n;
+    if(T == NULL){
+        return NULL;
+    }
+
+    if(strcmp(T->book.area,area)==0 && strcmp(T->book.editora,editora)==0){
+        return T;
+    }
+
+    n = pesquisaPorAreaEditora(T->left,editora,area);
+
+    if(n != NULL){
+        return n;
+    }
+
+    return pesquisaPorAreaEditora(T->right,editora,area);
+}
+
+Tree pesquisaPorAutorAno(Tree T, char* autor, int ano){
+    Tree n;
+    if(T == NULL){
+        return NULL;
+    }
+
+    if((strcmp(T->book.primAutor,autor)==0 || strcmp(T->book.secAutor,autor)==0) && T->book.anoPub == ano){
+        return T;
+    }
+
+    n = pesquisaPorAutorAno(T->left,autor,ano);
+
+    if(n != NULL){
+        return n;
+    }
+
+    return pesquisaPorAutorAno(T->right,autor,ano);  
+}

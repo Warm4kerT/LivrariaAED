@@ -100,12 +100,88 @@ void menuFiles(){
     }   
 }
 
+void subMenuConsultaBooks(){
+    Tree search;
+    int ISBN;
+    int ano;
+    int option = 99;
+    char *nome = (char*) malloc(allocSize*sizeof(char));
+    char *editora = (char*) malloc(allocSize*sizeof(char));
+    char *autor = (char*) malloc(allocSize*sizeof(char));
+    char *area = (char*) malloc(allocSize*sizeof(char));
+
+    while (option != 0){
+        printf("----Consultar Livros----\n");
+        printf("1- Por ISBN\n");
+        printf("2- Por Nome\n");
+        printf("3- Por Area e Editora\n");
+        printf("4- Por Autor e Ano\n");
+        printf("5- Consultar tudo\n");
+        printf("0- Sair\n");
+
+        scanf("%d",&option);
+
+        switch (option){
+            case 1:
+                printf("Insira o ISBN do Livro a Procurar: "); scanf("%d",&ISBN);
+                search = searchTreeISBN(mainTree,ISBN);
+                
+                if(search!=NULL){
+                    printLivro(search->book);
+                }else{
+                    printf("Livro não encontrado!\n\n");
+                }
+            break;
+
+            case 2:
+                printf("Insira o Nome do Livro a Procurar: "); scanf("%s",nome);
+                search = pesquisaPorNome(mainTree,nome);
+                
+                if(search!=NULL){
+                    printLivro(search->book);
+                }else{
+                    printf("Livro não encontrado!\n\n");
+                }
+            break;
+
+            case 3:
+                printf("Insira a Editora do Livro a Procurar: "); scanf("%s",editora);
+                printf("Insira a Area do Livro a Procurar: "); scanf("%s",area);
+                search = pesquisaPorAreaEditora(mainTree,editora,area);
+                
+                if(search!=NULL){
+                    printLivro(search->book);
+                }else{
+                    printf("Livro não encontrado!\n\n");
+                }
+            break;
+
+            case 4:
+                printf("Insira o Autor do Livro a Procurar: "); scanf("%s",autor);
+                printf("Insira o Ano de Publicação do Livro a Procurar: "); scanf("%d",ano);
+                search = pesquisaPorAutorAno(mainTree,autor,ano);
+                
+                if(search!=NULL){
+                    printLivro(search->book);
+                }else{
+                    printf("Livro não encontrado!\n\n");
+                }
+            break;
+
+            case 5:
+                printTree(mainTree);
+            case 0:
+            break;
+        }
+    }
+}
+
 void menuBooks(){
     int option = 99;
     int ISBN;
     Livro novoLivro, update;
     Tree search;
-
+    
     while (option != 0){
         printf("----Livros----\n");
         printf("1- Novo Livro\n");
@@ -151,7 +227,7 @@ void menuBooks(){
             break;
 
             case 4:
-                printTree(mainTree); 
+                subMenuConsultaBooks();
             break;
 
             case 0:
@@ -351,7 +427,6 @@ void menuOperacoes(){
                 printf("Insira o ISBN do Livro a consultar: "); scanf("%d",&ISBN);
                 ultimaVendaLivro(ISBN);
                 break;
-
 
             case 3:
                 printf("Insira o NIF do Cliente a Consultar: "); scanf("%d",&NIF);

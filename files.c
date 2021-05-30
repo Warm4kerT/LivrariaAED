@@ -128,8 +128,6 @@ Lista readClientes(char *path){
 
         newC.lista = readCompras(pathCompras);
 
-        ListarCompra(newC.lista);
-
         clientes = InserirInicioLista(newC,clientes);
 
         pathCompras = (char*) malloc(allocSize*sizeof(char));

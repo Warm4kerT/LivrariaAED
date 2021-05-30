@@ -80,6 +80,8 @@ Lista RemoverNodoLista (Cliente X, Lista L);
 Lista FreeLista(Lista L);
 Lista PesquisaPorm(Lista L, int NIF);
 Lista bubbleSortClientes(Lista L);
+Lista pesquisaPorNomeCli(Lista L, char* nome);
+Lista pesquisaPorMorada(Lista L, char* morada);
 
 Lista mainLista;
  
@@ -116,6 +118,9 @@ Tree searchTreeISBN(Tree t, int ISBN);
 void searchTreeAC(Tree t, Tree *Final, char *AC);
 Tree removeNodeAux (Tree t);
 Tree removeNodeTree (Tree t, Livro l);
+Tree pesquisaPorNome(Tree T, char* nome);
+Tree pesquisaPorAreaEditora(Tree T, char* editora, char* area);
+Tree pesquisaPorAutorAno(Tree T, char* autor, int ano);
 
 Tree mainTree;
 
@@ -186,7 +191,6 @@ int wastedMemory();
 Cliente bigSpender(int ano, int mes);
 Cliente maisLivrosComprados();
 Tree KRecentesAC (Tree T, Livro l);
-
 int anoMaisPublicacoes();
 char *areaMaisLivros();
 

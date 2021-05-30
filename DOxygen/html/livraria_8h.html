@@ -257,6 +257,12 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>PesquisaLista</b> (int
 <tr class="memitem:ac75b3926c31f3eb43ee6de29a5eaabe7"><td class="memItemLeft" align="right" valign="top"><a id="ac75b3926c31f3eb43ee6de29a5eaabe7"></a>
 <a class="el" href="structClienteLista.html">Lista</a>&#160;</td><td class="memItemRight" valign="bottom"><b>bubbleSortClientes</b> (<a class="el" href="structClienteLista.html">Lista</a> L)</td></tr>
 <tr class="separator:ac75b3926c31f3eb43ee6de29a5eaabe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6abe1c116731225ccba9166906e8bb25"><td class="memItemLeft" align="right" valign="top"><a id="a6abe1c116731225ccba9166906e8bb25"></a>
+<a class="el" href="structClienteLista.html">Lista</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pesquisaPorNomeCli</b> (<a class="el" href="structClienteLista.html">Lista</a> L, char *nome)</td></tr>
+<tr class="separator:a6abe1c116731225ccba9166906e8bb25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74ab03b65c55bc88ff38a83760cd4ded"><td class="memItemLeft" align="right" valign="top"><a id="a74ab03b65c55bc88ff38a83760cd4ded"></a>
+<a class="el" href="structClienteLista.html">Lista</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pesquisaPorMorada</b> (<a class="el" href="structClienteLista.html">Lista</a> L, char *morada)</td></tr>
+<tr class="separator:a74ab03b65c55bc88ff38a83760cd4ded"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab189fa90a2a6ed519e44563a41edf07a"><td class="memItemLeft" align="right" valign="top"><a id="ab189fa90a2a6ed519e44563a41edf07a"></a>
 <a class="el" href="structLivro.html">Livro</a>&#160;</td><td class="memItemRight" valign="bottom"><b>newLivro</b> (int ISBN, int anoPub, int stock, float preco, char *titulo, char *idioma, char *primAutor, char *secAutor, char *editora, char *area)</td></tr>
 <tr class="separator:ab189fa90a2a6ed519e44563a41edf07a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -308,6 +314,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>searchTreeAC</b> (<a 
 <tr class="memitem:ad851ab467d66b8585ccd00e853ccc767"><td class="memItemLeft" align="right" valign="top"><a id="ad851ab467d66b8585ccd00e853ccc767"></a>
 <a class="el" href="structLivroTree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><b>removeNodeTree</b> (<a class="el" href="structLivroTree.html">Tree</a> t, <a class="el" href="structLivro.html">Livro</a> l)</td></tr>
 <tr class="separator:ad851ab467d66b8585ccd00e853ccc767"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad34b5cff8ae7db0a55c0a24322fdc0b2"><td class="memItemLeft" align="right" valign="top"><a id="ad34b5cff8ae7db0a55c0a24322fdc0b2"></a>
+<a class="el" href="structLivroTree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pesquisaPorNome</b> (<a class="el" href="structLivroTree.html">Tree</a> T, char *nome)</td></tr>
+<tr class="separator:ad34b5cff8ae7db0a55c0a24322fdc0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8fc19aff607561eb53cfd8d6f2d7a000"><td class="memItemLeft" align="right" valign="top"><a id="a8fc19aff607561eb53cfd8d6f2d7a000"></a>
+<a class="el" href="structLivroTree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pesquisaPorAreaEditora</b> (<a class="el" href="structLivroTree.html">Tree</a> T, char *editora, char *area)</td></tr>
+<tr class="separator:a8fc19aff607561eb53cfd8d6f2d7a000"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60e6827a4cc7a9cbbbba9e3ff7f19fb9"><td class="memItemLeft" align="right" valign="top"><a id="a60e6827a4cc7a9cbbbba9e3ff7f19fb9"></a>
+<a class="el" href="structLivroTree.html">Tree</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pesquisaPorAutorAno</b> (<a class="el" href="structLivroTree.html">Tree</a> T, char *autor, int ano)</td></tr>
+<tr class="separator:a60e6827a4cc7a9cbbbba9e3ff7f19fb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68e3eff2df96225bb5736a15ae9f9f3b"><td class="memItemLeft" align="right" valign="top"><a id="a68e3eff2df96225bb5736a15ae9f9f3b"></a>
 <a class="el" href="structEncomenda.html">Encomenda</a>&#160;</td><td class="memItemRight" valign="bottom"><b>newEncomenda</b> (int numEnc, int ISBN, int NIF, int quantidade, float preco, <a class="el" href="structData.html">Data</a> enc, <a class="el" href="structData.html">Data</a> venda)</td></tr>
 <tr class="separator:a68e3eff2df96225bb5736a15ae9f9f3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -373,16 +388,14 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="livr
 <tr class="memdesc:a910d65a31fc437bc9ef798fc3c8ae3c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu Ficheiros (Operações sobre os Ficheiros). <br /></td></tr>
 <tr class="separator:a910d65a31fc437bc9ef798fc3c8ae3c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a128a2e0cba229b66ba8df494000ff2cd"><td class="memItemLeft" align="right" valign="top"><a id="a128a2e0cba229b66ba8df494000ff2cd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="livraria_8h.html#a128a2e0cba229b66ba8df494000ff2cd">menuBooks</a> ()</td></tr>
-<tr class="memdesc:a128a2e0cba229b66ba8df494000ff2cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu Livros (Operações sobre os Livros). <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>menuBooks</b> ()</td></tr>
 <tr class="separator:a128a2e0cba229b66ba8df494000ff2cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4b0dd5fd4e1c18741bf4a9a1fbdc57a1"><td class="memItemLeft" align="right" valign="top"><a id="a4b0dd5fd4e1c18741bf4a9a1fbdc57a1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="livraria_8h.html#a4b0dd5fd4e1c18741bf4a9a1fbdc57a1">menuOrders</a> ()</td></tr>
 <tr class="memdesc:a4b0dd5fd4e1c18741bf4a9a1fbdc57a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu Encomendas (Operações sobre as Encomendas). <br /></td></tr>
 <tr class="separator:a4b0dd5fd4e1c18741bf4a9a1fbdc57a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0a3e5269ce9c5a33a9e80416c5d6aacd"><td class="memItemLeft" align="right" valign="top"><a id="a0a3e5269ce9c5a33a9e80416c5d6aacd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="livraria_8h.html#a0a3e5269ce9c5a33a9e80416c5d6aacd">MenuClientes</a> ()</td></tr>
-<tr class="memdesc:a0a3e5269ce9c5a33a9e80416c5d6aacd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Menu Clientes (Operações sobre os clientes). <br /></td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>MenuClientes</b> ()</td></tr>
 <tr class="separator:a0a3e5269ce9c5a33a9e80416c5d6aacd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a039f9d811050529f4b3d8b3a6966c835"><td class="memItemLeft" align="right" valign="top"><a id="a039f9d811050529f4b3d8b3a6966c835"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="livraria_8h.html#a039f9d811050529f4b3d8b3a6966c835">menuOperacoes</a> ()</td></tr>

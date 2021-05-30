@@ -169,6 +169,12 @@ int {\bfseries Pesquisa\+Lista} (int N\+IF, \mbox{\hyperlink{structClienteLista}
 \mbox{\Hypertarget{livraria_8h_ac75b3926c31f3eb43ee6de29a5eaabe7}\label{livraria_8h_ac75b3926c31f3eb43ee6de29a5eaabe7}} 
 \mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries bubble\+Sort\+Clientes} (\mbox{\hyperlink{structClienteLista}{Lista}} L)
 \item 
+\mbox{\Hypertarget{livraria_8h_a6abe1c116731225ccba9166906e8bb25}\label{livraria_8h_a6abe1c116731225ccba9166906e8bb25}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries pesquisa\+Por\+Nome\+Cli} (\mbox{\hyperlink{structClienteLista}{Lista}} L, char $\ast$nome)
+\item 
+\mbox{\Hypertarget{livraria_8h_a74ab03b65c55bc88ff38a83760cd4ded}\label{livraria_8h_a74ab03b65c55bc88ff38a83760cd4ded}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries pesquisa\+Por\+Morada} (\mbox{\hyperlink{structClienteLista}{Lista}} L, char $\ast$morada)
+\item 
 \mbox{\Hypertarget{livraria_8h_ab189fa90a2a6ed519e44563a41edf07a}\label{livraria_8h_ab189fa90a2a6ed519e44563a41edf07a}} 
 \mbox{\hyperlink{structLivro}{Livro}} {\bfseries new\+Livro} (int I\+S\+BN, int ano\+Pub, int stock, float preco, char $\ast$titulo, char $\ast$idioma, char $\ast$prim\+Autor, char $\ast$sec\+Autor, char $\ast$editora, char $\ast$area)
 \item 
@@ -219,6 +225,15 @@ void {\bfseries search\+Tree\+AC} (\mbox{\hyperlink{structLivroTree}{Tree}} t, \
 \item 
 \mbox{\Hypertarget{livraria_8h_ad851ab467d66b8585ccd00e853ccc767}\label{livraria_8h_ad851ab467d66b8585ccd00e853ccc767}} 
 \mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries remove\+Node\+Tree} (\mbox{\hyperlink{structLivroTree}{Tree}} t, \mbox{\hyperlink{structLivro}{Livro}} l)
+\item 
+\mbox{\Hypertarget{livraria_8h_ad34b5cff8ae7db0a55c0a24322fdc0b2}\label{livraria_8h_ad34b5cff8ae7db0a55c0a24322fdc0b2}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries pesquisa\+Por\+Nome} (\mbox{\hyperlink{structLivroTree}{Tree}} T, char $\ast$nome)
+\item 
+\mbox{\Hypertarget{livraria_8h_a8fc19aff607561eb53cfd8d6f2d7a000}\label{livraria_8h_a8fc19aff607561eb53cfd8d6f2d7a000}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries pesquisa\+Por\+Area\+Editora} (\mbox{\hyperlink{structLivroTree}{Tree}} T, char $\ast$editora, char $\ast$area)
+\item 
+\mbox{\Hypertarget{livraria_8h_a60e6827a4cc7a9cbbbba9e3ff7f19fb9}\label{livraria_8h_a60e6827a4cc7a9cbbbba9e3ff7f19fb9}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries pesquisa\+Por\+Autor\+Ano} (\mbox{\hyperlink{structLivroTree}{Tree}} T, char $\ast$autor, int ano)
 \item 
 \mbox{\Hypertarget{livraria_8h_a68e3eff2df96225bb5736a15ae9f9f3b}\label{livraria_8h_a68e3eff2df96225bb5736a15ae9f9f3b}} 
 \mbox{\hyperlink{structEncomenda}{Encomenda}} {\bfseries new\+Encomenda} (int num\+Enc, int I\+S\+BN, int N\+IF, int quantidade, float preco, \mbox{\hyperlink{structData}{Data}} enc, \mbox{\hyperlink{structData}{Data}} venda)
@@ -284,14 +299,14 @@ void {\bfseries write\+Clientes} (\mbox{\hyperlink{structClienteLista}{Lista}} c
 void \mbox{\hyperlink{livraria_8h_a910d65a31fc437bc9ef798fc3c8ae3c6}{menu\+Files}} ()
 \begin{DoxyCompactList}\small\item\em Menu Ficheiros (Operações sobre os Ficheiros). \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{livraria_8h_a128a2e0cba229b66ba8df494000ff2cd}\label{livraria_8h_a128a2e0cba229b66ba8df494000ff2cd}} 
-void \mbox{\hyperlink{livraria_8h_a128a2e0cba229b66ba8df494000ff2cd}{menu\+Books}} ()
-\begin{DoxyCompactList}\small\item\em Menu Livros (Operações sobre os Livros). \end{DoxyCompactList}\item 
+void {\bfseries menu\+Books} ()
+\item 
 \mbox{\Hypertarget{livraria_8h_a4b0dd5fd4e1c18741bf4a9a1fbdc57a1}\label{livraria_8h_a4b0dd5fd4e1c18741bf4a9a1fbdc57a1}} 
 void \mbox{\hyperlink{livraria_8h_a4b0dd5fd4e1c18741bf4a9a1fbdc57a1}{menu\+Orders}} ()
 \begin{DoxyCompactList}\small\item\em Menu Encomendas (Operações sobre as Encomendas). \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{livraria_8h_a0a3e5269ce9c5a33a9e80416c5d6aacd}\label{livraria_8h_a0a3e5269ce9c5a33a9e80416c5d6aacd}} 
-void \mbox{\hyperlink{livraria_8h_a0a3e5269ce9c5a33a9e80416c5d6aacd}{Menu\+Clientes}} ()
-\begin{DoxyCompactList}\small\item\em Menu Clientes (Operações sobre os clientes). \end{DoxyCompactList}\item 
+void {\bfseries Menu\+Clientes} ()
+\item 
 \mbox{\Hypertarget{livraria_8h_a039f9d811050529f4b3d8b3a6966c835}\label{livraria_8h_a039f9d811050529f4b3d8b3a6966c835}} 
 void \mbox{\hyperlink{livraria_8h_a039f9d811050529f4b3d8b3a6966c835}{menu\+Operacoes}} ()
 \begin{DoxyCompactList}\small\item\em Menu operações (Operações Funcionais presentes no nosso projeto). \end{DoxyCompactList}\item 

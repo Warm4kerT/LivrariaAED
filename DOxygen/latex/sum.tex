@@ -21,7 +21,7 @@
 \DoxyCodeLine{    return final;}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
+ Explicação\+: Função de procura de compras num dado mês e ano. A função vai iterando na lista de Clientes e verifica cada lista de compras que o cliente contem. Se essa compra pertencer a esse mês e ano então adiciona a uma lista de Compras e no final devolve-\/a.
 \item Algoritmo Número 2\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{void ultimaVendaLivro(int ISBN)\{}
@@ -62,7 +62,7 @@
 \DoxyCodeLine{    \}      }
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
+ Explicação\+: Esta função procura a mais recente compra de um \mbox{\hyperlink{structLivro}{Livro}} especificado pelo utilizador. Tal como a função alterior procura em cada lista de Compras de cada \mbox{\hyperlink{structCliente}{Cliente}}. Se encontrar alguma compra com o I\+S\+BN dado pelo Utilizador então guarda essa \mbox{\hyperlink{structData}{Data}}, até encontrar uma mais recente com esses critérios. No final apresenta a data.
 \item Algoritmo Número 3\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{void quantidadeVendidaCliente(int NIF)\{}
@@ -85,7 +85,7 @@
 \DoxyCodeLine{}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
+ Explicação\+: Função simples de interpeção, conta o numero de Livros que um \mbox{\hyperlink{structCliente}{Cliente}} comprou. É invocada um função de pesquisa do \mbox{\hyperlink{structCliente}{Cliente}} dado pelo Utilizador e esse \mbox{\hyperlink{structCliente}{Cliente}} e guardado num apontador. Depois iteramos na lista de Compras contando o numero de livros. No final esse valor é apresentado.
 \item Algoritmo Número 4\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Tree LivrosMaisVendidosK(ListaCompra L, int k)\{}
@@ -118,7 +118,7 @@
 \DoxyCodeLine{    return final;}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
+ Explicação\+: Nesta função recebemos já uma lista de Compras do mês e ano especificos e depois fazemos uma \char`\"{}condensação\char`\"{} dessa lista. Isto é removemos compras dos mesmos Livros guardando numa so compra a quantidade total de Livros vendidos numa so compra. Após esse processo organizamos a lista através de um Bubble\+Sort e apresentamos k Livros através do I\+S\+BN da \mbox{\hyperlink{structCompra}{Compra}}.
 \item Algoritmo Número 5\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{int wastedLoopTree(Tree T)\{}
@@ -161,7 +161,7 @@
 \DoxyCodeLine{    return total;}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
+ Explicação\+: Estas duas funções trabalham em conjunto para determinar a memória desperdiçada pelas estruturas de dados dos Livros e Clientes. Como o espaço reservado para cada String é a mesma, este calculo é simples de fazer. A primeira função calcula o espaço desperdiçado pela árvore e o segundo calcula o desperdicio dos Clientes e junta os dois valores e devolve a quantidade de bytes desperdiçados.
 \item Algoritmo Número 6\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{Cliente bigSpender(int ano, int mes)\{}
@@ -195,7 +195,7 @@
 \DoxyCodeLine{    return bigTimeSpender;}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
+ Explicação\+: Esta função procura faz o somatório de valor gasto dos Clientes num dado mês e ano, guardando sempre o maior valor gasto e o \mbox{\hyperlink{structCliente}{Cliente}} em questão. No final devolve o \mbox{\hyperlink{structCliente}{Cliente}} que mais gastou nesse período de tempo.
 \item Algoritmo Número 7\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{int numLivrosComprados(Cliente P)\{}
@@ -209,10 +209,7 @@
 \DoxyCodeLine{    }
 \DoxyCodeLine{    return numL;}
 \DoxyCodeLine{\}}
-\end{DoxyCode}
- Explicação\+:
-\item Algoritmo Número 8\+: 
-\begin{DoxyCode}{0}
+\DoxyCodeLine{}
 \DoxyCodeLine{Cliente maisLivrosComprados()\{}
 \DoxyCodeLine{    Lista P = mainLista;}
 \DoxyCodeLine{    Cliente cli;}
@@ -230,36 +227,8 @@
 \DoxyCodeLine{    return cli;}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
-\item Algoritmo Número 9\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{Tree KRecentesAC (Tree T, Livro l)\{}
-\DoxyCodeLine{    int K = 0, i;}
-\DoxyCodeLine{    Tree AC = T;}
-\DoxyCodeLine{    char AreaC[allocSize];}
-\DoxyCodeLine{    printf("Área Científca a ser pesquisada -\/> ");}
-\DoxyCodeLine{    scanf("\%s", \&AreaC[allocSize]);}
-\DoxyCodeLine{    printf("\(\backslash\)nIntroduza o valor 'k' Livros mais recentes da Área pretendida");}
-\DoxyCodeLine{    scanf("\%i", K);}
-\DoxyCodeLine{    while(i < K -\/ 1)\{}
-\DoxyCodeLine{        if(T==NULL)}
-\DoxyCodeLine{            return NULL;}
-\DoxyCodeLine{    }
-\DoxyCodeLine{        if(strcmp(l.area , AreaC[allocSize])==0)\{}
-\DoxyCodeLine{            printLivro(T-\/>book);}
-\DoxyCodeLine{            i++; }
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{        AC = searchTree(l, T-\/>left);}
-\DoxyCodeLine{        if(AC!=NULL)}
-\DoxyCodeLine{            return AC;}
-\DoxyCodeLine{}
-\DoxyCodeLine{        return searchTree(l, T-\/>right);}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{\}}
-\end{DoxyCode}
- Explicação\+:
-\item Algoritmo Número 10\+: 
+ Explicação\+: Estas duas funções trabalham juntas para determinar que \mbox{\hyperlink{structCliente}{Cliente}} mais Livros comprou. A primeira determina o numero de Livros comprados por um \mbox{\hyperlink{structCliente}{Cliente}} expecifico. A segunda é o loop pela Lista de Clientes invocando a primeira função, guardando sempre o maior numero de livros e os eu respetivo \mbox{\hyperlink{structCliente}{Cliente}}. No final devolve o \mbox{\hyperlink{structCliente}{Cliente}} com mais Livros comprados.
+\item Algoritmo Número 8\+: 
 \begin{DoxyCode}{0}
 \DoxyCodeLine{int contagemPorAno(Tree T, int ano)\{}
 \DoxyCodeLine{    if(T==NULL)\{}
@@ -291,73 +260,5 @@
 \DoxyCodeLine{    return anoFinal;}
 \DoxyCodeLine{\}}
 \end{DoxyCode}
- Explicação\+:
-\item Algoritmo Número 11\+: 
-\begin{DoxyCode}{0}
-\DoxyCodeLine{int contagemAreaCientifica(Tree T, char *area)\{}
-\DoxyCodeLine{    if(T==NULL)\{}
-\DoxyCodeLine{        return 0;}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{    if(strcmp(T-\/>book.area,area)==0)\{}
-\DoxyCodeLine{        return contagemAreaCientifica(T-\/>left,area)+contagemAreaCientifica(T-\/>right,area)+1;}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{    return contagemAreaCientifica(T-\/>left,area)+contagemAreaCientifica(T-\/>right,area);}
-\DoxyCodeLine{\}}
-\DoxyCodeLine{}
-\DoxyCodeLine{void getAreas(Tree T, char **areas, int *size)\{}
-\DoxyCodeLine{}
-\DoxyCodeLine{    int flag = 0;}
-\DoxyCodeLine{    int i = 0;}
-\DoxyCodeLine{    printf("\%d\(\backslash\)n",size);}
-\DoxyCodeLine{    if(T==NULL)\{}
-\DoxyCodeLine{        return;}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{    if(size!=0)\{}
-\DoxyCodeLine{        for(i = 0; i < (size-\/1);++i)\{}
-\DoxyCodeLine{            printf("size!=0 \%s\(\backslash\)n",areas[i]);}
-\DoxyCodeLine{            if(strcmp(areas[i],T-\/>book.area)==0)\{}
-\DoxyCodeLine{                flag = 1;}
-\DoxyCodeLine{            \}}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{    }
-\DoxyCodeLine{}
-\DoxyCodeLine{    if(flag == 1)\{}
-\DoxyCodeLine{        getAreas(T-\/>left,areas,size);}
-\DoxyCodeLine{        getAreas(T-\/>right,areas,size);}
-\DoxyCodeLine{    \}else\{}
-\DoxyCodeLine{        printf("NOVA AREA\(\backslash\)n");}
-\DoxyCodeLine{        areas[i+1] = (char *) malloc(allocSize*sizeof(char));}
-\DoxyCodeLine{        areas[i+1] = T-\/>book.area;}
-\DoxyCodeLine{        size = size+1;}
-\DoxyCodeLine{        getAreas(T-\/>left,areas,size);}
-\DoxyCodeLine{        getAreas(T-\/>right,areas,size);}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{\}}
-\DoxyCodeLine{}
-\DoxyCodeLine{char *areaMaisLivros()\{}
-\DoxyCodeLine{    char **areas = (char**) malloc(allocSize*sizeof(char*));}
-\DoxyCodeLine{    char *areaFinal = (char*) malloc(allocSize*sizeof(char));}
-\DoxyCodeLine{    int size = 0, aux, final = 0;}
-\DoxyCodeLine{    getAreas(mainTree,areas,size);}
-\DoxyCodeLine{}
-\DoxyCodeLine{}
-\DoxyCodeLine{    printf("\%d\(\backslash\)n",size);}
-\DoxyCodeLine{}
-\DoxyCodeLine{    for(int i = 0; i < (size-\/1); ++i)\{}
-\DoxyCodeLine{        aux = contagemAreaCientifica(mainTree,areas[i]);}
-\DoxyCodeLine{        printf("\%s\(\backslash\)n",areas[i]);}
-\DoxyCodeLine{        if(aux > final)\{}
-\DoxyCodeLine{            final = aux;}
-\DoxyCodeLine{            areaFinal = areas[i];}
-\DoxyCodeLine{        \}}
-\DoxyCodeLine{    \}}
-\DoxyCodeLine{}
-\DoxyCodeLine{    return areaFinal;}
-\DoxyCodeLine{\}}
-\end{DoxyCode}
- Explicação\+: 
+ Explicação\+: Novamente duas funções que trabalham juntas para atingir um fim. A primeira faz a contagem de Livros num dado ano. A segunda vai verificar a quantidade de Livros para cada ano desde 2010 até 2021, devolvendo no final o ano com mais publicações. 
 \end{DoxyEnumerate}

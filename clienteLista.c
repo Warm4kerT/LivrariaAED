@@ -39,12 +39,6 @@ void ListarLista (Lista L){
 	Lista P = L;
 	while(P!=NULL){
 		printCliente(P->Cli);
-		
-		if(P->Cli.lista!=NULL){
-			printf("LISTA NAO NULL\n");
-			ListarCompra(P->Cli.lista);
-		}
-
 		P = P->Prox;
 	}
 }
@@ -151,4 +145,25 @@ Lista bubbleSortClientes(Lista L){
 
 	return L;
 
+}
+
+Lista pesquisaPorNomeCli(Lista L, char* nome){
+
+	while (L!=NULL && strcmp(L->Cli.Nome,nome)!=0){
+		L = L->Prox;
+	}
+
+	return L;
+}
+
+Lista pesquisaPorMorada(Lista L, char* morada){
+	Lista final = NULL;
+	while (L!=NULL){
+		if(strstr(L->Cli.MinhaMorada.Casa,morada) || strstr(L->Cli.MinhaMorada.Cidade,morada)){
+			final = InserirInicioLista(L->Cli,final);
+		}
+		L = L->Prox;
+	}
+
+	return final;
 }

@@ -74,6 +74,8 @@ Lista RemoverNodoLista (Cliente X, Lista L);
 Lista FreeLista(Lista L);
 Lista PesquisaPorm(Lista L, int NIF);
 Lista bubbleSortClientes(Lista L);
+Lista pesquisaPorNomeCli(Lista L, char* nome);
+Lista pesquisaPorMorada(Lista L, char* morada);
 
 Lista mainLista;
  

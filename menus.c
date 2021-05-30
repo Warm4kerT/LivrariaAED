@@ -158,7 +158,7 @@ void subMenuConsultaBooks(){
 
             case 4:
                 printf("Insira o Autor do Livro a Procurar: "); scanf("%s",autor);
-                printf("Insira o Ano de Publicação do Livro a Procurar: "); scanf("%d",ano);
+                printf("Insira o Ano de Publicação do Livro a Procurar: "); scanf("%d",&ano);
                 search = pesquisaPorAutorAno(mainTree,autor,ano);
                 
                 if(search!=NULL){
@@ -327,6 +327,67 @@ void menuOrders(){
     }
 }
 
+void subMenuConsultarClientes(){
+    int option = 99;
+    int NIF;
+    char *nome = (char* ) malloc(allocSize*sizeof(char));
+    char *morada = (char* ) malloc(allocSize*sizeof(char));
+    Lista search;
+
+    while (option != 0){
+        printf("----Consultar Clientes----\n");
+        printf("1- Por NIF\n");
+        printf("2- Por Nome\n");
+        printf("3- Por Morada\n");
+        printf("4- Consultar tudo\n"); 
+        printf("0- Sair\n");
+
+        scanf("%d",&option);
+
+        switch (option){
+            case 1:
+                printf("Insira o NIF do Cliente a Pesquisar: "); scanf("%d",&NIF);
+                search = PesquisaPorm(mainLista,NIF);
+
+                if(search==NULL){
+                    printf("Cliente não existe\n");
+                }else{
+                    printCliente(search->Cli);
+                }
+            break;
+
+            case 2:
+                printf("Insira o Nome do Cliente a Pesquisar: "); scanf("%s",nome);
+                search = pesquisaPorNomeCli(mainLista,nome);
+
+                if(search==NULL){
+                    printf("Cliente não existe\n");
+                }else{
+                    printCliente(search->Cli);
+                }
+            break;
+
+            case 3:
+                printf("Insira uma Morada (keyWord) do Cliente a Pesquisar: "); scanf("%s",morada);
+                search = pesquisaPorMorada(mainLista,morada);
+
+                if(search==NULL){
+                    printf("Cliente não existe\n");
+                }else{
+                    ListarLista(search);
+                }
+            break;
+
+            case 4:
+                ListarLista(mainLista); 
+            break;
+
+            case 0:
+            break;
+        }
+    }
+}
+
 void MenuClientes(){
     int option = 99;
     int NIF;
@@ -378,7 +439,7 @@ void MenuClientes(){
             break;
 
             case 4:
-                ListarLista(mainLista); 
+                subMenuConsultarClientes();
             break;
 
             case 0:
@@ -391,7 +452,7 @@ void MenuClientes(){
 void menuOperacoes(){
     int option = 99;
 
-    int mes, ano, NIF, ISBN, aux;
+    int mes, ano, NIF, ISBN;
     char *area = (char*) malloc(allocSize*sizeof(char));
     ListaCompra show;
     Lista cliL;

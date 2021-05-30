@@ -212,7 +212,6 @@ Cliente maisLivrosComprados(){
     }
     return cli;
 }
-<<<<<<< HEAD
 Tree KRecentesAC (Tree T, Livro l){
     int K = 0, i;
     Tree AC = T;
@@ -237,7 +236,6 @@ Tree KRecentesAC (Tree T, Livro l){
         return searchTree(l, T->right);
     }
 }
-=======
 
 int contagemPorAno(Tree T, int ano){
     if(T==NULL){
@@ -333,4 +331,3 @@ char *areaMaisLivros(){
 
     return areaFinal;
 }
->>>>>>> 6c4182b2ef2ac0d99d84cf8f97b84a8986e55b4a

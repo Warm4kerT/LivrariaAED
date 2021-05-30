@@ -314,6 +314,7 @@ void menuOperacoes(){
     int mes, ano, NIF, ISBN;
     char *area = (char*) malloc(allocSize*sizeof(char));
     ListaCompra show;
+    Lista cliL;
     Cliente C;
     Tree livros;
     int k;
@@ -326,6 +327,7 @@ void menuOperacoes(){
         printf("4- Mostrar os K livros mais recentes de uma Area Cientifica\n");
         printf("5- Mostrar os K livros mais vendidos de um Periodo de tempo\n");
         printf("7- Mostrar Cliente com mais Livros comprados\n");
+        printf("8- Mostrar os Clientes por ordem decrescente do número de compras\n");
         printf("10- Mostrar que mais gastou num Periodo de tempo\n"),
         printf("11- Memória Desperdiçada\n");
         printf("0- Sair\n");
@@ -370,6 +372,11 @@ void menuOperacoes(){
             case 7:
                 C = maisLivrosComprados();
                 printCliente(C);
+                break;
+
+            case 8:
+                cliL = bubbleSortClientes(mainLista);
+                ListarLista(cliL);
                 break;
 
             case 10:

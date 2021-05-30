@@ -84,8 +84,6 @@ ListaCompra readCompras(char *path){
     while(6==fscanf(compras,"%d %d %f %d/%d/%d",&ISBN,&quantidade,&precoTotal,&dia,&mes,&ano)){
         newD = newData(dia,mes,ano);
         lCompras = InserirInicioCompra(ISBN,quantidade,precoTotal,newD,lCompras);
-        printf("1");
-        ListarCompra(lCompras);
         if(EOF==fgetc(compras)){
             fclose(compras);
             break;
@@ -125,9 +123,9 @@ Lista readClientes(char *path){
 
         newC.lista = readCompras(pathCompras);
 
-        clientes = InserirInicioLista(newC,clientes);
+        ListarCompra(newC.lista);
 
-        ListarCompra(clientes->Cli.lista);    
+        clientes = InserirInicioLista(newC,clientes);
 
         pathCompras = (char*) malloc(allocSize*sizeof(char));
         nome = (char*) malloc(allocSize*sizeof(char));
@@ -155,7 +153,6 @@ void writeCompras(ListaCompra lista, char *path){
     }
 
     while(lista != NULL){
-        printf("%d\n",lista->ISBN);
         fprintf(out,"%d %d %f %d/%d/%d\n",lista->ISBN,lista->quantidade,lista->precoTotal,lista->dataVenda.dia,lista->dataVenda.mes,lista->dataVenda.ano);
         lista = lista->Prox;
     }

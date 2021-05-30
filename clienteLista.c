@@ -100,3 +100,51 @@ Lista PesquisaPorm(Lista L, int NIF){
 		p = p->Prox;
     } return NULL;
 }
+
+int getSizeClientes(Lista L){
+	int i = 0;
+
+	while(L != NULL){
+		++i;
+		L = L->Prox;
+	}
+	
+	return i;
+}
+
+Lista swapCliente(Lista a, Lista b, Lista L){
+	Cliente aux;
+
+	aux = a->Cli;
+	a->Cli = b->Cli;
+	b->Cli = aux;
+
+	return L;
+}
+
+Lista bubbleSortClientes(Lista L){
+	Lista P = L;
+	Cliente aux;
+	int size = getSizeClientes(P);
+	int numA, numB;
+
+	for(int i=0; i < size-1; ++i){
+		for(int j=0; j < size-i-1; ++j){
+			numA = getSizeCompra(P->Cli.lista);
+			numB = getSizeCompra(P->Prox->Cli.lista);
+			printf("%d/%d\n",numA,numB);
+			if(numA > numB){
+				
+				aux = P->Cli;
+				P->Cli = P->Prox->Cli;
+				P->Prox->Cli = aux;
+			}else{
+				P = P->Prox;
+			}
+		}
+		P = L;
+	}
+
+	return L;
+
+}

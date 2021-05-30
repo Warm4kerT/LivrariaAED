@@ -208,3 +208,27 @@ Cliente maisLivrosComprados(){
 
     return cli;
 }
+Tree KRecentesAC (Tree T, Livro l){
+    int K = 0, i;
+    Tree AC = T;
+    char AreaC[allocSize];
+    printf("Área Científca a ser pesquisada -> ");
+    scanf("%s", &AreaC[allocSize]);
+    printf("\nIntroduza o valor 'k' Livros mais recentes da Área pretendida");
+    scanf("%i", K);
+    while(i < K - 1){
+        if(T==NULL)
+            return NULL;
+    
+        if(strcmp(l.area , AreaC[allocSize])==0){
+            printLivro(T->book);
+            i++; 
+        }
+
+        AC = searchTree(l, T->left);
+        if(AC!=NULL)
+            return AC;
+
+        return searchTree(l, T->right);
+    }
+}

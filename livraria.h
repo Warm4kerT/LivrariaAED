@@ -35,6 +35,7 @@ ListaCompra ProcurarAnteriorCompraISBN(int ISBN, ListaCompra L);
 ListaCompra FreeListaCompras(ListaCompra L);
 ListaCompra swapCompra(ListaCompra a, ListaCompra b, ListaCompra L);
 ListaCompra bubbleSortCompra(ListaCompra L);
+int getSizeCompra(ListaCompra L);
 
 //Cliente
 typedef struct Morada{
@@ -72,6 +73,7 @@ Lista ProcurarAnteriorLista (Cliente X, Lista L);
 Lista RemoverNodoLista (Cliente X, Lista L);
 Lista FreeLista(Lista L);
 Lista PesquisaPorm(Lista L, int NIF);
+Lista bubbleSortClientes(Lista L);
 
 Lista mainLista;
  

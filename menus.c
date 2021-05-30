@@ -1,8 +1,10 @@
 /**
  * @file menus.c
+ * @brief Sub-Menus do Projeto.
 */
 
 #include "livraria.h"
+///Menu Ficheiros (Operações sobre os Ficheiros).
 
 void menuFiles(){
     int option = 99;
@@ -99,6 +101,7 @@ void menuFiles(){
         }
     }   
 }
+///Menu Livros (Operações sobre os Livros).
 
 void menuBooks(){
     int option = 99;
@@ -159,7 +162,7 @@ void menuBooks(){
         }
     }
 }
-
+///Menu Encomendas (Operações sobre as Encomendas).
 void menuOrders(){
     int options = 99;
     Tree search;
@@ -250,7 +253,7 @@ void menuOrders(){
         }
     }
 }
-
+///Menu Clientes (Operações sobre os clientes).
 void MenuClientes(){
     int option = 99;
     int NIF;
@@ -311,7 +314,7 @@ void MenuClientes(){
     }
 }
 
-
+///Menu operações (Operações Funcionais presentes no nosso projeto).
 void menuOperacoes(){
     int option = 99;
 

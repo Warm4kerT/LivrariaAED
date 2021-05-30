@@ -1,10 +1,13 @@
 
 /**
  * @file mainOperacoes.c
+ * @brief Menu de Operações funcionais presentes no nosso projeto.
 */
 
 #include "livraria.h"
 
+
+///
 ListaCompra vendasNumPeriodo(int mes, int ano){
     Lista P = mainLista;
     ListaCompra final = NULL;
@@ -212,6 +215,7 @@ Cliente maisLivrosComprados(){
     }
     return cli;
 }
+
 Tree KRecentesAC (Tree T, Livro l){
     int K = 0, i;
     Tree AC = T;

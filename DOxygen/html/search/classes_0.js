@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cliente_23',['Cliente',['../structCliente.html',1,'']]],
-  ['clientelista_24',['ClienteLista',['../structClienteLista.html',1,'']]],
-  ['compra_25',['Compra',['../structCompra.html',1,'']]]
+  ['cliente_30',['Cliente',['../structCliente.html',1,'']]],
+  ['clientelista_31',['ClienteLista',['../structClienteLista.html',1,'']]],
+  ['compra_32',['Compra',['../structCompra.html',1,'']]]
 ];

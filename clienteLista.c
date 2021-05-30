@@ -1,6 +1,7 @@
 
 /**
  * @file clienteLista.c
+ * @brief Ficheiro com funções gerais para trabalhar sobre uma Lista simples (Cliente).
 */
 #include "livraria.h"
 

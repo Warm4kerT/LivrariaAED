@@ -1,5 +1,6 @@
 /**
  * @file encomenda.c
+ * @brief Ficheiro de funções principais de uma encomenda. 
 */
 
 #include "livraria.h"

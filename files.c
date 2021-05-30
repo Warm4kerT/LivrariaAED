@@ -1,6 +1,7 @@
 
 /**
  * @file files.c
+ * @brief Abertura de ficheiros. Leitura e escrita das estruturas complexas de clientes, livros, etc...
 */
 #include "livraria.h"
 

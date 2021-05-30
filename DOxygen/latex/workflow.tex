@@ -1,0 +1,55 @@
+\hypertarget{workflow_autotoc_md1}{}\doxysection{Como utilizar a Livraria.}\label{workflow_autotoc_md1}
+O nosso projeto foi desenvolvido para ser compilado através de um Make\+File, portanto, inicialmente vamos escrever na nossa linha de comandos \char`\"{}make\char`\"{}, para prepararmos todos os ficheiros executáveis.
+
+Seguidamente, vamos executar o nosso ficheiro principal, ou seja, a nossa \char`\"{}livraria.\+h\char`\"{} utilizando o seguinte comando\+: \char`\"{}./livraria\char`\"{}
+
+Resumindo, Comandos Iniciais\+:
+
+
+\begin{DoxyEnumerate}
+\item \char`\"{}make\char`\"{}
+\item \char`\"{}./livraria\char`\"{}
+\end{DoxyEnumerate}
+
+Após ambos os passos, o nosso programa dará início, e aparecerá ao utlizador um pequeno Menu Inicial\+:
+
+~\newline
+ ~\newline
+ Para utilizar este e os demais Menus presentes no projeto, o utilizador apenas tem de digitar na linha de comandos, o número referente à operação que deseja efetuar, seja entrar num Sub-\/\+Menu, Criar um cliente, ou utlizar uma das operações presentes.
+
+Seguidamente, fica um exemplo de como criar um cliente e guardar na nossa Base de Dados. (Exemplifica apenas como criar um \mbox{\hyperlink{structCliente}{Cliente}}, as outras operações do Projeto são utilizadas praticamente da mesma forma, portanto iremos apenas demonstrar esta).
+
+Antes de entrarmos no nosso Sub\+Menu Clientes, temos de entrar no Sub\+Menu Ficheiros para inicializarmos os nossos ficheiros que servem como Base de Dados\+:
+\begin{DoxyEnumerate}
+\item Entramos no Sub\+Menu escrevendo na linha de comandos o número \char`\"{}1\char`\"{}.
+\item Após isso selecionamos a opção Abrir e selecionamos Abrir Clientes\+:
+\begin{DoxyEnumerate}
+\item Ao selecionar, escrevemos o nome do ficheiro, que neste caso é \char`\"{}clientes.\+txt\char`\"{}.
+\item Após estar devidamente aberto podemos sair do Sub\+Menu Ficheiros e seguir para o próximo Passo.
+\end{DoxyEnumerate}
+\end{DoxyEnumerate}
+
+~\newline
+ Após o passo anterior estar completo, selecionamos do Menu-\/\+Principal o Sub-\/\+Menu \char`\"{}3\char`\"{}, relativo a clientes.
+
+
+\begin{DoxyEnumerate}
+\item Ao ser selecionado \char`\"{}3\char`\"{}, aparecerá o seguinte Sub-\/\+Menu\+: 
+\item Para adicionar um \mbox{\hyperlink{structCliente}{Cliente}}, temos de selecionar a opção \char`\"{}1\char`\"{} do nosso Sub\+Menu Clientes.
+\item Seguidamente será pedido passo a passo, os diferentes dados necessários para registar um \mbox{\hyperlink{structCliente}{Cliente}}. ~\newline
+~\newline
+ Exemplo de um \mbox{\hyperlink{structCliente}{Cliente}} aleatório criado\+: 
+\end{DoxyEnumerate}
+
+~\newline
+ Após estar adicionado o \mbox{\hyperlink{structCliente}{Cliente}} á lista de Clientes aberta no início através do ficheiro, temos de guardar esta nova lista atualizada, para também atualizar o nosso ficheiro de Base de Dados de Clientes.
+\begin{DoxyEnumerate}
+\item Para isso, temos então de voltar ao nosso Menu.
+\item Selecionar a opção Ficheiros.
+\item Selecionar no Sub\+Menu Ficheiros a opção Guardar.
+\item Selecionar Clientes em Guardar.
+\end{DoxyEnumerate}
+
+Após estes 4 passos, o nosso novo \mbox{\hyperlink{structCliente}{Cliente}} e respetiva informação estará devidamente armazenado no nosso ficheiro \char`\"{}clientes.\+txt\char`\"{}.
+
+Assim termina o nosso exemplo de utilização do projeto. 

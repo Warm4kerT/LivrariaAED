@@ -1,5 +1,6 @@
 /**
  * @file cliente.c
+ * @brief Ficheiro de funções principais do cliente. 
 */
 
 #include "livraria.h"

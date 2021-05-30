@@ -1,3 +1,9 @@
+
+/**
+ * @file livraria.h
+ * @brief Definição de todas as estruturas. Integração de todas as funções e ficheiros ".c". 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

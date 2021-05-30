@@ -1,6 +1,7 @@
 
 /**
  * @file livro.c
+ * @brief Ficheiro de funções principais do livro. 
 */
 #include "livraria.h"
 

@@ -1,5 +1,6 @@
 /**
  * @file menuAuxiliar.c
+ * @brief Menus Auxiliares dos Sub-Menus do Projeto.
 */
 
 #include "livraria.h"

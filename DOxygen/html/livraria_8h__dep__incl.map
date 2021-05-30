@@ -1,0 +1,15 @@
+<map id="livraria.h" name="livraria.h">
+<area shape="rect" id="node1" title="Definição de todas as estruturas. Integração de todas as funções e ficheiros &quot;.c&quot;." alt="" coords="644,5,724,32"/>
+<area shape="rect" id="node2" href="$cliente_8c.html" title="Ficheiro de funções principais do cliente." alt="" coords="5,80,83,107"/>
+<area shape="rect" id="node3" href="$clienteLista_8c.html" title="Ficheiro com funções gerais para trabalhar sobre uma Lista simples (Cliente)." alt="" coords="107,80,215,107"/>
+<area shape="rect" id="node4" href="$compraLista_8c.html" title="Ficheiro com funções gerais para trabalhar sobre uma Lista simples." alt="" coords="239,80,353,107"/>
+<area shape="rect" id="node5" href="$encomenda_8c.html" title="Ficheiro de funções principais de uma encomenda." alt="" coords="377,80,487,107"/>
+<area shape="rect" id="node6" href="$filaEnc_8c.html" title="Ficheiro com funções gerais para trabalhar sobre uma Fila (Encomenda)." alt="" coords="511,80,587,107"/>
+<area shape="rect" id="node7" href="$files_8c.html" title="Abertura de ficheiros. Leitura e escrita das estruturas complexas de clientes, livros,..." alt="" coords="611,80,671,107"/>
+<area shape="rect" id="node8" href="$livro_8c.html" title="Ficheiro de funções principais do livro." alt="" coords="695,80,758,107"/>
+<area shape="rect" id="node9" href="$livroTree_8c.html" title="Ficheiro com funções gerais para trabalhar sobre uma Árvore Binária de Pesquisa Balanceada (Livro)." alt="" coords="782,80,871,107"/>
+<area shape="rect" id="node10" href="$main_8c.html" title="Inicialização do menu principal do Projeto." alt="" coords="896,80,963,107"/>
+<area shape="rect" id="node11" href="$mainOperacoes_8c.html" title="Menu de Operações funcionais presentes no nosso projeto." alt="" coords="987,80,1122,107"/>
+<area shape="rect" id="node12" href="$menuAuxiliar_8c.html" title="Menus Auxiliares dos Sub&#45;Menus do Projeto." alt="" coords="1146,80,1265,107"/>
+<area shape="rect" id="node13" href="$menus_8c.html" title="Sub&#45;Menus do Projeto." alt="" coords="1288,80,1365,107"/>
+</map>

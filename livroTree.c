@@ -1,5 +1,6 @@
 /**
  * @file livroTree.c
+ * @brief Ficheiro com funções gerais para trabalhar sobre uma Árvore Binária de Pesquisa Balanceada (Livro). 
 */
 
 #include "livraria.h"

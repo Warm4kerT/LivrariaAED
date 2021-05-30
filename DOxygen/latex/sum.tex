@@ -1,0 +1,363 @@
+
+\begin{DoxyEnumerate}
+\item Algoritmo Número 1\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ListaCompra vendasNumPeriodo(int mes, int ano)\{}
+\DoxyCodeLine{    Lista P = mainLista;}
+\DoxyCodeLine{    ListaCompra final = NULL;}
+\DoxyCodeLine{    ListaCompra C = NULL;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while(P!=NULL)\{}
+\DoxyCodeLine{        C = P-\/>Cli.lista;}
+\DoxyCodeLine{        while(C!=NULL)\{}
+\DoxyCodeLine{            if((C-\/>dataVenda.mes == mes) \&\& (C-\/>dataVenda.ano == ano))\{}
+\DoxyCodeLine{                final = InserirInicioCompra(C-\/>ISBN, C-\/>quantidade, C-\/>precoTotal, C-\/>dataVenda, final);}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            C = C-\/>Prox;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        P = P-\/>Prox;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    return final;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 2\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{void ultimaVendaLivro(int ISBN)\{}
+\DoxyCodeLine{    Lista P = mainLista;}
+\DoxyCodeLine{    ListaCompra C = NULL;}
+\DoxyCodeLine{    Data final = newData(0,0,0);}
+\DoxyCodeLine{    Data aux;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while(P!=NULL)\{}
+\DoxyCodeLine{        C = P-\/>Cli.lista;}
+\DoxyCodeLine{        while(C!=NULL)\{}
+\DoxyCodeLine{            if(C-\/>ISBN == ISBN)\{}
+\DoxyCodeLine{                aux = C-\/>dataVenda;}
+\DoxyCodeLine{}
+\DoxyCodeLine{                if( aux.ano > final.ano )\{}
+\DoxyCodeLine{                    final = aux;}
+\DoxyCodeLine{                \}else if( aux.ano == final.ano)\{}
+\DoxyCodeLine{                    if( aux.mes > final.mes )\{}
+\DoxyCodeLine{                        final = aux;}
+\DoxyCodeLine{                    \}else if( aux.mes == final.mes )\{}
+\DoxyCodeLine{                        if( aux.dia > final.dia )\{}
+\DoxyCodeLine{                            final = aux;}
+\DoxyCodeLine{                        \}else if( aux.dia == final.dia )\{}
+\DoxyCodeLine{                            final = aux;}
+\DoxyCodeLine{                        \}}
+\DoxyCodeLine{                    \}}
+\DoxyCodeLine{                \}      }
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            C = C-\/>Prox;}
+\DoxyCodeLine{        \} }
+\DoxyCodeLine{        P = P-\/>Prox;      }
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    if(final.ano == 0 || final.dia == 0 || final.mes == 0)\{}
+\DoxyCodeLine{        printf("Nunca foi vendido!\(\backslash\)n\(\backslash\)n");}
+\DoxyCodeLine{    \}else\{}
+\DoxyCodeLine{        printf("Ultima compra do Livro \%d : \%d/\%d/\%d\(\backslash\)n\(\backslash\)n",ISBN,final.dia,final.mes,final.ano);}
+\DoxyCodeLine{    \}      }
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 3\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{void quantidadeVendidaCliente(int NIF)\{}
+\DoxyCodeLine{    Lista search = PesquisaPorm(mainLista,NIF);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    if(search == NULL)\{}
+\DoxyCodeLine{        printf("Cliente não encontrado\(\backslash\)n\(\backslash\)n");}
+\DoxyCodeLine{        return;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    ListaCompra C = search-\/>Cli.lista;}
+\DoxyCodeLine{    int total = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while(C!=NULL)\{}
+\DoxyCodeLine{        total = total + C-\/>quantidade;}
+\DoxyCodeLine{        C = C-\/>Prox;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    printf("Quantidade vendida ao Cliente \%d : \%d\(\backslash\)n\(\backslash\)n",NIF,total);}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 4\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Tree LivrosMaisVendidosK(ListaCompra L, int k)\{}
+\DoxyCodeLine{    ListaCompra P = L;}
+\DoxyCodeLine{    ListaCompra T = NULL, searchL = NULL;}
+\DoxyCodeLine{    Tree final, searchT;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while(P!=NULL)\{}
+\DoxyCodeLine{        if(PesquisaCompra(P-\/>ISBN,T)==1)\{}
+\DoxyCodeLine{            searchL = ProcurarAnteriorCompraISBN(P-\/>ISBN,T)-\/>Prox;}
+\DoxyCodeLine{            searchL-\/>quantidade = searchL-\/>quantidade + P-\/>quantidade;}
+\DoxyCodeLine{        \}else\{}
+\DoxyCodeLine{            T = InserirInicioCompra(P-\/>ISBN, P-\/>quantidade, P-\/>precoTotal, P-\/>dataVenda,T);}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        P = P-\/>Prox;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    T = bubbleSortCompra(T);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    for(int i = k+1; i>=0; i-\/-\/)\{}
+\DoxyCodeLine{        searchT = searchTreeISBN(mainTree,T-\/>ISBN);}
+\DoxyCodeLine{        final = addNodoTree(final,searchT-\/>book);}
+\DoxyCodeLine{        if(T-\/>Prox == NULL)\{}
+\DoxyCodeLine{            break;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        T = T-\/>Prox;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    return final;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 5\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int wastedLoopTree(Tree T)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    if(T==NULL)\{}
+\DoxyCodeLine{        return 0;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    int count = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    count = count + (30 -\/ strlen(T-\/>book.titulo));}
+\DoxyCodeLine{    count = count + (30 -\/ strlen(T-\/>book.primAutor));}
+\DoxyCodeLine{    count = count + (30 -\/ strlen(T-\/>book.secAutor));}
+\DoxyCodeLine{    count = count + (30 -\/ strlen(T-\/>book.editora));}
+\DoxyCodeLine{    count = count + (30 -\/ strlen(T-\/>book.area));}
+\DoxyCodeLine{    count = count + (30 -\/ strlen(T-\/>book.idioma));}
+\DoxyCodeLine{}
+\DoxyCodeLine{    return wastedLoopTree(T-\/>left) + wastedLoopTree(T-\/>right) + count;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{int wastedMemory()\{}
+\DoxyCodeLine{    Lista P = mainLista;}
+\DoxyCodeLine{    Tree T = mainTree;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    int total, clientes = 0, livros = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while (P!=NULL)\{}
+\DoxyCodeLine{        clientes = clientes + (30 -\/ strlen(P-\/>Cli.Nome));}
+\DoxyCodeLine{        clientes = clientes + (30 -\/ strlen(P-\/>Cli.MinhaMorada.Casa));}
+\DoxyCodeLine{        clientes = clientes + (30 -\/ strlen(P-\/>Cli.MinhaMorada.Cidade));}
+\DoxyCodeLine{}
+\DoxyCodeLine{        P = P-\/>Prox;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    livros = wastedLoopTree(T);}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    total = livros*sizeof(char) + clientes*sizeof(char);}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    return total;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 6\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Cliente bigSpender(int ano, int mes)\{}
+\DoxyCodeLine{    Lista P = mainLista;}
+\DoxyCodeLine{    ListaCompra C = NULL;}
+\DoxyCodeLine{    Cliente bigTimeSpender;}
+\DoxyCodeLine{    float shmoney = 0, aux = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while (P!=NULL)\{}
+\DoxyCodeLine{        C = P-\/>Cli.lista;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        if(C!=NULL)\{}
+\DoxyCodeLine{            while(C!=NULL)\{}
+\DoxyCodeLine{                if(C-\/>dataVenda.ano == ano \&\& C-\/>dataVenda.mes == mes)\{}
+\DoxyCodeLine{                    aux = aux + C-\/>precoTotal;}
+\DoxyCodeLine{                \}}
+\DoxyCodeLine{                }
+\DoxyCodeLine{                C = C-\/>Prox;}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{            printf("\%s\(\backslash\)n", P-\/>Cli.Nome);}
+\DoxyCodeLine{            if(aux > shmoney)\{}
+\DoxyCodeLine{                shmoney = aux;}
+\DoxyCodeLine{                bigTimeSpender = newCliente(0,0,"NULL",newMorada("NULL","NULL",0000,000));}
+\DoxyCodeLine{                bigTimeSpender = newCliente(P-\/>Cli.NIF,P-\/>Cli.telefone,P-\/>Cli.Nome,P-\/>Cli.MinhaMorada);}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{        }
+\DoxyCodeLine{        P = P-\/>Prox;}
+\DoxyCodeLine{    \} }
+\DoxyCodeLine{}
+\DoxyCodeLine{    return bigTimeSpender;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 7\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int numLivrosComprados(Cliente P)\{}
+\DoxyCodeLine{    ListaCompra C = P.lista;}
+\DoxyCodeLine{    int numL = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while(C != NULL)\{}
+\DoxyCodeLine{        numL = numL + C-\/>quantidade;}
+\DoxyCodeLine{        C = C-\/>Prox;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{    return numL;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 8\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Cliente maisLivrosComprados()\{}
+\DoxyCodeLine{    Lista P = mainLista;}
+\DoxyCodeLine{    Cliente cli;}
+\DoxyCodeLine{    int aux = 0, final = 0;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while(P != NULL)\{}
+\DoxyCodeLine{        aux = numLivrosComprados(P-\/>Cli);}
+\DoxyCodeLine{        if(final < aux)\{}
+\DoxyCodeLine{            final = aux;}
+\DoxyCodeLine{            cli = P-\/>Cli;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        P = P-\/>Prox;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    return cli;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 9\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{Tree KRecentesAC (Tree T, Livro l)\{}
+\DoxyCodeLine{    int K = 0, i;}
+\DoxyCodeLine{    Tree AC = T;}
+\DoxyCodeLine{    char AreaC[allocSize];}
+\DoxyCodeLine{    printf("Área Científca a ser pesquisada -\/> ");}
+\DoxyCodeLine{    scanf("\%s", \&AreaC[allocSize]);}
+\DoxyCodeLine{    printf("\(\backslash\)nIntroduza o valor 'k' Livros mais recentes da Área pretendida");}
+\DoxyCodeLine{    scanf("\%i", K);}
+\DoxyCodeLine{    while(i < K -\/ 1)\{}
+\DoxyCodeLine{        if(T==NULL)}
+\DoxyCodeLine{            return NULL;}
+\DoxyCodeLine{    }
+\DoxyCodeLine{        if(strcmp(l.area , AreaC[allocSize])==0)\{}
+\DoxyCodeLine{            printLivro(T-\/>book);}
+\DoxyCodeLine{            i++; }
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        AC = searchTree(l, T-\/>left);}
+\DoxyCodeLine{        if(AC!=NULL)}
+\DoxyCodeLine{            return AC;}
+\DoxyCodeLine{}
+\DoxyCodeLine{        return searchTree(l, T-\/>right);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 10\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int contagemPorAno(Tree T, int ano)\{}
+\DoxyCodeLine{    if(T==NULL)\{}
+\DoxyCodeLine{        return 0;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    if(T-\/>book.anoPub == ano)\{}
+\DoxyCodeLine{        return contagemPorAno(T-\/>left,ano)+contagemPorAno(T-\/>right,ano)+1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    return contagemPorAno(T-\/>left,ano)+contagemPorAno(T-\/>right,ano);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{int anoMaisPublicacoes()\{}
+\DoxyCodeLine{    int aux = 0, num, anoFinal, anoInicial = 2010;}
+\DoxyCodeLine{}
+\DoxyCodeLine{    while (anoInicial<=2021)\{}
+\DoxyCodeLine{        num = contagemPorAno(mainTree,anoInicial);}
+\DoxyCodeLine{}
+\DoxyCodeLine{        if(num>aux)\{}
+\DoxyCodeLine{            aux = num;}
+\DoxyCodeLine{            anoFinal = anoInicial;}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{        ++anoInicial;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    return anoFinal;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+:
+\item Algoritmo Número 11\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int contagemAreaCientifica(Tree T, char *area)\{}
+\DoxyCodeLine{    if(T==NULL)\{}
+\DoxyCodeLine{        return 0;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    if(strcmp(T-\/>book.area,area)==0)\{}
+\DoxyCodeLine{        return contagemAreaCientifica(T-\/>left,area)+contagemAreaCientifica(T-\/>right,area)+1;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    return contagemAreaCientifica(T-\/>left,area)+contagemAreaCientifica(T-\/>right,area);}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{void getAreas(Tree T, char **areas, int *size)\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    int flag = 0;}
+\DoxyCodeLine{    int i = 0;}
+\DoxyCodeLine{    printf("\%d\(\backslash\)n",size);}
+\DoxyCodeLine{    if(T==NULL)\{}
+\DoxyCodeLine{        return;}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    if(size!=0)\{}
+\DoxyCodeLine{        for(i = 0; i < (size-\/1);++i)\{}
+\DoxyCodeLine{            printf("size!=0 \%s\(\backslash\)n",areas[i]);}
+\DoxyCodeLine{            if(strcmp(areas[i],T-\/>book.area)==0)\{}
+\DoxyCodeLine{                flag = 1;}
+\DoxyCodeLine{            \}}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{    }
+\DoxyCodeLine{}
+\DoxyCodeLine{    if(flag == 1)\{}
+\DoxyCodeLine{        getAreas(T-\/>left,areas,size);}
+\DoxyCodeLine{        getAreas(T-\/>right,areas,size);}
+\DoxyCodeLine{    \}else\{}
+\DoxyCodeLine{        printf("NOVA AREA\(\backslash\)n");}
+\DoxyCodeLine{        areas[i+1] = (char *) malloc(allocSize*sizeof(char));}
+\DoxyCodeLine{        areas[i+1] = T-\/>book.area;}
+\DoxyCodeLine{        size = size+1;}
+\DoxyCodeLine{        getAreas(T-\/>left,areas,size);}
+\DoxyCodeLine{        getAreas(T-\/>right,areas,size);}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{char *areaMaisLivros()\{}
+\DoxyCodeLine{    char **areas = (char**) malloc(allocSize*sizeof(char*));}
+\DoxyCodeLine{    char *areaFinal = (char*) malloc(allocSize*sizeof(char));}
+\DoxyCodeLine{    int size = 0, aux, final = 0;}
+\DoxyCodeLine{    getAreas(mainTree,areas,size);}
+\DoxyCodeLine{}
+\DoxyCodeLine{}
+\DoxyCodeLine{    printf("\%d\(\backslash\)n",size);}
+\DoxyCodeLine{}
+\DoxyCodeLine{    for(int i = 0; i < (size-\/1); ++i)\{}
+\DoxyCodeLine{        aux = contagemAreaCientifica(mainTree,areas[i]);}
+\DoxyCodeLine{        printf("\%s\(\backslash\)n",areas[i]);}
+\DoxyCodeLine{        if(aux > final)\{}
+\DoxyCodeLine{            final = aux;}
+\DoxyCodeLine{            areaFinal = areas[i];}
+\DoxyCodeLine{        \}}
+\DoxyCodeLine{    \}}
+\DoxyCodeLine{}
+\DoxyCodeLine{    return areaFinal;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ Explicação\+: 
+\end{DoxyEnumerate}

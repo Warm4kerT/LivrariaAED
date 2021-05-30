@@ -1,6 +1,7 @@
 
 /**
  * @file compraLista.c
+ * @brief Ficheiro com funções gerais para trabalhar sobre uma Lista simples.
 */
 #include "livraria.h"
 

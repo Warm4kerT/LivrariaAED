@@ -1,5 +1,6 @@
 /**
  * @file main.c
+ * @brief Inicialização do menu principal do Projeto.
 */
 
 #include "livraria.h"

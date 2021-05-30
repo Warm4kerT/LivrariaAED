@@ -1,0 +1,371 @@
+\hypertarget{livraria_8h}{}\doxysection{livraria.\+h File Reference}
+\label{livraria_8h}\index{livraria.h@{livraria.h}}
+
+
+Definição de todas as estruturas. Integração de todas as funções e ficheiros \char`\"{}.\+c\char`\"{}.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for livraria.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=273pt]{livraria_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{livraria_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structData}{Data}}
+\item 
+struct \mbox{\hyperlink{structCompra}{Compra}}
+\item 
+struct \mbox{\hyperlink{structMorada}{Morada}}
+\item 
+struct \mbox{\hyperlink{structCliente}{Cliente}}
+\item 
+struct \mbox{\hyperlink{structClienteLista}{Cliente\+Lista}}
+\item 
+struct \mbox{\hyperlink{structLivro}{Livro}}
+\item 
+struct \mbox{\hyperlink{structLivroTree}{Livro\+Tree}}
+\item 
+struct \mbox{\hyperlink{structEncomenda}{Encomenda}}
+\item 
+struct \mbox{\hyperlink{structFilaEnc}{Fila\+Enc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{livraria_8h_ac82b70824803da43cf59f158af7f21a5}\label{livraria_8h_ac82b70824803da43cf59f158af7f21a5}} 
+\#define {\bfseries alloc\+Size}~30
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{livraria_8h_a3c7d12d60eadd3cf10e7096978320302}\label{livraria_8h_a3c7d12d60eadd3cf10e7096978320302}} 
+typedef struct \mbox{\hyperlink{structData}{Data}} {\bfseries Data}
+\item 
+\mbox{\Hypertarget{livraria_8h_aacfa6f3cac589c453992c412d23f9c73}\label{livraria_8h_aacfa6f3cac589c453992c412d23f9c73}} 
+typedef struct \mbox{\hyperlink{structCompra}{Compra}} $\ast$ {\bfseries Lista\+Compra}
+\item 
+\mbox{\Hypertarget{livraria_8h_a902bff2cd0a613173e020975875d504b}\label{livraria_8h_a902bff2cd0a613173e020975875d504b}} 
+typedef struct \mbox{\hyperlink{structMorada}{Morada}} {\bfseries Morada}
+\item 
+\mbox{\Hypertarget{livraria_8h_a8187f84894a13fa0989791513cfcdfbb}\label{livraria_8h_a8187f84894a13fa0989791513cfcdfbb}} 
+typedef struct \mbox{\hyperlink{structCliente}{Cliente}} {\bfseries Cliente}
+\item 
+\mbox{\Hypertarget{livraria_8h_a3701d268eb5dc08bc365e05953b5902e}\label{livraria_8h_a3701d268eb5dc08bc365e05953b5902e}} 
+typedef struct \mbox{\hyperlink{structClienteLista}{Cliente\+Lista}} $\ast$ {\bfseries Lista}
+\item 
+\mbox{\Hypertarget{livraria_8h_a8fb075b98840c54a2bc8e0f88c18dfb7}\label{livraria_8h_a8fb075b98840c54a2bc8e0f88c18dfb7}} 
+typedef struct \mbox{\hyperlink{structLivro}{Livro}} {\bfseries Livro}
+\item 
+\mbox{\Hypertarget{livraria_8h_a530dcfc33b055745fc20ce27ba7f6794}\label{livraria_8h_a530dcfc33b055745fc20ce27ba7f6794}} 
+typedef struct \mbox{\hyperlink{structLivroTree}{Livro\+Tree}} $\ast$ {\bfseries Tree}
+\item 
+\mbox{\Hypertarget{livraria_8h_ad5e954ae2de76411a989210d924187e4}\label{livraria_8h_ad5e954ae2de76411a989210d924187e4}} 
+typedef struct \mbox{\hyperlink{structEncomenda}{Encomenda}} {\bfseries Encomenda}
+\item 
+\mbox{\Hypertarget{livraria_8h_a292989cfd7e15c3b4a06f67bde498a68}\label{livraria_8h_a292989cfd7e15c3b4a06f67bde498a68}} 
+typedef struct \mbox{\hyperlink{structFilaEnc}{Fila\+Enc}} $\ast$ {\bfseries Fila}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{livraria_8h_a864da9884f04920e8b40879b2154a08a}\label{livraria_8h_a864da9884f04920e8b40879b2154a08a}} 
+void {\bfseries print\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_accdf5bb389e0306535afabbc6b62267d}\label{livraria_8h_accdf5bb389e0306535afabbc6b62267d}} 
+int {\bfseries equals\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} a, \mbox{\hyperlink{structCompra}{Lista\+Compra}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_ab3aea09abef22a3761a6e30f12236d2f}\label{livraria_8h_ab3aea09abef22a3761a6e30f12236d2f}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries Free\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} l)
+\item 
+\mbox{\Hypertarget{livraria_8h_ae6f06a4d44e5bd49969948c6992f7e06}\label{livraria_8h_ae6f06a4d44e5bd49969948c6992f7e06}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries Criar\+Nodo\+Compra} (int I\+S\+BN, int quantidade, float preco\+Total, \mbox{\hyperlink{structData}{Data}} data)
+\item 
+\mbox{\Hypertarget{livraria_8h_a66f76f0c7573ded9405541b8913cf9a3}\label{livraria_8h_a66f76f0c7573ded9405541b8913cf9a3}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries Libertar\+Nodo\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a223aab2879f80144758a1628c92ab0e8}\label{livraria_8h_a223aab2879f80144758a1628c92ab0e8}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries Inserir\+Inicio\+Compra} (int I\+S\+BN, int quantidade, float preco\+Total, \mbox{\hyperlink{structData}{Data}} data, \mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_af5cbe617779ef65633c7806f8c667dfd}\label{livraria_8h_af5cbe617779ef65633c7806f8c667dfd}} 
+void {\bfseries Listar\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_aaec21a68b6a3e9d719f25a43556dcb29}\label{livraria_8h_aaec21a68b6a3e9d719f25a43556dcb29}} 
+int {\bfseries Pesquisa\+Compra} (int I\+S\+BN, \mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a129394a70f535b49cc81f3e1af4f4fdd}\label{livraria_8h_a129394a70f535b49cc81f3e1af4f4fdd}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries Procurar\+Anterior\+Compra\+I\+S\+BN} (int I\+S\+BN, \mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a53cb2a0bb40694f2de7470b2795e31bd}\label{livraria_8h_a53cb2a0bb40694f2de7470b2795e31bd}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries Free\+Lista\+Compras} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a546bd49f8902efa8f9c7fd26ca741610}\label{livraria_8h_a546bd49f8902efa8f9c7fd26ca741610}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries swap\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} a, \mbox{\hyperlink{structCompra}{Lista\+Compra}} b, \mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_acc7a29e94af10edd577458d850b72eb5}\label{livraria_8h_acc7a29e94af10edd577458d850b72eb5}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries bubble\+Sort\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_abe2663f2fb3379ec44c0e5280ee3ee6d}\label{livraria_8h_abe2663f2fb3379ec44c0e5280ee3ee6d}} 
+int {\bfseries get\+Size\+Compra} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_aadf9f5ddd4161242b22b52d0953f385d}\label{livraria_8h_aadf9f5ddd4161242b22b52d0953f385d}} 
+\mbox{\hyperlink{structCliente}{Cliente}} {\bfseries new\+Cliente} (int N\+IF, int Telefone, char $\ast$Nome, \mbox{\hyperlink{structMorada}{Morada}} morada)
+\item 
+\mbox{\Hypertarget{livraria_8h_a8e2127d792974f2bb02dc9189b4ff7f7}\label{livraria_8h_a8e2127d792974f2bb02dc9189b4ff7f7}} 
+\mbox{\hyperlink{structMorada}{Morada}} {\bfseries new\+Morada} (char $\ast$Casa, char $\ast$Cidade, int C\+O\+D1, int C\+O\+D2)
+\item 
+\mbox{\Hypertarget{livraria_8h_a5773bf571f4f734ed16fc632ca8697ff}\label{livraria_8h_a5773bf571f4f734ed16fc632ca8697ff}} 
+void {\bfseries print\+Cliente} (\mbox{\hyperlink{structCliente}{Cliente}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_a14bd23b4ce9c8549a364f181b85586f1}\label{livraria_8h_a14bd23b4ce9c8549a364f181b85586f1}} 
+void {\bfseries print\+Morada} (\mbox{\hyperlink{structMorada}{Morada}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_a71331bb2a75b7bac1b049e2113c07531}\label{livraria_8h_a71331bb2a75b7bac1b049e2113c07531}} 
+int {\bfseries equals\+Morada} (\mbox{\hyperlink{structMorada}{Morada}} a, \mbox{\hyperlink{structMorada}{Morada}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_a322f3c56763b5a51394d27afa09015fc}\label{livraria_8h_a322f3c56763b5a51394d27afa09015fc}} 
+int {\bfseries equals\+Cliente} (\mbox{\hyperlink{structCliente}{Cliente}} a, \mbox{\hyperlink{structCliente}{Cliente}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_a2e2b341843923d5df36b20c3ac8e9f01}\label{livraria_8h_a2e2b341843923d5df36b20c3ac8e9f01}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries Criar\+Nodo\+Lista} (\mbox{\hyperlink{structCliente}{Cliente}} C\+LI)
+\item 
+\mbox{\Hypertarget{livraria_8h_a2dec143529f7b65f1e43f52d205cd5ac}\label{livraria_8h_a2dec143529f7b65f1e43f52d205cd5ac}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries Libertar\+Nodo\+Lista} (\mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a2cdca9cb0908135b80e97f9b88228f5e}\label{livraria_8h_a2cdca9cb0908135b80e97f9b88228f5e}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries Inserir\+Inicio\+Lista} (\mbox{\hyperlink{structCliente}{Cliente}} C\+LI, \mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a69566375641603adc7761d948b5ee2c3}\label{livraria_8h_a69566375641603adc7761d948b5ee2c3}} 
+void {\bfseries Listar\+Lista} (\mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_aedff0a3c49611fda666ad170e360f471}\label{livraria_8h_aedff0a3c49611fda666ad170e360f471}} 
+int {\bfseries Pesquisa\+Lista} (int N\+IF, \mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_ab6ae8a06aae39eedc62f680ebdc0865d}\label{livraria_8h_ab6ae8a06aae39eedc62f680ebdc0865d}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries Procurar\+Anterior\+Lista} (\mbox{\hyperlink{structCliente}{Cliente}} X, \mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a892f0bec5d472f2780d4fa32adb1383f}\label{livraria_8h_a892f0bec5d472f2780d4fa32adb1383f}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries Remover\+Nodo\+Lista} (\mbox{\hyperlink{structCliente}{Cliente}} X, \mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_ad3ebe5c88ac028a0fd04e1e8d59afd63}\label{livraria_8h_ad3ebe5c88ac028a0fd04e1e8d59afd63}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries Free\+Lista} (\mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a3d3d5835c72c3fa0897de7fde29abac7}\label{livraria_8h_a3d3d5835c72c3fa0897de7fde29abac7}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries Pesquisa\+Porm} (\mbox{\hyperlink{structClienteLista}{Lista}} L, int N\+IF)
+\item 
+\mbox{\Hypertarget{livraria_8h_ac75b3926c31f3eb43ee6de29a5eaabe7}\label{livraria_8h_ac75b3926c31f3eb43ee6de29a5eaabe7}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries bubble\+Sort\+Clientes} (\mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_ab189fa90a2a6ed519e44563a41edf07a}\label{livraria_8h_ab189fa90a2a6ed519e44563a41edf07a}} 
+\mbox{\hyperlink{structLivro}{Livro}} {\bfseries new\+Livro} (int I\+S\+BN, int ano\+Pub, int stock, float preco, char $\ast$titulo, char $\ast$idioma, char $\ast$prim\+Autor, char $\ast$sec\+Autor, char $\ast$editora, char $\ast$area)
+\item 
+\mbox{\Hypertarget{livraria_8h_ae4f726379cf6d794401817436ff82391}\label{livraria_8h_ae4f726379cf6d794401817436ff82391}} 
+\mbox{\hyperlink{structData}{Data}} {\bfseries new\+Data} (int dia, int mes, int ano)
+\item 
+\mbox{\Hypertarget{livraria_8h_ac0f9201b093e9a4bdf65c2d006fd3eaa}\label{livraria_8h_ac0f9201b093e9a4bdf65c2d006fd3eaa}} 
+void {\bfseries print\+Livro} (\mbox{\hyperlink{structLivro}{Livro}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_a96794f206b6acb9331886f59b734e603}\label{livraria_8h_a96794f206b6acb9331886f59b734e603}} 
+int {\bfseries equals\+Livro} (\mbox{\hyperlink{structLivro}{Livro}} a, \mbox{\hyperlink{structLivro}{Livro}} b)
+\item 
+\mbox{\Hypertarget{livraria_8h_ab07c202ca221b57ac5978cb2d429f41c}\label{livraria_8h_ab07c202ca221b57ac5978cb2d429f41c}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries new\+Node} (\mbox{\hyperlink{structLivro}{Livro}} book)
+\item 
+\mbox{\Hypertarget{livraria_8h_a099a3e107521f4dcb73e73a4955fe282}\label{livraria_8h_a099a3e107521f4dcb73e73a4955fe282}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries free\+Node} (\mbox{\hyperlink{structLivroTree}{Tree}} n)
+\item 
+\mbox{\Hypertarget{livraria_8h_adf67920e612085a98818f45f8fa76e97}\label{livraria_8h_adf67920e612085a98818f45f8fa76e97}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries free\+Tree} (\mbox{\hyperlink{structLivroTree}{Tree}} t)
+\item 
+\mbox{\Hypertarget{livraria_8h_a8840c00bc18f808187145daad41b57a2}\label{livraria_8h_a8840c00bc18f808187145daad41b57a2}} 
+int {\bfseries num\+NodeT} (\mbox{\hyperlink{structLivroTree}{Tree}} t)
+\item 
+\mbox{\Hypertarget{livraria_8h_ab1f032f0c1db5edd688ed0f1d7e6c904}\label{livraria_8h_ab1f032f0c1db5edd688ed0f1d7e6c904}} 
+int {\bfseries height\+Tree} (\mbox{\hyperlink{structLivroTree}{Tree}} t)
+\item 
+\mbox{\Hypertarget{livraria_8h_aa394d717d758a0f12cb730b676d9a3be}\label{livraria_8h_aa394d717d758a0f12cb730b676d9a3be}} 
+void {\bfseries print\+Tree} (\mbox{\hyperlink{structLivroTree}{Tree}} t)
+\item 
+\mbox{\Hypertarget{livraria_8h_aaa4af2bb00f08c1ce615f85f29ffd76b}\label{livraria_8h_aaa4af2bb00f08c1ce615f85f29ffd76b}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries search\+Tree} (\mbox{\hyperlink{structLivro}{Livro}} l, \mbox{\hyperlink{structLivroTree}{Tree}} t)
+\item 
+\mbox{\Hypertarget{livraria_8h_ac82ca17fec0decc6aeadb8bab4e5773f}\label{livraria_8h_ac82ca17fec0decc6aeadb8bab4e5773f}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries search\+Leaf\+Tree} (\mbox{\hyperlink{structLivroTree}{Tree}} t, \mbox{\hyperlink{structLivro}{Livro}} $\ast$out)
+\item 
+\mbox{\Hypertarget{livraria_8h_a259821944756ed0472dd0b7b4b59c66c}\label{livraria_8h_a259821944756ed0472dd0b7b4b59c66c}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries add\+Nodo\+Tree} (\mbox{\hyperlink{structLivroTree}{Tree}} t, \mbox{\hyperlink{structLivro}{Livro}} l)
+\item 
+\mbox{\Hypertarget{livraria_8h_a24fe5f3269a07edd75b735770e6b154d}\label{livraria_8h_a24fe5f3269a07edd75b735770e6b154d}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries search\+Tree\+I\+S\+BN} (\mbox{\hyperlink{structLivroTree}{Tree}} t, int I\+S\+BN)
+\item 
+\mbox{\Hypertarget{livraria_8h_a81299aca992b928ee1bc80ab6b605598}\label{livraria_8h_a81299aca992b928ee1bc80ab6b605598}} 
+void {\bfseries search\+Tree\+AC} (\mbox{\hyperlink{structLivroTree}{Tree}} t, \mbox{\hyperlink{structLivroTree}{Tree}} $\ast$Final, char $\ast$AC)
+\item 
+\mbox{\Hypertarget{livraria_8h_ac1a63139d67c277b6c9421639025ee47}\label{livraria_8h_ac1a63139d67c277b6c9421639025ee47}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries remove\+Node\+Aux} (\mbox{\hyperlink{structLivroTree}{Tree}} t)
+\item 
+\mbox{\Hypertarget{livraria_8h_ad851ab467d66b8585ccd00e853ccc767}\label{livraria_8h_ad851ab467d66b8585ccd00e853ccc767}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries remove\+Node\+Tree} (\mbox{\hyperlink{structLivroTree}{Tree}} t, \mbox{\hyperlink{structLivro}{Livro}} l)
+\item 
+\mbox{\Hypertarget{livraria_8h_a68e3eff2df96225bb5736a15ae9f9f3b}\label{livraria_8h_a68e3eff2df96225bb5736a15ae9f9f3b}} 
+\mbox{\hyperlink{structEncomenda}{Encomenda}} {\bfseries new\+Encomenda} (int num\+Enc, int I\+S\+BN, int N\+IF, int quantidade, float preco, \mbox{\hyperlink{structData}{Data}} enc, \mbox{\hyperlink{structData}{Data}} venda)
+\item 
+\mbox{\Hypertarget{livraria_8h_a5dd614edeee5fbfc6d8a263977138b13}\label{livraria_8h_a5dd614edeee5fbfc6d8a263977138b13}} 
+\mbox{\hyperlink{structData}{Data}} {\bfseries new\+Date} (int dia, int mes, int ano)
+\item 
+\mbox{\Hypertarget{livraria_8h_a2b063ec9836e38b3be8b66b9df4ec961}\label{livraria_8h_a2b063ec9836e38b3be8b66b9df4ec961}} 
+void {\bfseries print\+Encomenda} (\mbox{\hyperlink{structEncomenda}{Encomenda}} o)
+\item 
+\mbox{\Hypertarget{livraria_8h_af6607ca0c51931c914d642b20ac1b4dc}\label{livraria_8h_af6607ca0c51931c914d642b20ac1b4dc}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries create\+Node\+Fila} (\mbox{\hyperlink{structEncomenda}{Encomenda}} order)
+\item 
+\mbox{\Hypertarget{livraria_8h_a878eb4b248ce909ef5f9e6a49e737dd6}\label{livraria_8h_a878eb4b248ce909ef5f9e6a49e737dd6}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries free\+Node\+Fila} (\mbox{\hyperlink{structFilaEnc}{Fila}} P)
+\item 
+\mbox{\Hypertarget{livraria_8h_ab3f345b906087c00dda354edd75ed588}\label{livraria_8h_ab3f345b906087c00dda354edd75ed588}} 
+int {\bfseries empty\+Fila} (\mbox{\hyperlink{structFilaEnc}{Fila}} P)
+\item 
+\mbox{\Hypertarget{livraria_8h_af0d760224d142095902cd1dabd273715}\label{livraria_8h_af0d760224d142095902cd1dabd273715}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries create\+Fila} ()
+\item 
+\mbox{\Hypertarget{livraria_8h_a33a83ed981e5a51038c51f77d3ddb251}\label{livraria_8h_a33a83ed981e5a51038c51f77d3ddb251}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries add\+Node\+Fila} (\mbox{\hyperlink{structEncomenda}{Encomenda}} order, \mbox{\hyperlink{structFilaEnc}{Fila}} P)
+\item 
+\mbox{\Hypertarget{livraria_8h_aa95f34738972b3f149abdcfbde439d8e}\label{livraria_8h_aa95f34738972b3f149abdcfbde439d8e}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries remove\+Fila} (\mbox{\hyperlink{structFilaEnc}{Fila}} F)
+\item 
+\mbox{\Hypertarget{livraria_8h_a0cbf9a3234324daece93f7bb86c786a4}\label{livraria_8h_a0cbf9a3234324daece93f7bb86c786a4}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries free\+Fila} (\mbox{\hyperlink{structFilaEnc}{Fila}} F)
+\item 
+\mbox{\Hypertarget{livraria_8h_af087ef7948e061ad2a7a041f47a86925}\label{livraria_8h_af087ef7948e061ad2a7a041f47a86925}} 
+\mbox{\hyperlink{structEncomenda}{Encomenda}} {\bfseries front} (\mbox{\hyperlink{structFilaEnc}{Fila}} F)
+\item 
+\mbox{\Hypertarget{livraria_8h_aa416fb8762cdd5972b2017d1696d44bc}\label{livraria_8h_aa416fb8762cdd5972b2017d1696d44bc}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries remove\+Fila\+Especifico} (\mbox{\hyperlink{structFilaEnc}{Fila}} F, int num\+Enc)
+\item 
+\mbox{\Hypertarget{livraria_8h_ac76b4f81e5465095c1e9b5c94410f426}\label{livraria_8h_ac76b4f81e5465095c1e9b5c94410f426}} 
+int {\bfseries search\+Fila\+Num\+Enc} (\mbox{\hyperlink{structFilaEnc}{Fila}} F, int num\+Enc)
+\item 
+\mbox{\Hypertarget{livraria_8h_a46848a531128cce58fa01c23a932fb3d}\label{livraria_8h_a46848a531128cce58fa01c23a932fb3d}} 
+int {\bfseries num\+Ultima\+Encomenda} (\mbox{\hyperlink{structFilaEnc}{Fila}} F)
+\item 
+\mbox{\Hypertarget{livraria_8h_a46494f56e3e74d4d2a4b1ce54d8449c3}\label{livraria_8h_a46494f56e3e74d4d2a4b1ce54d8449c3}} 
+void {\bfseries print\+Fila} (\mbox{\hyperlink{structFilaEnc}{Fila}} F)
+\item 
+\mbox{\Hypertarget{livraria_8h_a9068f8d062b3a7ad044c130e20f14b7b}\label{livraria_8h_a9068f8d062b3a7ad044c130e20f14b7b}} 
+\mbox{\hyperlink{structEncomenda}{Encomenda}} {\bfseries search\+Fila\+Enc} (\mbox{\hyperlink{structFilaEnc}{Fila}} F, int num\+Enc)
+\item 
+\mbox{\Hypertarget{livraria_8h_abd994491eb7d127a15cc0284eec80232}\label{livraria_8h_abd994491eb7d127a15cc0284eec80232}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries read\+Livros} (char $\ast$path)
+\item 
+\mbox{\Hypertarget{livraria_8h_a973af142569b10b2620c26246eae527b}\label{livraria_8h_a973af142569b10b2620c26246eae527b}} 
+void {\bfseries write\+Livros} (\mbox{\hyperlink{structLivroTree}{Tree}} books, char $\ast$path)
+\item 
+\mbox{\Hypertarget{livraria_8h_a9d2a73014b5e8c46af6aaf7effa2b860}\label{livraria_8h_a9d2a73014b5e8c46af6aaf7effa2b860}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries read\+Clientes} (char $\ast$path)
+\item 
+\mbox{\Hypertarget{livraria_8h_a97adf4d9057f7431381b4051fe358c65}\label{livraria_8h_a97adf4d9057f7431381b4051fe358c65}} 
+void {\bfseries write\+Clientes} (\mbox{\hyperlink{structClienteLista}{Lista}} clientes, char $\ast$path)
+\item 
+\mbox{\Hypertarget{livraria_8h_a910d65a31fc437bc9ef798fc3c8ae3c6}\label{livraria_8h_a910d65a31fc437bc9ef798fc3c8ae3c6}} 
+void \mbox{\hyperlink{livraria_8h_a910d65a31fc437bc9ef798fc3c8ae3c6}{menu\+Files}} ()
+\begin{DoxyCompactList}\small\item\em Menu Ficheiros (Operações sobre os Ficheiros). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{livraria_8h_a128a2e0cba229b66ba8df494000ff2cd}\label{livraria_8h_a128a2e0cba229b66ba8df494000ff2cd}} 
+void \mbox{\hyperlink{livraria_8h_a128a2e0cba229b66ba8df494000ff2cd}{menu\+Books}} ()
+\begin{DoxyCompactList}\small\item\em Menu Livros (Operações sobre os Livros). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{livraria_8h_a4b0dd5fd4e1c18741bf4a9a1fbdc57a1}\label{livraria_8h_a4b0dd5fd4e1c18741bf4a9a1fbdc57a1}} 
+void \mbox{\hyperlink{livraria_8h_a4b0dd5fd4e1c18741bf4a9a1fbdc57a1}{menu\+Orders}} ()
+\begin{DoxyCompactList}\small\item\em Menu Encomendas (Operações sobre as Encomendas). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{livraria_8h_a0a3e5269ce9c5a33a9e80416c5d6aacd}\label{livraria_8h_a0a3e5269ce9c5a33a9e80416c5d6aacd}} 
+void \mbox{\hyperlink{livraria_8h_a0a3e5269ce9c5a33a9e80416c5d6aacd}{Menu\+Clientes}} ()
+\begin{DoxyCompactList}\small\item\em Menu Clientes (Operações sobre os clientes). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{livraria_8h_a039f9d811050529f4b3d8b3a6966c835}\label{livraria_8h_a039f9d811050529f4b3d8b3a6966c835}} 
+void \mbox{\hyperlink{livraria_8h_a039f9d811050529f4b3d8b3a6966c835}{menu\+Operacoes}} ()
+\begin{DoxyCompactList}\small\item\em Menu operações (Operações Funcionais presentes no nosso projeto). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{livraria_8h_a25dfa31047cb685035df9c354ed87be0}\label{livraria_8h_a25dfa31047cb685035df9c354ed87be0}} 
+\mbox{\hyperlink{structLivro}{Livro}} {\bfseries pedir\+Livro} ()
+\item 
+\mbox{\Hypertarget{livraria_8h_ae4297da511d3075dd0177635e4c6170d}\label{livraria_8h_ae4297da511d3075dd0177635e4c6170d}} 
+\mbox{\hyperlink{structLivro}{Livro}} {\bfseries alterar\+Livro} (\mbox{\hyperlink{structLivro}{Livro}} book)
+\item 
+\mbox{\Hypertarget{livraria_8h_aeb47a53b081f9b687d4f42c97229b8a0}\label{livraria_8h_aeb47a53b081f9b687d4f42c97229b8a0}} 
+\mbox{\hyperlink{structCliente}{Cliente}} {\bfseries pedir\+Cliente} ()
+\item 
+\mbox{\Hypertarget{livraria_8h_a8aa2204c32a8c307290e62bfdcde5c20}\label{livraria_8h_a8aa2204c32a8c307290e62bfdcde5c20}} 
+\mbox{\hyperlink{structCliente}{Cliente}} {\bfseries alterar\+Cliente} (\mbox{\hyperlink{structCliente}{Cliente}} cli)
+\item 
+\mbox{\Hypertarget{livraria_8h_aacac6d19f224e16ab532965247d5e716}\label{livraria_8h_aacac6d19f224e16ab532965247d5e716}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries insere\+Compra\+Cliente} (int I\+S\+BN, int quantidade, float preco\+Total, \mbox{\hyperlink{structData}{Data}} data, int N\+IF, \mbox{\hyperlink{structClienteLista}{Lista}} L)
+\item 
+\mbox{\Hypertarget{livraria_8h_a882b93a6323b6f88a57484689839a0f4}\label{livraria_8h_a882b93a6323b6f88a57484689839a0f4}} 
+\mbox{\hyperlink{structCompra}{Lista\+Compra}} {\bfseries vendas\+Num\+Periodo} (int mes, int ano)
+\item 
+\mbox{\Hypertarget{livraria_8h_afaa87fc148d7f9aa5e7e2d7adddeb3a9}\label{livraria_8h_afaa87fc148d7f9aa5e7e2d7adddeb3a9}} 
+void {\bfseries ultima\+Venda\+Livro} (int I\+S\+BN)
+\item 
+\mbox{\Hypertarget{livraria_8h_a8b3f67f461f8168fc19da48c1e4de67b}\label{livraria_8h_a8b3f67f461f8168fc19da48c1e4de67b}} 
+void {\bfseries quantidade\+Vendida\+Cliente} (int N\+IF)
+\item 
+\mbox{\Hypertarget{livraria_8h_a73e95f39c38b2a6b4506abbdd0402442}\label{livraria_8h_a73e95f39c38b2a6b4506abbdd0402442}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries Livros\+Mais\+VendidosK} (\mbox{\hyperlink{structCompra}{Lista\+Compra}} L, int k)
+\item 
+\mbox{\Hypertarget{livraria_8h_af17f1d47a53ea87cc6f85a44a44f5f4a}\label{livraria_8h_af17f1d47a53ea87cc6f85a44a44f5f4a}} 
+int {\bfseries wasted\+Memory} ()
+\item 
+\mbox{\Hypertarget{livraria_8h_a1907c7ebcbdd38197dcc5b916969a4fb}\label{livraria_8h_a1907c7ebcbdd38197dcc5b916969a4fb}} 
+\mbox{\hyperlink{structCliente}{Cliente}} {\bfseries big\+Spender} (int ano, int mes)
+\item 
+\mbox{\Hypertarget{livraria_8h_aa7de0f0450c9dacfb817a7e498f76a6d}\label{livraria_8h_aa7de0f0450c9dacfb817a7e498f76a6d}} 
+\mbox{\hyperlink{structCliente}{Cliente}} {\bfseries mais\+Livros\+Comprados} ()
+\item 
+\mbox{\Hypertarget{livraria_8h_a1e6c76b013196a4fb9a3ab6209d62ce1}\label{livraria_8h_a1e6c76b013196a4fb9a3ab6209d62ce1}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries K\+Recentes\+AC} (\mbox{\hyperlink{structLivroTree}{Tree}} T, \mbox{\hyperlink{structLivro}{Livro}} l)
+\item 
+\mbox{\Hypertarget{livraria_8h_a5816a2054ee184fe25e1e3a71844d197}\label{livraria_8h_a5816a2054ee184fe25e1e3a71844d197}} 
+int {\bfseries ano\+Mais\+Publicacoes} ()
+\item 
+\mbox{\Hypertarget{livraria_8h_afd51e5a44fa95354ab2b1fed586872da}\label{livraria_8h_afd51e5a44fa95354ab2b1fed586872da}} 
+char $\ast$ {\bfseries area\+Mais\+Livros} ()
+\item 
+\mbox{\Hypertarget{livraria_8h_a9626493ab08cc735c005a0dd3dba4941}\label{livraria_8h_a9626493ab08cc735c005a0dd3dba4941}} 
+void {\bfseries mostrar\+Compras\+Cliente} (int N\+IF)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{livraria_8h_af50e14277709a163f43909efa971d8f4}\label{livraria_8h_af50e14277709a163f43909efa971d8f4}} 
+char $\ast$ {\bfseries path\+Livros}
+\item 
+\mbox{\Hypertarget{livraria_8h_a1f45a72788538df75ddb15589af3578c}\label{livraria_8h_a1f45a72788538df75ddb15589af3578c}} 
+char $\ast$ {\bfseries path\+Clientes}
+\item 
+\mbox{\Hypertarget{livraria_8h_abfcaaa2b36caf103277f58b1c92224e3}\label{livraria_8h_abfcaaa2b36caf103277f58b1c92224e3}} 
+char $\ast$ {\bfseries path\+Encomendas}
+\item 
+\mbox{\Hypertarget{livraria_8h_aae9527414b85a832db23bdfaf7e02efe}\label{livraria_8h_aae9527414b85a832db23bdfaf7e02efe}} 
+\mbox{\hyperlink{structClienteLista}{Lista}} {\bfseries main\+Lista}
+\item 
+\mbox{\Hypertarget{livraria_8h_aebdda7c089f83ea04f75ff2a1c2b2522}\label{livraria_8h_aebdda7c089f83ea04f75ff2a1c2b2522}} 
+\mbox{\hyperlink{structLivroTree}{Tree}} {\bfseries main\+Tree}
+\item 
+\mbox{\Hypertarget{livraria_8h_a82657a2f71c9f04ef73f21ab1cb1cb3f}\label{livraria_8h_a82657a2f71c9f04ef73f21ab1cb1cb3f}} 
+\mbox{\hyperlink{structFilaEnc}{Fila}} {\bfseries main\+Fila}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Definição de todas as estruturas. Integração de todas as funções e ficheiros \char`\"{}.\+c\char`\"{}. 
+

@@ -172,22 +172,17 @@ Tree removeNodeAux (Tree t){
 
 Tree removeNodeTree (Tree t, Livro l) {
     Tree p;
-    printf("passo1\n");
     if (t == NULL)
         return NULL;
     if (equalsLivro(t->book, l) == 0) {
         t = removeNodeAux(t);
         return t;
     }
-    printf("passo2\n");
     p = searchTree(l,t->left);
-    printf("passo3\n");
     if (p != NULL){
-        printf("passo4\n");
         t->left = removeNodeTree(t->left, l);
     }
     else{
-        printf("passo5\n");
         t->right = removeNodeTree(t->right, l);
     }
     return t;

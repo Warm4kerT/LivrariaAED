@@ -179,6 +179,7 @@ Tree LivrosMaisVendidosK(ListaCompra L, int k);
 int wastedMemory();
 Cliente bigSpender(int ano, int mes);
 Cliente maisLivrosComprados();
-
+int anoMaisPublicacoes();
+char *areaMaisLivros();
 
 void mostrarComprasCliente(int NIF);

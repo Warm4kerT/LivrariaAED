@@ -134,10 +134,7 @@ Tree addNodoTree(Tree t, Livro l){
         return t;
     }
 
-    int numL = numNodeT(t->left);
-    int numR = numNodeT(t->right);
-
-    if(numL == numR || numL < numR)
+    if(l.ISBN < t->book.ISBN)
         t->left = addNodoTree(t->left,l);
     else
         t->right = addNodoTree(t->right,l);

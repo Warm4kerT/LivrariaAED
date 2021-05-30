@@ -212,6 +212,7 @@ Cliente maisLivrosComprados(){
     }
     return cli;
 }
+<<<<<<< HEAD
 Tree KRecentesAC (Tree T, Livro l){
     int K = 0, i;
     Tree AC = T;
@@ -236,3 +237,100 @@ Tree KRecentesAC (Tree T, Livro l){
         return searchTree(l, T->right);
     }
 }
+=======
+
+int contagemPorAno(Tree T, int ano){
+    if(T==NULL){
+        return 0;
+    }
+
+    if(T->book.anoPub == ano){
+        return contagemPorAno(T->left,ano)+contagemPorAno(T->right,ano)+1;
+    }
+
+    return contagemPorAno(T->left,ano)+contagemPorAno(T->right,ano);
+}
+
+int anoMaisPublicacoes(){
+    int aux = 0, num, anoFinal, anoInicial = 2010;
+
+    while (anoInicial<=2021){
+        num = contagemPorAno(mainTree,anoInicial);
+
+        if(num>aux){
+            aux = num;
+            anoFinal = anoInicial;
+        }
+
+        ++anoInicial;
+    }
+
+
+    return anoFinal;
+}
+
+int contagemAreaCientifica(Tree T, char *area){
+    if(T==NULL){
+        return 0;
+    }
+
+    if(strcmp(T->book.area,area)==0){
+        return contagemAreaCientifica(T->left,area)+contagemAreaCientifica(T->right,area)+1;
+    }
+
+    return contagemAreaCientifica(T->left,area)+contagemAreaCientifica(T->right,area);
+}
+
+void getAreas(Tree T, char **areas, int *size){
+
+    int flag = 0;
+    int i = 0;
+    printf("%d\n",size);
+    if(T==NULL){
+        return;
+    }
+
+    if(size!=0){
+        for(i = 0; i < (size-1);++i){
+            printf("size!=0 %s\n",areas[i]);
+            if(strcmp(areas[i],T->book.area)==0){
+                flag = 1;
+            }
+        }
+    }
+    
+
+    if(flag == 1){
+        getAreas(T->left,areas,size);
+        getAreas(T->right,areas,size);
+    }else{
+        printf("NOVA AREA\n");
+        areas[i+1] = (char *) malloc(allocSize*sizeof(char));
+        areas[i+1] = T->book.area;
+        size = size+1;
+        getAreas(T->left,areas,size);
+        getAreas(T->right,areas,size);
+    }
+}
+
+char *areaMaisLivros(){
+    char **areas = (char**) malloc(allocSize*sizeof(char*));
+    char *areaFinal = (char*) malloc(allocSize*sizeof(char));
+    int size = 0, aux, final = 0;
+    getAreas(mainTree,areas,size);
+
+
+    printf("%d\n",size);
+
+    for(int i = 0; i < (size-1); ++i){
+        aux = contagemAreaCientifica(mainTree,areas[i]);
+        printf("%s\n",areas[i]);
+        if(aux > final){
+            final = aux;
+            areaFinal = areas[i];
+        }
+    }
+
+    return areaFinal;
+}
+>>>>>>> 6c4182b2ef2ac0d99d84cf8f97b84a8986e55b4a

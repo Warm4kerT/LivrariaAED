@@ -271,17 +271,18 @@ Cliente alterarCliente(Cliente cli){
 }
 
 Lista insereCompraCliente(int ISBN, int quantidade, float precoTotal, Data data, int NIF, Lista L){
-	Lista search, final;
+	Lista search;
 	Cliente updateC;
 	search = PesquisaPorm(L, NIF); 
 	updateC = search->Cli;
 
-    
+    search->Cli.lista = InserirInicioCompra(ISBN,quantidade,precoTotal,data,search->Cli.lista);
 
-	updateC.lista = InserirInicioCompra(ISBN,quantidade,precoTotal,data,search->Cli.lista);
+	return L;
+}
 
-	final = RemoverNodoLista(search->Cli,L);
-    final = InserirInicioLista(updateC,final);
+void mostrarComprasCliente(int NIF){
+    Lista search = PesquisaPorm(mainLista,NIF);
 
-	return final;
+    ListarCompra(search->Cli.lista);
 }

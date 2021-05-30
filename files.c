@@ -145,16 +145,18 @@ Lista readClientes(char *path){
 
 void writeCompras(ListaCompra lista, char *path){
     FILE *out;
-    out = fopen(path,"w");
+    remove(path);
+    out = fopen(path,"w+");
+
+    printf("path: %s\n",path); 
 
     if(out==NULL){
         return;
     }
 
     while(lista != NULL){
-        printf("teste 4\n");
+        printf("%d\n",lista->ISBN);
         fprintf(out,"%d %d %f %d/%d/%d\n",lista->ISBN,lista->quantidade,lista->precoTotal,lista->dataVenda.dia,lista->dataVenda.mes,lista->dataVenda.ano);
-        printf("teste 5\n");
         lista = lista->Prox;
     }
 

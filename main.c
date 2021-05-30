@@ -8,7 +8,7 @@ int main(){
 
     pathLivros = "livros.txt";
     pathClientes = "clientes.txt";
-
+    int NIF;
     mainTree = readLivros("livros.txt");
     mainLista = readClientes("clientes.txt");
 
@@ -42,6 +42,11 @@ int main(){
             break;
         case 0:
             printf("Adeus\n");
+            break;
+
+        case 25:
+            scanf("%d",&NIF);
+            mostrarComprasCliente(NIF);
             break;
         
         default:

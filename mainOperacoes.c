@@ -179,9 +179,33 @@ Cliente bigSpender(int ano, int mes){
     return bigTimeSpender;
 }
 
-int AnoMaisLivros(Tree T, int Ano){
-    int ano = 1900;
+int numLivrosComprados(Cliente P){
+    ListaCompra C = P.lista;
+    int numL = 0;
+
+    while(C != NULL){
+        numL = numL + C->quantidade;
+        C = C->Prox;
+    }
     
+    return numL;
 }
 
+Cliente maisLivrosComprados(){
+    Lista P = mainLista;
+    Cliente cli;
+    int aux = 0, final = 0;
+
+    while(P != NULL){
+        aux = numLivrosComprados(P->Cli);
+        if(final < aux){
+            final = aux;
+            cli = P->Cli;
+        }
+
+        P = P->Prox;
+    }
+
+    return cli;
+}
 

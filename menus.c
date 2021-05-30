@@ -325,6 +325,7 @@ void menuOperacoes(){
         printf("3- Quantidade de Livros comprados Por Cliente (NIF)\n");
         printf("4- Mostrar os K livros mais recentes de uma Area Cientifica\n");
         printf("5- Mostrar os K livros mais vendidos de um Periodo de tempo\n");
+        printf("7- Mostrar Cliente com mais Livros comprados\n");
         printf("10- Mostrar que mais gastou num Periodo de tempo\n"),
         printf("11- Memória Desperdiçada\n");
         printf("0- Sair\n");
@@ -364,6 +365,11 @@ void menuOperacoes(){
                 show = vendasNumPeriodo(mes,ano);
                 livros = LivrosMaisVendidosK(show,k);
                 printTree(livros);
+                break;
+
+            case 7:
+                C = maisLivrosComprados();
+                printCliente(C);
                 break;
 
             case 10:

@@ -176,3 +176,7 @@ void quantidadeVendidaCliente(int NIF);
 Tree LivrosMaisVendidosK(ListaCompra L, int k);
 int wastedMemory();
 Cliente bigSpender(int ano, int mes);
+Cliente maisLivrosComprados();
+
+
+void mostrarComprasCliente(int NIF);
